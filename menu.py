@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import sqlite3
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import subprocess
 
@@ -37,12 +37,10 @@ def obtener_colores():
 
 COLORS = obtener_colores()
 
-# Estilo para Treeview
-style = ttk.Style()
-style.configure("Treeview", background=COLORS["panel"], foreground=COLORS["text"], fieldbackground=COLORS["panel"])
-style.map('Treeview', background=[('selected', COLORS["btn_active"])])
 
-FONT_TITULO = ("Segoe UI", 18, "bold")
+
+FONT_TITULO = ("Segoe UI", 20, "bold")
+FONT_SUBTITULO = ("Segoe UI", 16, "bold")
 FONT_NORMAL = ("Segoe UI", 11)
 FONT_BTN = ("Segoe UI", 10, "bold")
 
@@ -114,14 +112,28 @@ def crear_bd():
         cursor.execute("INSERT INTO usuarios (usuario,password) VALUES ('personal','personal123')")
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS estudiantes (
+        CREATE TABLE IF NOT EXISTS suspendidos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            matricula TEXT UNIQUE,
             nombre TEXT,
             ap_paterno TEXT,
             ap_materno TEXT,
+            fecha_inicio TEXT,
+            duracion_dias INTEGER,
+            fecha_fin TEXT
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS incapacitados (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             matricula TEXT UNIQUE,
-            grupo TEXT,
-            estado TEXT DEFAULT ''
+            nombre TEXT,
+            ap_paterno TEXT,
+            ap_materno TEXT,
+            fecha_inicio TEXT,
+            duracion_dias INTEGER,
+            fecha_fin TEXT
         )
     """)
 
@@ -181,13 +193,79 @@ def limpiar_panel(panel):
         widget.destroy()
 
 # ====== ESTUDIANTES ======
+# ====== ESTUDIANTES ======
 def mostrar_estudiantes(panel):
     limpiar_panel(panel)
-    tk.Label(panel, text="ESTUDIANTES", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(pady=10)
+    
+    # Título
+    frame_header = tk.Frame(panel, bg=COLORS["bg"])
+    frame_header.pack(fill="x", pady=20, padx=20)
+    
+    tk.Label(frame_header, text="📚 GESTIÓN DE ESTUDIANTES", 
+             font=("Segoe UI", 18, "bold"), bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=10)
+    tk.Label(frame_header, text="Selecciona el apartado que deseas gestionar", 
+             font=("Segoe UI", 11), bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=5)
+    
+    # Opciones con colores
+    frame_opciones = tk.Frame(panel, bg=COLORS["bg"])
+    frame_opciones.pack(fill="both", expand=True, pady=30, padx=30)
+    
+    opciones = [
+        {
+            "text": "👨‍🎓\nEstudiantes\nActivos",
+            "bg": "#0a7f5a",
+            "cmd": lambda: vista_estudiantes(panel)
+        },
+        {
+            "text": "🚫\nEstudiantes\nSuspendidos",
+            "bg": "#d97706",
+            "cmd": lambda: vista_suspendidos(panel)
+        },
+        {
+            "text": "🏥\nEstudiantes\nIncapacitados",
+            "bg": "#dc2626",
+            "cmd": lambda: vista_incapacitados(panel)
+        }
+    ]
+    
+    for i, opcion in enumerate(opciones):
+        btn = tk.Button(frame_opciones, text=opcion["text"], font=("Segoe UI", 13, "bold"),
+                        bg=opcion["bg"], fg="white", 
+                        relief="raised", bd=3, 
+                        activebackground=opcion["bg"], activeforeground="white",
+                        command=opcion["cmd"], wraplength=120)
+        btn.grid(row=i//2, column=i%2, padx=20, pady=25, sticky="nsew", ipady=25)
+    
+    for i in range(2):
+        frame_opciones.grid_columnconfigure(i, weight=1)
+    frame_opciones.grid_rowconfigure(0, weight=1)
+    frame_opciones.grid_rowconfigure(1, weight=1)
+
+def vista_estudiantes(panel):
+    limpiar_panel(panel)
+    
+    # Frame superior con título decorativo y botón de regresar
+    frame_top = tk.Frame(panel, bg=COLORS["panel"], relief="raised", bd=2)
+    frame_top.pack(fill="x", padx=20, pady=15)
+    
+    frame_title = tk.Frame(frame_top, bg=COLORS["panel"])
+    frame_title.pack(side="left", expand=True, padx=15, pady=15)
+    
+    tk.Label(frame_title, text="👨‍🎓 ESTUDIANTES ACTIVOS", bg=COLORS["panel"], fg=COLORS["text"], 
+             font=("Segoe UI", 16, "bold")).pack()
+    tk.Label(frame_title, text="Gestiona estudiantes registrados", bg=COLORS["panel"], 
+             fg=COLORS["text"], font=("Segoe UI", 9)).pack()
+    
+    btn_regresar = tk.Button(frame_top, text="🔙 Atrás", font=FONT_BTN,
+                             bg=COLORS["btn_footer"], fg="white", relief="raised", bd=2,
+                             activebackground=COLORS["btn_hover"], activeforeground="white",
+                             command=lambda: mostrar_estudiantes(panel), padx=15, pady=8)
+    btn_regresar.pack(side="right", padx=15, pady=15)
+    
     frame_busqueda = tk.Frame(panel, bg=COLORS["bg"])
     frame_busqueda.pack(pady=10)
-    tk.Label(frame_busqueda, text="Buscar:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=0, padx=5)
-    entrada_busqueda = tk.Entry(frame_busqueda, width=30)
+    tk.Label(frame_busqueda, text="🔍 Buscar:", bg=COLORS["bg"], fg=COLORS["text"], font=("Segoe UI", 10, "bold")).grid(row=0, column=0, padx=5)
+    entrada_busqueda = tk.Entry(frame_busqueda, width=30, font=("Segoe UI", 10), relief="solid", bd=1)
     entrada_busqueda.grid(row=0, column=1, padx=10)
     columnas = ("Nombre", "Ap Paterno", "Ap Materno", "Matrícula", "Grupo", "Estado")
     tabla = ttk.Treeview(panel, columns=columnas, show="headings", selectmode="extended", height=12)
@@ -195,12 +273,6 @@ def mostrar_estudiantes(panel):
         tabla.heading(col, text=col)
         tabla.column(col, width=120, anchor="center")
     tabla.pack(pady=10)
-    
-    # Frame para botones y label de estado (definir antes de usarlos)
-    frame_botones = tk.Frame(panel, bg=COLORS["bg"])
-    frame_botones.pack(pady=10)
-    label_estado = tk.Label(frame_botones, text="", bg=COLORS["bg"], fg="green", font=("Arial", 10))
-    label_estado.pack(side="right", padx=20)
     
     def cargar_datos(filtro=""):
         for item in tabla.get_children():
@@ -220,130 +292,350 @@ def mostrar_estudiantes(panel):
             conn.close()
         except Exception as e:
             print(f"Error cargando datos: {e}")
+    
     def buscar():
         texto = entrada_busqueda.get().strip()
         cargar_datos(texto)
+    
     def limpiar_busqueda():
         entrada_busqueda.delete(0, tk.END)
         cargar_datos()
-    def seleccionar_todos():
-        for item in tabla.get_children():
-            tabla.selection_add(item)
     
-    def guardar_cambios():
-        seleccionados = tabla.selection()
-        if not seleccionados:
-            label_estado.config(text="Selecciona estudiantes primero", fg="red")
-            panel.after(2000, lambda: label_estado.config(text=""))
-            return
-        edit_win = tk.Toplevel(panel)
-        edit_win.title("Modificar Estado")
-        edit_win.geometry("350x180")
-        edit_win.configure(bg=COLORS["bg"])
-        tk.Label(edit_win, text="Nuevo Estado:", bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=10)
-        estado_var = tk.StringVar(value="Suspendido")
-        estado_combo = ttk.Combobox(edit_win, textvariable=estado_var, values=["Suspendido", "Incapacitado", "Limpiar"], width=30, state="readonly")
-        estado_combo.pack(pady=5, padx=10)
-        
-        def aplicar_estado():
-            nuevo_estado = estado_var.get()
-            if not nuevo_estado or nuevo_estado == "Limpiar":
-                nuevo_estado = ""
-            
-            try:
-                conn = sqlite3.connect("sistema.db")
-                cursor = conn.cursor()
-                count = 0
-                for item in seleccionados:
-                    valores = tabla.item(item, "values")
-                    matricula = valores[3]
-                    print(f"Actualizando {matricula} con estado {nuevo_estado}")
-                    cursor.execute("UPDATE estudiantes SET estado = ? WHERE matricula = ?", (nuevo_estado, matricula))
-                    count += 1
-                conn.commit()
-                print(f"Total actualizados: {count}")
-                conn.close()
-                cargar_datos()
-                label_estado.config(text=f"✔ {count} estudiante(s) actualizado(s)", fg="green")
-                panel.after(3000, lambda: label_estado.config(text=""))
-                edit_win.destroy()
-            except Exception as e:
-                print(f"Error al actualizar: {e}")
-                label_estado.config(text=f"Error: {e}", fg="red")
-                panel.after(3000, lambda: label_estado.config(text=""))
-        
-        tk.Button(edit_win, text="Aplicar", command=aplicar_estado, bg=COLORS["btn"], fg="white", width=25).pack(pady=15)
-    
-    def modificar_hora():
-        seleccionados = tabla.selection()
-        if not seleccionados:
-            label_estado.config(text="Selecciona estudiantes primero", fg="red")
-            panel.after(2000, lambda: label_estado.config(text=""))
-            return
-        edit_win = tk.Toplevel(panel)
-        edit_win.title("Modificar Hora de Entrada")
-        edit_win.geometry("300x150")
-        edit_win.configure(bg=COLORS["bg"])
-        tk.Label(edit_win, text="Nueva Hora Entrada (HH:MM):", bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=5)
-        hora_entry = tk.Entry(edit_win, width=25)
-        hora_entry.pack(pady=5, padx=10)
-        
-        def aplicar_hora():
-            nueva_hora = hora_entry.get().strip()
-            if not nueva_hora:
-                return
-            try:
-                conn = sqlite3.connect("sistema.db")
-                cursor = conn.cursor()
-                count = 0
-                for item in seleccionados:
-                    valores = tabla.item(item, "values")
-                    matricula = valores[3]
-                    conn_dia = obtener_bd_dia()
-                    cur = conn_dia.cursor()
-                    cur.execute("UPDATE control_dia SET hora_entrada = ? WHERE matricula = ?", (nueva_hora, matricula))
-                    conn_dia.commit()
-                    conn_dia.close()
-                    count += 1
-                conn.close()
-                cargar_datos()
-                label_estado.config(text=f"✔ Hora actualizada para {count} estudiante(s)", fg="green")
-                panel.after(3000, lambda: label_estado.config(text=""))
-                edit_win.destroy()
-            except Exception as e:
-                print(f"Error al actualizar hora: {e}")
-                label_estado.config(text=f"Error: {e}", fg="red")
-                panel.after(3000, lambda: label_estado.config(text=""))
-        
-        tk.Button(edit_win, text="Aplicar", command=aplicar_hora, bg=COLORS["btn"], fg="white", width=20).pack(pady=10)
-    tabla.bind("<Double-1>", lambda e: None)  # Deshabilitar doble clic para evitar conflicto
-    tk.Button(frame_busqueda, text="Buscar", command=buscar, bg=COLORS["btn"], fg="white").grid(row=0, column=2, padx=5)
-    tk.Button(frame_busqueda, text="Limpiar", command=limpiar_busqueda, bg="#c0392b", fg="white").grid(row=0, column=3, padx=5)
-    tk.Button(frame_busqueda, text="Seleccionar Todos", command=seleccionar_todos, bg=COLORS["btn"], fg="white").grid(row=0, column=4, padx=5)
-    
-    tk.Button(frame_botones, text="✏️ Modificar Estado", command=guardar_cambios, bg=COLORS["btn"], fg="white").pack(side="left", padx=5)
-    tk.Button(frame_botones, text="🕐 Modificar Hora", command=modificar_hora, bg=COLORS["btn"], fg="white").pack(side="left", padx=5)
+    tk.Button(frame_busqueda, text="🔎 Buscar", command=buscar, bg=COLORS["btn"], fg="white", font=("Segoe UI", 9, "bold")).grid(row=0, column=2, padx=5)
+    tk.Button(frame_busqueda, text="🗑️ Limpiar", command=limpiar_busqueda, bg="#b91c1c", fg="white", font=("Segoe UI", 9, "bold")).grid(row=0, column=3, padx=5)
     
     cargar_datos()
+
+def vista_suspendidos(panel):
+    limpiar_panel(panel)
+    
+    # Frame superior con título y botón de regresar
+    frame_header = tk.Frame(panel, bg=COLORS["bg"])
+    frame_header.pack(fill="x", padx=20, pady=15)
+    
+    tk.Label(frame_header, text="🚫 SUSPENDIDOS", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(side="left", expand=True)
+    
+    btn_regresar = tk.Button(frame_header, text="🔙 Atrás", font=FONT_BTN,
+                             bg=COLORS["btn_footer"], fg="white", relief="raised", bd=2,
+                             activebackground=COLORS["btn_hover"], activeforeground="white",
+                             command=lambda: mostrar_estudiantes(panel), padx=15, pady=5)
+    btn_regresar.pack(side="right")
+    
+    # Frame para búsqueda y agregar
+    frame_top = tk.Frame(panel, bg=COLORS["bg"])
+    frame_top.pack(pady=10)
+    
+    tk.Label(frame_top, text="Buscar por matrícula:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=0, padx=5)
+    entrada_matricula = tk.Entry(frame_top, width=20)
+    entrada_matricula.grid(row=0, column=1, padx=10)
+    
+    tk.Label(frame_top, text="Duración (días):", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=2, padx=5)
+    entrada_duracion = tk.Entry(frame_top, width=10)
+    entrada_duracion.grid(row=0, column=3, padx=10)
+    
+    label_mensaje = tk.Label(frame_top, text="", bg=COLORS["bg"], fg="green", font=FONT_NORMAL)
+    label_mensaje.grid(row=0, column=4, padx=20)
+    
+    def agregar_suspendido():
+        matricula = entrada_matricula.get().strip()
+        try:
+            duracion = int(entrada_duracion.get().strip())
+        except ValueError:
+            label_mensaje.config(text="Duración inválida", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        if not matricula:
+            label_mensaje.config(text="Ingresa matrícula", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        # Verificar si existe el estudiante
+        conn = sqlite3.connect("sistema.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT nombre, ap_paterno, ap_materno FROM estudiantes WHERE matricula = ?", (matricula,))
+        estudiante = cursor.fetchone()
+        if not estudiante:
+            conn.close()
+            label_mensaje.config(text="Estudiante no encontrado", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        nombre, ap, am = estudiante
+        fecha_inicio = datetime.now().strftime("%Y-%m-%d")
+        fecha_fin = (datetime.now() + timedelta(days=duracion)).strftime("%Y-%m-%d")
+        
+        try:
+            cursor.execute("""
+                INSERT INTO suspendidos (matricula, nombre, ap_paterno, ap_materno, fecha_inicio, duracion_dias, fecha_fin)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (matricula, nombre, ap, am, fecha_inicio, duracion, fecha_fin))
+            conn.commit()
+            label_mensaje.config(text=f"✔ Agregado: {nombre}", fg="green")
+            entrada_matricula.delete(0, tk.END)
+            entrada_duracion.delete(0, tk.END)
+            cargar_suspendidos()
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        except sqlite3.IntegrityError:
+            label_mensaje.config(text="Ya está suspendido", fg="orange")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        conn.close()
+    
+    tk.Button(frame_top, text="➕ Agregar", command=agregar_suspendido, bg=COLORS["btn"], fg="white").grid(row=0, column=5, padx=10)
+    
+    # Tabla de suspendidos
+    columnas = ("Nombre", "Matrícula", "Fecha Inicio", "Duración", "Fecha Fin")
+    tabla = ttk.Treeview(panel, columns=columnas, show="headings", height=12)
+    for col in columnas:
+        tabla.heading(col, text=col)
+        tabla.column(col, width=120, anchor="center")
+    tabla.pack(pady=20)
+    
+    def cargar_suspendidos():
+        for item in tabla.get_children():
+            tabla.delete(item)
+        try:
+            conn = sqlite3.connect("sistema.db")
+            cursor = conn.cursor()
+            hoy = datetime.now().strftime("%Y-%m-%d")
+            cursor.execute("""
+                SELECT nombre, matricula, fecha_inicio, duracion_dias, fecha_fin
+                FROM suspendidos
+                WHERE fecha_fin >= ?
+                ORDER BY fecha_fin ASC
+            """, (hoy,))
+            for fila in cursor.fetchall():
+                tabla.insert("", "end", values=fila)
+            conn.close()
+        except Exception as e:
+            print(f"Error cargando suspendidos: {e}")
+    
+    cargar_suspendidos()
+
+def vista_incapacitados(panel):
+    limpiar_panel(panel)
+    
+    # Frame superior con título y botón de regresar
+    frame_header = tk.Frame(panel, bg=COLORS["bg"])
+    frame_header.pack(fill="x", padx=20, pady=15)
+    
+    tk.Label(frame_header, text="🏥 INCAPACITADOS", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(side="left", expand=True)
+    
+    btn_regresar = tk.Button(frame_header, text="🔙 Atrás", font=FONT_BTN,
+                             bg=COLORS["btn_footer"], fg="white", relief="raised", bd=2,
+                             activebackground=COLORS["btn_hover"], activeforeground="white",
+                             command=lambda: mostrar_estudiantes(panel), padx=15, pady=5)
+    btn_regresar.pack(side="right")
+    
+    # Frame para búsqueda y agregar
+    frame_top = tk.Frame(panel, bg=COLORS["bg"])
+    frame_top.pack(pady=10)
+    
+    tk.Label(frame_top, text="Buscar por matrícula:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=0, padx=5)
+    entrada_matricula = tk.Entry(frame_top, width=20)
+    entrada_matricula.grid(row=0, column=1, padx=10)
+    
+    tk.Label(frame_top, text="Duración (días):", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=2, padx=5)
+    entrada_duracion = tk.Entry(frame_top, width=10)
+    entrada_duracion.grid(row=0, column=3, padx=10)
+    
+    label_mensaje = tk.Label(frame_top, text="", bg=COLORS["bg"], fg="green", font=FONT_NORMAL)
+    label_mensaje.grid(row=0, column=4, padx=20)
+    
+    def agregar_incapacitado():
+        matricula = entrada_matricula.get().strip()
+        try:
+            duracion = int(entrada_duracion.get().strip())
+        except ValueError:
+            label_mensaje.config(text="Duración inválida", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        if not matricula:
+            label_mensaje.config(text="Ingresa matrícula", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        # Verificar si existe el estudiante
+        conn = sqlite3.connect("sistema.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT nombre, ap_paterno, ap_materno FROM estudiantes WHERE matricula = ?", (matricula,))
+        estudiante = cursor.fetchone()
+        if not estudiante:
+            conn.close()
+            label_mensaje.config(text="Estudiante no encontrado", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        nombre, ap, am = estudiante
+        fecha_inicio = datetime.now().strftime("%Y-%m-%d")
+        fecha_fin = (datetime.now() + timedelta(days=duracion)).strftime("%Y-%m-%d")
+        
+        try:
+            cursor.execute("""
+                INSERT INTO incapacitados (matricula, nombre, ap_paterno, ap_materno, fecha_inicio, duracion_dias, fecha_fin)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (matricula, nombre, ap, am, fecha_inicio, duracion, fecha_fin))
+            conn.commit()
+            label_mensaje.config(text=f"✔ Agregado: {nombre}", fg="green")
+            entrada_matricula.delete(0, tk.END)
+            entrada_duracion.delete(0, tk.END)
+            cargar_incapacitados()
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        except sqlite3.IntegrityError:
+            label_mensaje.config(text="Ya está incapacitado", fg="orange")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        conn.close()
+    
+    tk.Button(frame_top, text="➕ Agregar", command=agregar_incapacitado, bg=COLORS["btn"], fg="white").grid(row=0, column=5, padx=10)
+    
+    # Tabla de incapacitados
+    columnas = ("Nombre", "Matrícula", "Fecha Inicio", "Duración", "Fecha Fin")
+    tabla = ttk.Treeview(panel, columns=columnas, show="headings", height=12)
+    for col in columnas:
+        tabla.heading(col, text=col)
+        tabla.column(col, width=120, anchor="center")
+    tabla.pack(pady=20)
+    
+    def cargar_incapacitados():
+        for item in tabla.get_children():
+            tabla.delete(item)
+        try:
+            conn = sqlite3.connect("sistema.db")
+            cursor = conn.cursor()
+            hoy = datetime.now().strftime("%Y-%m-%d")
+            cursor.execute("""
+                SELECT nombre, matricula, fecha_inicio, duracion_dias, fecha_fin
+                FROM incapacitados
+                WHERE fecha_fin >= ?
+                ORDER BY fecha_fin ASC
+            """, (hoy,))
+            for fila in cursor.fetchall():
+                tabla.insert("", "end", values=fila)
+            conn.close()
+        except Exception as e:
+            print(f"Error cargando incapacitados: {e}")
+    
+    cargar_incapacitados()
+
 
 # ====== CONTROL DÍA ======
 def vista_control_dia(panel):
     limpiar_panel(panel)
-    tk.Label(panel, text="CONTROL POR DÍA", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(pady=20)
+    tk.Label(panel, text="📅 CONTROL POR DÍA", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(pady=20)
+    
+    # Función para cargar fecha guardada
+    def cargar_fecha_guardada():
+        try:
+            with open("config.json", "r") as f:
+                config = json.load(f)
+                if "ultima_fecha_control" in config:
+                    return config["ultima_fecha_control"]
+        except:
+            pass
+        # Si no hay fecha guardada, usar fecha actual
+        return datetime.now().strftime("%Y-%m-%d")
+    
+    # Función para guardar fecha seleccionada
+    def guardar_fecha_seleccionada(fecha):
+        try:
+            with open("config.json", "r") as f:
+                config = json.load(f)
+        except:
+            config = {}
+        
+        config["ultima_fecha_control"] = fecha
+        
+        with open("config.json", "w") as f:
+            json.dump(config, f, indent=4)
+    
+    # Cargar fecha guardada
+    fecha_guardada = cargar_fecha_guardada()
+    year_default, mes_default, dia_default = fecha_guardada.split("-")
+    
+    # Frame para selección de fecha
+    frame_fecha = tk.Frame(panel, bg=COLORS["bg"])
+    frame_fecha.pack(pady=10)
+    
+    tk.Label(frame_fecha, text="Seleccionar Fecha:", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_SUBTITULO).grid(row=0, column=0, padx=10)
+    
+    # Calendario simple con comboboxes
+    frame_cal = tk.Frame(frame_fecha, bg=COLORS["bg"])
+    frame_cal.grid(row=0, column=1, padx=10)
+    
+    tk.Label(frame_cal, text="Año:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=0)
+    year_var = tk.StringVar(value=year_default)
+    year_combo = ttk.Combobox(frame_cal, textvariable=year_var, values=[str(y) for y in range(2020, 2031)], width=6, state="readonly")
+    year_combo.grid(row=0, column=1, padx=5)
+    
+    tk.Label(frame_cal, text="Mes:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=2)
+    meses = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    mes_var = tk.StringVar(value=mes_default)
+    mes_combo = ttk.Combobox(frame_cal, textvariable=mes_var, values=meses, width=4, state="readonly")
+    mes_combo.grid(row=0, column=3, padx=5)
+    
+    tk.Label(frame_cal, text="Día:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=4)
+    dia_var = tk.StringVar(value=dia_default)
+    dia_combo = ttk.Combobox(frame_cal, textvariable=dia_var, values=[str(d).zfill(2) for d in range(1, 32)], width=4, state="readonly")
+    dia_combo.grid(row=0, column=5, padx=5)
+    
+    label_mensaje = tk.Label(frame_fecha, text="", bg=COLORS["bg"], fg="green", font=FONT_NORMAL)
+    label_mensaje.grid(row=0, column=2, padx=20)
+    
+    # Tabla para mostrar datos
     columnas = ("Nombre", "Matrícula", "Entrada", "Estado", "Salida")
-    tabla = ttk.Treeview(panel, columns=columnas, show="headings")
+    tabla = ttk.Treeview(panel, columns=columnas, show="headings", height=15)
     for col in columnas:
         tabla.heading(col, text=col)
         tabla.column(col, width=130, anchor="center")
-    tabla.pack(pady=20)
-    conn = obtener_bd_dia()
-    cursor = conn.cursor()
-    cursor.execute("""
-        SELECT nombre, matricula, hora_entrada, estado, hora_salida FROM control_dia
-    """)
-    for fila in cursor.fetchall():
-        tabla.insert("", "end", values=fila)
-    conn.close()
+    tabla.pack(pady=20, fill="both", expand=True)
+    
+    def cargar_datos(fecha_str=None):
+        for item in tabla.get_children():
+            tabla.delete(item)
+        if not fecha_str:
+            fecha_str = f"{year_var.get()}-{mes_var.get()}-{dia_var.get()}"
+        
+        try:
+            # Construir ruta de la base de datos para esa fecha
+            carpeta = f"asistencias/{year_var.get()}-{mes_var.get()}"
+            archivo = f"{fecha_str}.db"
+            ruta = os.path.join(carpeta, archivo)
+            
+            if not os.path.exists(ruta):
+                label_mensaje.config(text="No hay datos para esta fecha", fg="orange")
+                panel.after(3000, lambda: label_mensaje.config(text=""))
+                return
+            
+            conn = sqlite3.connect(ruta)
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT nombre, matricula, hora_entrada, estado, hora_salida FROM control_dia
+                ORDER BY hora_entrada ASC
+            """)
+            datos = cursor.fetchall()
+            conn.close()
+            
+            for fila in datos:
+                tabla.insert("", "end", values=fila)
+            
+            label_mensaje.config(text=f"✔ {len(datos)} registros cargados", fg="green")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            
+        except Exception as e:
+            print(f"Error cargando datos: {e}")
+            label_mensaje.config(text="Error al cargar datos", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+    
+    def seleccionar_fecha():
+        fecha_actual = f"{year_var.get()}-{mes_var.get()}-{dia_var.get()}"
+        guardar_fecha_seleccionada(fecha_actual)
+        cargar_datos()
+    
+    tk.Button(frame_fecha, text="📊 Cargar Datos", command=seleccionar_fecha, bg=COLORS["btn"], fg="white", font=FONT_BTN).grid(row=0, column=3, padx=10)
+    
+    # Cargar datos de la fecha guardada por defecto
+    cargar_datos(fecha_guardada)
 
 # ====== REGISTRO ======
 def vista_registro(panel):
@@ -532,29 +824,109 @@ def vista_control(panel):
 # ====== INICIO ======
 def vista_inicio(panel):
     limpiar_panel(panel)
-    tk.Label(panel, text="BIENVENIDO AL SISTEMA SIMEC", font=FONT_TITULO, bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=20)
-    tk.Label(panel, text="Sistema de Gestión de Estudiantes y Control de Asistencias", font=("Segoe UI", 12), bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=10)
+    
+    # Header
+    frame_header = tk.Frame(panel, bg=COLORS["bg"])
+    frame_header.pack(fill="x", pady=(25, 15), padx=20)
+    
+    tk.Label(frame_header, text="🏫 SIMEC -  Sistema Inteligente de Monitoreo Escolar CONALEP", 
+             font=("Segoe UI", 20, "bold"), bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=10)
+    tk.Label(frame_header, text="CONALEP - Control de Asistencias y Estudiantes", 
+             font=("Segoe UI", 12), bg=COLORS["bg"], fg=COLORS["text"]).pack(pady=5)
+    
+    # Información del día
+    frame_info = tk.Frame(panel, bg=COLORS["bg"])
+    frame_info.pack(fill="x", padx=30, pady=15)
+    
+    fecha_actual = datetime.now().strftime("%d/%m/%Y")
+    turno_actual = obtener_turno_actual().capitalize()
+    
+    # Cards de fecha y turno
+    frame_date_turn = tk.Frame(frame_info, bg=COLORS["bg"])
+    frame_date_turn.pack(side="left", fill="x", expand=True, padx=10)
+    
+    card_fecha = tk.Frame(frame_date_turn, bg=COLORS["panel"], relief="raised", bd=2)
+    card_fecha.pack(side="left", padx=5, pady=8, fill="both", expand=True)
+    tk.Label(card_fecha, text="📅 Fecha", font=("Segoe UI", 11, "bold"), bg=COLORS["panel"], fg=COLORS["text"]).pack(pady=8)
+    tk.Label(card_fecha, text=fecha_actual, font=("Segoe UI", 14, "bold"), bg=COLORS["panel"], fg=COLORS["btn"]).pack(pady=8)
+    
+    card_turno = tk.Frame(frame_date_turn, bg=COLORS["panel"], relief="raised", bd=2)
+    card_turno.pack(side="left", padx=5, pady=8, fill="both", expand=True)
+    tk.Label(card_turno, text="🕐 Turno", font=("Segoe UI", 11, "bold"), bg=COLORS["panel"], fg=COLORS["text"]).pack(pady=8)
+    tk.Label(card_turno, text=turno_actual, font=("Segoe UI", 14, "bold"), bg=COLORS["panel"], fg=COLORS["btn"]).pack(pady=8)
+    
+    # Estadísticas
+    try:
+        conn = sqlite3.connect("sistema.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM estudiantes")
+        total_estudiantes = cursor.fetchone()[0]
+        
+        conn_dia = obtener_bd_dia()
+        cur = conn_dia.cursor()
+        cur.execute("SELECT COUNT(*) FROM control_dia WHERE estado = 'Puntual'")
+        puntuales = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(*) FROM control_dia WHERE estado = 'Retardo'")
+        retardos = cur.fetchone()[0]
+        cur.execute("SELECT COUNT(*) FROM control_dia WHERE estado = 'Falta'")
+        faltas = cur.fetchone()[0]
+        conn.close()
+        conn_dia.close()
+        
+        frame_stats = tk.Frame(frame_info, bg=COLORS["bg"])
+        frame_stats.pack(side="left", fill="x", expand=True, padx=10)
+        
+        # Frame para Total
+        card_total = tk.Frame(frame_stats, bg=COLORS["panel"], relief="raised", bd=2)
+        card_total.pack(padx=5, pady=8, fill="both", expand=True)
+        tk.Label(card_total, text="👥 Total Estudiantes", font=("Segoe UI", 11, "bold"), bg=COLORS["panel"], fg=COLORS["text"]).pack(pady=8)
+        tk.Label(card_total, text=str(total_estudiantes), font=("Segoe UI", 18, "bold"), bg=COLORS["panel"], fg=COLORS["btn"]).pack(pady=8)
+        
+        # Cards de asistencia en fila
+        frame_asist = tk.Frame(frame_stats, bg=COLORS["bg"])
+        frame_asist.pack(fill="both", expand=True, pady=5)
+        
+        card_puntual = tk.Frame(frame_asist, bg="#d4edda", relief="raised", bd=2)
+        card_puntual.pack(side="left", fill="both", expand=True, padx=3, pady=5)
+        tk.Label(card_puntual, text="✅ Puntual", font=("Segoe UI", 10, "bold"), bg="#d4edda", fg="#155724").pack(pady=6)
+        tk.Label(card_puntual, text=str(puntuales), font=("Segoe UI", 16, "bold"), bg="#d4edda", fg="#155724").pack(pady=6)
+        
+        card_retardo = tk.Frame(frame_asist, bg="#fff3cd", relief="raised", bd=2)
+        card_retardo.pack(side="left", fill="both", expand=True, padx=3, pady=5)
+        tk.Label(card_retardo, text="⏰ Retardo", font=("Segoe UI", 10, "bold"), bg="#fff3cd", fg="#856404").pack(pady=6)
+        tk.Label(card_retardo, text=str(retardos), font=("Segoe UI", 16, "bold"), bg="#fff3cd", fg="#856404").pack(pady=6)
+        
+        card_falta = tk.Frame(frame_asist, bg="#f8d7da", relief="raised", bd=2)
+        card_falta.pack(side="left", fill="both", expand=True, padx=3, pady=5)
+        tk.Label(card_falta, text="❌ Falta", font=("Segoe UI", 10, "bold"), bg="#f8d7da", fg="#721c24").pack(pady=6)
+        tk.Label(card_falta, text=str(faltas), font=("Segoe UI", 16, "bold"), bg="#f8d7da", fg="#721c24").pack(pady=6)
+    except:
+        pass
+    
+    # Menú de opciones
     frame_opciones = tk.Frame(panel, bg=COLORS["bg"])
-    frame_opciones.pack(expand=True, pady=20)
+    frame_opciones.pack(fill="both", expand=True, pady=20, padx=30)
+    
     opciones = [
-        ("👥 Estudiantes", mostrar_estudiantes),
-        ("📝 Registro", vista_registro),
-        ("📅 Control Día", vista_control_dia),
-        ("🔍 Control", vista_control),
-        ("⚙️ Configuración", vista_configuracion)
+        ("👥\nGestión", mostrar_estudiantes),
+        ("📝\nRegistro", vista_registro),
+        ("📅\nControl Día", vista_control_dia),
+        ("🔍\nControl", vista_control),
+        ("⚙️\nConfig", vista_configuracion)
     ]
+    
     for i, (txt, cmd) in enumerate(opciones):
-        btn = tk.Button(frame_opciones, text=txt, font=("Segoe UI", 16, "bold"),
-                        bg=COLORS["btn"], fg="white", width=20, height=3,
-                        relief="ridge", bd=4, padx=10, pady=5,
+        btn = tk.Button(frame_opciones, text=txt, font=("Segoe UI", 12, "bold"),
+                        bg=COLORS["btn"], fg="white", 
+                        relief="raised", bd=3, 
                         activebackground=COLORS["btn_hover"], activeforeground="white",
                         command=lambda c=cmd: c(panel))
-        btn.grid(row=i//3, column=i%3, padx=30, pady=20, sticky="nsew")
-    # Configurar el grid para centrar
-    frame_opciones.grid_columnconfigure(0, weight=1)
-    frame_opciones.grid_columnconfigure(1, weight=1)
-    frame_opciones.grid_rowconfigure(0, weight=1)
-    frame_opciones.grid_rowconfigure(1, weight=1)
+        btn.grid(row=i//3, column=i%3, padx=12, pady=12, sticky="nsew", ipady=20)
+    
+    for i in range(3):
+        frame_opciones.grid_columnconfigure(i, weight=1)
+    for i in range(2):
+        frame_opciones.grid_rowconfigure(i, weight=1)
 
 # ====== MENÚ ======
 def construir_menu(root):
@@ -578,7 +950,15 @@ def construir_menu(root):
 
     panel = tk.Frame(root, bg=COLORS["bg"])
     panel.grid(row=0, column=1, sticky="nsew")
-
+# --- AQUÍ CONFIGURAMOS EL ESTILO ---
+    style = ttk.Style()
+    style.theme_use('clam') # 'clam' permite que los colores se apliquen mejor en Treeview
+    style.configure("Treeview", 
+                    background=COLORS["panel"], 
+                    foreground=COLORS["text"], 
+                    fieldbackground=COLORS["panel"])
+    style.map('Treeview', background=[('selected', COLORS["btn_active"])])
+    
     def cambiar_modo():
         global modo_oscuro, COLORS
         modo_oscuro = not modo_oscuro
@@ -623,11 +1003,11 @@ def construir_menu(root):
         b.config(bg=COLORS["btn_active"])
         boton_activo = b
 
-    btn("👥 Estudiantes", mostrar_estudiantes)
-    btn("📝 Registro", vista_registro)
-    btn("📅 Control Día", vista_control_dia)
+    btn("👥 Gestión Estudiantes", mostrar_estudiantes)
+    btn("📝 Registro Asistencia", vista_registro)
+    btn("📅 Control por Día", vista_control_dia)
     btn("⚙️ Configuración", vista_configuracion)
-    btn("🔍 Control", vista_control)
+    btn("🔍 Control Automático", vista_control)
 
     vista_inicio(panel)
 
