@@ -934,191 +934,89 @@ def vista_control(panel):
     tab_mensajes = tk.Frame(notebook, bg=COLORS["bg"])
     notebook.add(tab_mensajes, text="Mensajes")
     
-    # Apartado para Retardos
-    frame_retardos = tk.Frame(tab_mensajes, bg=COLORS["bg"])
-    frame_retardos.pack(fill="both", expand=True, padx=20, pady=10)
+    tk.Label(tab_mensajes, text="ENVIAR MENSAJES WHATSAPP", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(pady=20)
     
-    tk.Label(frame_retardos, text="⏰ ENVIAR MENSAJES POR RETARDOS", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_SUBTITULO).pack(pady=10)
+    # Frame para mensaje
+    frame_mensaje = tk.Frame(tab_mensajes, bg=COLORS["panel"], padx=20, pady=20)
+    frame_mensaje.pack(fill="x", padx=20, pady=10)
+    tk.Label(frame_mensaje, text="Mensaje a enviar:", bg=COLORS["panel"], fg=COLORS["text"], font=FONT_SUBTITULO).pack(anchor="w")
+    text_mensaje = tk.Text(frame_mensaje, height=4, font=FONT_NORMAL, wrap="word")
+    text_mensaje.pack(fill="x", pady=10)
+    text_mensaje.insert("1.0", "Hola, este es un mensaje de prueba del sistema escolar.")
     
-    # Frame para mensaje retardos
-    frame_mensaje_ret = tk.Frame(frame_retardos, bg=COLORS["panel"], padx=20, pady=10)
-    frame_mensaje_ret.pack(fill="x", pady=5)
-    tk.Label(frame_mensaje_ret, text="Mensaje para retardos:", bg=COLORS["panel"], fg=COLORS["text"], font=FONT_NORMAL).pack(anchor="w")
-    text_mensaje_ret = tk.Text(frame_mensaje_ret, height=3, font=FONT_NORMAL, wrap="word")
-    text_mensaje_ret.pack(fill="x", pady=5)
-    text_mensaje_ret.insert("1.0", "Hola, tienes un retardo registrado. Por favor, llega a tiempo mañana.")
+    # Tabla de estudiantes con teléfonos
+    frame_tabla = tk.Frame(tab_mensajes, bg=COLORS["bg"])
+    frame_tabla.pack(fill="both", expand=True, padx=20, pady=10)
     
-    # Tabla retardos
-    frame_tabla_ret = tk.Frame(frame_retardos, bg=COLORS["bg"])
-    frame_tabla_ret.pack(fill="both", expand=True, pady=5)
-    
-    columnas_ret = ("Seleccionar", "Nombre", "Matrícula", "Teléfono", "Estado")
-    tabla_ret = ttk.Treeview(frame_tabla_ret, columns=columnas_ret, show="headings", height=8)
-    for col in columnas_ret:
-        tabla_ret.heading(col, text=col)
+    columnas_est = ("Seleccionar", "Nombre", "Matrícula", "Teléfono")
+    tabla_est = ttk.Treeview(frame_tabla, columns=columnas_est, show="headings", height=10)
+    for col in columnas_est:
+        tabla_est.heading(col, text=col)
         if col == "Seleccionar":
-            tabla_ret.column(col, width=80, anchor="center")
+            tabla_est.column(col, width=80, anchor="center")
         elif col == "Teléfono":
-            tabla_ret.column(col, width=120, anchor="center")
+            tabla_est.column(col, width=120, anchor="center")
         else:
-            tabla_ret.column(col, width=120, anchor="center")
-    tabla_ret.pack(fill="both", expand=True)
+            tabla_est.column(col, width=150, anchor="center")
+    tabla_est.pack(fill="both", expand=True)
     
-    # Checkboxes para retardos
-    checks_ret = {}
+    # Checkboxes para selección
+    checks = {}
     
-    def cargar_retardos():
-        for item in tabla_ret.get_children():
-            tabla_ret.delete(item)
-        checks_ret.clear()
+    def cargar_estudiantes():
+        for item in tabla_est.get_children():
+            tabla_est.delete(item)
+        checks.clear()
         try:
-            conn_dia = obtener_bd_dia()
-            cur = conn_dia.cursor()
-            cur.execute("""
-                SELECT e.nombre || ' ' || e.ap_paterno || ' ' || e.ap_materno, e.matricula, e.telefono, c.estado
-                FROM estudiantes e
-                JOIN control_dia c ON e.matricula = c.matricula
-                WHERE c.estado = 'Retardo' AND c.hora_entrada != '' AND e.telefono IS NOT NULL AND e.telefono != ''
-            """)
-            retardos = cur.fetchall()
-            conn_dia.close()
-            for ret in retardos:
-                nombre_completo, matricula, telefono, estado = ret
-                item_id = tabla_ret.insert("", "end", values=("", nombre_completo, matricula, telefono, estado))
-                checks_ret[item_id] = tk.BooleanVar()
-                tabla_ret.set(item_id, "Seleccionar", "☐")
+            conn = sqlite3.connect("sistema.db")
+            cursor = conn.cursor()
+            cursor.execute("SELECT nombre || ' ' || ap_paterno || ' ' || ap_materno, matricula, telefono FROM estudiantes WHERE telefono IS NOT NULL AND telefono != ''")
+            estudiantes = cursor.fetchall()
+            conn.close()
+            for est in estudiantes:
+                nombre_completo, matricula, telefono = est
+                item_id = tabla_est.insert("", "end", values=("", nombre_completo, matricula, telefono))
+                checks[item_id] = tk.BooleanVar()
+                tabla_est.set(item_id, "Seleccionar", "☐")
         except Exception as e:
-            print(f"Error cargando retardos: {e}")
+            print(f"Error cargando estudiantes: {e}")
     
-    def toggle_seleccion_ret(event):
-        item = tabla_ret.identify_row(event.y)
+    def toggle_seleccion(event):
+        item = tabla_est.identify_row(event.y)
         if item:
-            if checks_ret[item].get():
-                checks_ret[item].set(False)
-                tabla_ret.set(item, "Seleccionar", "☐")
+            if checks[item].get():
+                checks[item].set(False)
+                tabla_est.set(item, "Seleccionar", "☐")
             else:
-                checks_ret[item].set(True)
-                tabla_ret.set(item, "Seleccionar", "☑")
+                checks[item].set(True)
+                tabla_est.set(item, "Seleccionar", "☑")
     
-    tabla_ret.bind("<Button-1>", toggle_seleccion_ret)
+    tabla_est.bind("<Button-1>", toggle_seleccion)
     
-    # Botón enviar retardos
-    def enviar_mensajes_ret():
-        mensaje = text_mensaje_ret.get("1.0", "end-1c").strip()
+    # Botón enviar
+    def enviar_mensajes():
+        mensaje = text_mensaje.get("1.0", "end-1c").strip()
         if not mensaje:
-            tk.messagebox.showwarning("Advertencia", "Por favor ingrese un mensaje para retardos.")
+            tk.messagebox.showwarning("Advertencia", "Por favor ingrese un mensaje.")
             return
-        seleccionados = [item for item, var in checks_ret.items() if var.get()]
+        seleccionados = [item for item, var in checks.items() if var.get()]
         if not seleccionados:
-            tk.messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante con retardo.")
+            tk.messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante.")
             return
         
         import webbrowser
         enviados = 0
         for item in seleccionados:
-            telefono = tabla_ret.set(item, "Teléfono")
+            telefono = tabla_est.set(item, "Teléfono")
             if telefono:
                 url = f"https://wa.me/{telefono}?text={mensaje.replace(' ', '%20')}"
                 webbrowser.open(url)
                 enviados += 1
-        tk.messagebox.showinfo("Éxito", f"Mensajes de retardo enviados a {enviados} estudiantes.")
+        tk.messagebox.showinfo("Éxito", f"Mensajes enviados a {enviados} estudiantes.")
     
-    tk.Button(frame_retardos, text="📱 Enviar Mensajes Retardos", command=enviar_mensajes_ret, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=5).pack(pady=10)
+    tk.Button(tab_mensajes, text="📱 Enviar Mensajes WhatsApp", command=enviar_mensajes, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=10).pack(pady=20)
     
-    # Apartado para Inasistencias
-    frame_inasistencias = tk.Frame(tab_mensajes, bg=COLORS["bg"])
-    frame_inasistencias.pack(fill="both", expand=True, padx=20, pady=10)
-    
-    tk.Label(frame_inasistencias, text="❌ ENVIAR MENSAJES POR INASISTENCIAS", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_SUBTITULO).pack(pady=10)
-    
-    # Frame para mensaje inasistencias
-    frame_mensaje_ina = tk.Frame(frame_inasistencias, bg=COLORS["panel"], padx=20, pady=10)
-    frame_mensaje_ina.pack(fill="x", pady=5)
-    tk.Label(frame_mensaje_ina, text="Mensaje para inasistencias:", bg=COLORS["panel"], fg=COLORS["text"], font=FONT_NORMAL).pack(anchor="w")
-    text_mensaje_ina = tk.Text(frame_mensaje_ina, height=3, font=FONT_NORMAL, wrap="word")
-    text_mensaje_ina.pack(fill="x", pady=5)
-    text_mensaje_ina.insert("1.0", "Hola, tienes una falta registrada. Es importante que asistas a clases.")
-    
-    # Tabla inasistencias
-    frame_tabla_ina = tk.Frame(frame_inasistencias, bg=COLORS["bg"])
-    frame_tabla_ina.pack(fill="both", expand=True, pady=5)
-    
-    columnas_ina = ("Seleccionar", "Nombre", "Matrícula", "Teléfono", "Estado")
-    tabla_ina = ttk.Treeview(frame_tabla_ina, columns=columnas_ina, show="headings", height=8)
-    for col in columnas_ina:
-        tabla_ina.heading(col, text=col)
-        if col == "Seleccionar":
-            tabla_ina.column(col, width=80, anchor="center")
-        elif col == "Teléfono":
-            tabla_ina.column(col, width=120, anchor="center")
-        else:
-            tabla_ina.column(col, width=120, anchor="center")
-    tabla_ina.pack(fill="both", expand=True)
-    
-    # Checkboxes para inasistencias
-    checks_ina = {}
-    
-    def cargar_inasistencias():
-        for item in tabla_ina.get_children():
-            tabla_ina.delete(item)
-        checks_ina.clear()
-        try:
-            conn_dia = obtener_bd_dia()
-            cur = conn_dia.cursor()
-            cur.execute("""
-                SELECT e.nombre || ' ' || e.ap_paterno || ' ' || e.ap_materno, e.matricula, e.telefono, c.estado
-                FROM estudiantes e
-                JOIN control_dia c ON e.matricula = c.matricula
-                WHERE c.estado = 'Falta' AND e.telefono IS NOT NULL AND e.telefono != ''
-            """)
-            inasistencias = cur.fetchall()
-            conn_dia.close()
-            for ina in inasistencias:
-                nombre_completo, matricula, telefono, estado = ina
-                item_id = tabla_ina.insert("", "end", values=("", nombre_completo, matricula, telefono, estado))
-                checks_ina[item_id] = tk.BooleanVar()
-                tabla_ina.set(item_id, "Seleccionar", "☐")
-        except Exception as e:
-            print(f"Error cargando inasistencias: {e}")
-    
-    def toggle_seleccion_ina(event):
-        item = tabla_ina.identify_row(event.y)
-        if item:
-            if checks_ina[item].get():
-                checks_ina[item].set(False)
-                tabla_ina.set(item, "Seleccionar", "☐")
-            else:
-                checks_ina[item].set(True)
-                tabla_ina.set(item, "Seleccionar", "☑")
-    
-    tabla_ina.bind("<Button-1>", toggle_seleccion_ina)
-    
-    # Botón enviar inasistencias
-    def enviar_mensajes_ina():
-        mensaje = text_mensaje_ina.get("1.0", "end-1c").strip()
-        if not mensaje:
-            tk.messagebox.showwarning("Advertencia", "Por favor ingrese un mensaje para inasistencias.")
-            return
-        seleccionados = [item for item, var in checks_ina.items() if var.get()]
-        if not seleccionados:
-            tk.messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante con falta.")
-            return
-        
-        import webbrowser
-        enviados = 0
-        for item in seleccionados:
-            telefono = tabla_ina.set(item, "Teléfono")
-            if telefono:
-                url = f"https://wa.me/{telefono}?text={mensaje.replace(' ', '%20')}"
-                webbrowser.open(url)
-                enviados += 1
-        tk.messagebox.showinfo("Éxito", f"Mensajes de inasistencia enviados a {enviados} estudiantes.")
-    
-    tk.Button(frame_inasistencias, text="📱 Enviar Mensajes Inasistencias", command=enviar_mensajes_ina, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=5).pack(pady=10)
-    
-    # Cargar datos iniciales
-    cargar_retardos()
-    cargar_inasistencias()
+    cargar_estudiantes()
 
 # ====== INICIO ======
 def vista_inicio(panel):
