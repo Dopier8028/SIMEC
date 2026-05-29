@@ -1,0 +1,1292 @@
+﻿============================================================
+REPORTE DE FALTAS - SIMEC CONALEP
+Fecha: 28/05/2026
+Generado: 28/05/2026 22:31
+Total de faltas: 1278
+(Turno: 2do digito del grupo, 1=manana 211... 2=tarde 221...)
+============================================================
+
+--- MATUTINO (773) ---
+Adrian De Jesus Abarca Mariano | Mat: 240360353-9 | Grupo: 415-INFO23
+Dayra Romina Abarca Romanis | Mat: 250360529-3 | Grupo: 213-ALBE25
+Diana Abarca Cruz | Mat: 250360104-5 | Grupo: 211-TURI25
+Diego Alejandro Abarca Martinez | Mat: 250360250-6 | Grupo: 212-ALBE25
+Yaneli Abarca Cruz | Mat: 230360129-4 | Grupo: 616-INFO23
+Camila Berenice Abreu Villamil | Mat: 250360038-5 | Grupo: 211-TURI25
+Darwin Omar Acosta Rivera | Mat: 240360313-3 | Grupo: 411-TURI23
+Jade Melanie Acosta Herrera | Mat: 250360496-5 | Grupo: 211-TURI25
+Mistral Ollin Acosta Alvarez | Mat: 250360617-6 | Grupo: 212-ALBE25
+Niza Valeria Acosta Sanchez | Mat: 230360468-6 | Grupo: 613-ALBE23
+Emmanuel Aguilar Ocampo | Mat: 250360501-2 | Grupo: 212-ALBE25
+Estefani Michel Aguilar Carrera | Mat: 250360284-5 | Grupo: 213-ALBE25
+Melanie Samaris Aguilar Rosas | Mat: 230360172-4 | Grupo: 616-INFO23
+Monserrat Aguilar Morales | Mat: 250360450-2 | Grupo: 211-TURI25
+Ramses Aguilar Barragan | Mat: 240360147-5 | Grupo: 414-CONA23
+Wendy Lucero Aguilar Juarez | Mat: 240360511-2 | Grupo: 412-ALBE23
+Valentina Aguirre Martinez | Mat: 250360369-4 | Grupo: 213-ALBE25
+Yuliana Amairani Aguirre Gonzalez | Mat: 250360376-9 | Grupo: 214-CONA25
+Alondra Marian Alanis Lopez | Mat: 232410562-2 | Grupo: 613-ALBE23
+Fernando Albino De La Cruz | Mat: 250360545-9 | Grupo: 214-CONA25
+Juan Carlos Alcantara Ramos | Mat: 230360566-7 | Grupo: 612-ALBE23
+Andrea Valentina Alcibar Reyes | Mat: 250360238-1 | Grupo: 211-TURI25
+Abigail Alday Lopez | Mat: 240360634-2 | Grupo: 412-ALBE23
+Luna Daniela Alegria Hernandez | Mat: 230360519-6 | Grupo: 611-TURI23
+Rocio Abigail Aleman Gante | Mat: 240360437-0 | Grupo: 413-ALBE23
+Alexia Alfonso Orozco | Mat: 230360330-8 | Grupo: 614-CONA23
+Daiana Alfonso Orozco | Mat: 230360331-6 | Grupo: 611-TURI23
+Axel Logan Alonso Gutierrez | Mat: 230360715-0 | Grupo: 614-CONA23
+Jesus Alberto Alquisira Diaz | Mat: 250360005-4 | Grupo: 212-ALBE25
+Jimena Altamirano Salgado | Mat: 230360299-5 | Grupo: 611-TURI23
+Emma Sofia Alvarez Viveros | Mat: 250360143-3 | Grupo: 213-ALBE25
+Erick Alvarez Rivas | Mat: 250360473-4 | Grupo: 214-CONA25
+Ian Leonardo Alvarez Viveros | Mat: 230360515-4 | Grupo: 412-ALBE23
+Adrian Alejandro Alvarez Leura Y Trujillo | Mat: 230360080-9 | Grupo: 613-ALBE23
+Karla Janet Amador Albarran | Mat: 230360095-7 | Grupo: 615-INFO23
+Daniela Amaro Flores | Mat: 250360600-2 | Grupo: 212-ALBE25
+Camila Alexia Andrade Diaz | Mat: 230360128-6 | Grupo: 612-ALBE23
+Xavier Antonio De La Rosa | Mat: 240360611-0 | Grupo: 414-CONA23
+Cristobal Josmat Antunez Lopez | Mat: 250360165-6 | Grupo: 213-ALBE25
+Elizabet Antunez Pobedano | Mat: 230360064-3 | Grupo: 615-INFO23
+Jan Carlos Antunez Ocampo | Mat: 240360394-3 | Grupo: 415-INFO23
+Andres Araujo Valentin | Mat: 250360388-4 | Grupo: 211-TURI25
+Ibzan Jael Arellano Bravo | Mat: 250360366-0 | Grupo: 211-TURI25
+Johan Jahir Arellano Soto | Mat: 240360650-8 | Grupo: 411-TURI23
+Diana Alejandra Arenas Roldan | Mat: 230360284-7 | Grupo: 613-ALBE23
+David Arizmendi Collado | Mat: 250360338-9 | Grupo: 214-CONA25
+Melissa Arizmendi Ortega | Mat: 240360254-9 | Grupo: 412-ALBE23
+Jose Alberto Arroyo Suarez | Mat: 250360272-0 | Grupo: 214-CONA25
+Natalia Michelle Arroyo Fuentes | Mat: 230360349-8 | Grupo: 616-INFO23
+Santiago Arzate Nava | Mat: 250360091-4 | Grupo: 212-ALBE25
+Erik Dayan Ascencio Mendoza | Mat: 230360283-9 | Grupo: 612-ALBE23
+Kevin Jozdrie Ascencio Mendoza | Mat: 230360281-3 | Grupo: 612-ALBE23
+Leonardo Avila Vargas | Mat: 240360170-7 | Grupo: 415-INFO23
+Valeria Avila Santos | Mat: 230360255-7 | Grupo: 614-CONA23
+Alexander Mariano Aviles Vargas | Mat: 250360356-1 | Grupo: 212-ALBE25
+Hanna Ivetteh Axomulco Diaz | Mat: 242360215-6 | Grupo: 415-INFO23
+Bixidu Ayala Rodriguez | Mat: 250360527-7 | Grupo: 211-TURI25
+Dorian Bahena Reza | Mat: 230360152-6 | Grupo: 611-TURI23
+Santiago Jadiel Bahena Aranda | Mat: 250360306-6 | Grupo: 215-INFO25
+Teresa Rubi Bahena Martinez | Mat: 230360548-5 | Grupo: 611-TURI23
+Vania Estefani Bahena Ortega | Mat: 230360030-4 | Grupo: 614-CONA23
+Yuliana Bahena Orozco | Mat: 250360507-9 | Grupo: 212-ALBE25
+Yhara Michelle Bailon Marino | Mat: 240360125-1 | Grupo: 413-ALBE23
+Jemimah Barbosa Lezama | Mat: 240360101-2 | Grupo: 415-INFO23
+Angela Gabriela Barcenas Gutierrez | Mat: 240360544-3 | Grupo: 411-TURI23
+Ximena Ivanova Baron Diaz | Mat: 240360109-5 | Grupo: 415-INFO23
+Nancy Barragan Cuevas | Mat: 230360503-0 | Grupo: 615-INFO23
+Dana Barbara Barrera Ramirez | Mat: 230360565-9 | Grupo: 614-CONA23
+Perla Barrera Lopez | Mat: 250360138-3 | Grupo: 214-CONA25
+Tania Elizabeth Barrera Ramirez | Mat: 250360353-8 | Grupo: 214-CONA25
+Zuriel Barrera Praxedis | Mat: 230360153-4 | Grupo: 615-INFO23
+Carlos Daniel Basilio Hidalgo | Mat: 240360111-1 | Grupo: 412-ALBE23
+Rubi Basurto Gomez | Mat: 240360062-6 | Grupo: 412-ALBE23
+Cristian Bautista Denova | Mat: 240360418-0 | Grupo: 414-CONA23
+Estrella Ninet Bautista Gonzalez | Mat: 210360287-2 | Grupo: 213-ALBE25
+Natalia Izel Bautista Perez | Mat: 230360672-3 | Grupo: 612-ALBE23
+Xihomara Bautista Rayon | Mat: 230360333-2 | Grupo: 613-ALBE23
+Alan Javier Beltran Velazquez | Mat: 250360299-3 | Grupo: 213-ALBE25
+Jhoana Suzet Beltran Reyes | Mat: 230360551-9 | Grupo: 614-CONA23
+Jose Emmanuel Beltran Jimenez | Mat: 240360749-8 | Grupo: 411-TURI23
+Nallely Naomi Beltran Urrea | Mat: 250360175-5 | Grupo: 212-ALBE25
+Sergio Yahir Beltran Beltran | Mat: 230360309-2 | Grupo: 616-INFO23
+Jose Arturo Benigno Alonso | Mat: 240360653-2 | Grupo: 412-ALBE23
+Lesly Nahomi Benitez Villasana | Mat: 250360629-1 | Grupo: 211-TURI25
+Nohemi Nayeli Benitez Villasana | Mat: 250360627-5 | Grupo: 211-TURI25
+Brandon Boris Beristain Aguilar | Mat: 240360728-2 | Grupo: 415-INFO23
+Norman Williams Beristain Aguilar | Mat: 230360631-9 | Grupo: 614-CONA23
+Aaron Narahi Bernal Martinez | Mat: 250360151-6 | Grupo: 214-CONA25
+Ulises Antonio Bernal Jaimes | Mat: 230360353-0 | Grupo: 614-CONA23
+Juan Mauricio Blancas Victoria | Mat: 240360165-7 | Grupo: 412-ALBE23
+Valeria Bojorge Vargas | Mat: 240360294-5 | Grupo: 414-CONA23
+Maite Bonifacio Silvestre | Mat: 240360323-2 | Grupo: 413-ALBE23
+Estrella Itzel Bosques Rodriguez | Mat: 230360193-0 | Grupo: 616-INFO23
+Yaiza Annelise Bosques De La Cruz | Mat: 250360106-0 | Grupo: 212-ALBE25
+Diego Armando Bravo Patiño | Mat: 230360212-8 | Grupo: 615-INFO23
+Francisco Bravo Villanueva | Mat: 240360214-3 | Grupo: 415-INFO23
+Jose Antonio Bravo Morales | Mat: 230360669-9 | Grupo: 611-TURI23
+Nancy Guadalupe Bringas Reyes | Mat: 230360494-2 | Grupo: 611-TURI23
+Alex Leonardo Brito Herminio | Mat: 250360709-1 | Grupo: 214-CONA25
+Arantza Yamileth Brito Salinas | Mat: 232410600-0 | Grupo: 613-ALBE23
+Laren Anali Brito Hernandez | Mat: 240360168-1 | Grupo: 411-TURI23
+Tristan Obed Brito Alarcon | Mat: 250360710-9 | Grupo: 212-ALBE25
+Cristian Ivan Bueno Saavedra | Mat: 240360291-1 | Grupo: 414-CONA23
+Ashley Naomi Bustamante Valdez | Mat: 230360120-3 | Grupo: 613-ALBE23
+Bryan Alejandro Bustamante Guemez | Mat: 250360551-7 | Grupo: 215-INFO25
+Ricardo Bustamante Juarez | Mat: 230360563-4 | Grupo: 615-INFO23
+Kevin Emmanuel Bustos Rodriguez | Mat: 250360740-6 | Grupo: 215-INFO25
+Zoe Bustos Orbe | Mat: 240360071-7 | Grupo: 411-TURI23
+Katerin Valeria Cabañas Martinez | Mat: 240360245-7 | Grupo: 411-TURI23
+Gabriel Cabrera Serafin | Mat: 230360363-9 | Grupo: 611-TURI23
+Ingrit Monserrat Calderon Perez | Mat: 230360191-4 | Grupo: 614-CONA23
+Tania Calixto Alvarado | Mat: 250360741-4 | Grupo: 211-TURI25
+Diego Alberto Camacho Aranda | Mat: 230360291-2 | Grupo: 614-CONA23
+Dulce Camila Campos Garcia | Mat: 240360191-3 | Grupo: 415-INFO23
+Lilia Campos Monsalvo | Mat: 240360082-4 | Grupo: 414-CONA23
+Rodolfo Isaac Campuzano Ramirez | Mat: 230360743-2 | Grupo: 612-ALBE23
+Elizabeth Cano Cruz | Mat: 250360176-3 | Grupo: 211-TURI25
+Itzia Cano Alvear | Mat: 250360094-8 | Grupo: 212-ALBE25
+Maria Fernanda Cano Chino | Mat: 240360706-8 | Grupo: 415-INFO23
+Maria Jose Cano Chino | Mat: 240360707-6 | Grupo: 415-INFO23
+Ronaldo Carachure Ortega | Mat: 250360491-6 | Grupo: 211-TURI25
+Cristian Uriel Carballo Guevara | Mat: 250360604-4 | Grupo: 211-TURI25
+Nora Sherlin Cardenas Celis | Mat: 240360185-5 | Grupo: 413-ALBE23
+Luis Angel Carmona Flores | Mat: 240360399-2 | Grupo: 414-CONA23
+Damian Carrera Flores | Mat: 240360169-9 | Grupo: 413-ALBE23
+Uri Emmanuel Carrillo Anguiano | Mat: 250360576-4 | Grupo: 214-CONA25
+Zoraya Michelle Casares Cuautle | Mat: 230360652-5 | Grupo: 611-TURI23
+Gerardo Casillas De La Paz | Mat: 250360288-6 | Grupo: 215-INFO25
+Hillari Anali Casillas Perez | Mat: 230360636-8 | Grupo: 613-ALBE23
+Ian Jose Casillas Gurrusquieta | Mat: 230360252-4 | Grupo: 615-INFO23
+Ramses Casillas Lozoya | Mat: 230360029-6 | Grupo: 612-ALBE23
+Carlos Alberto Casique Alcantara | Mat: 240360086-5 | Grupo: 414-CONA23
+Arely Caspeta Tapia | Mat: 250360218-3 | Grupo: 213-ALBE25
+Jose Fidel Caspeta Tapia | Mat: 230360198-9 | Grupo: 615-INFO23
+Andrea Camila Castañeda Arzate | Mat: 240360146-7 | Grupo: 414-CONA23
+Juan Pedro Castañeda Maldonado | Mat: 240360004-8 | Grupo: 614-CONA23
+Marco Alonso Castañeda Barrera | Mat: 230360514-7 | Grupo: 612-ALBE23
+Uriel Castañeda Castañeda | Mat: 240360704-3 | Grupo: 414-CONA23
+Valeria Castañeda Vazquez | Mat: 250360584-8 | Grupo: 214-CONA25
+Zury Janet Castañeda Ferreyra | Mat: 230360646-7 | Grupo: 613-ALBE23
+Esthefania Castelan Rivera | Mat: 230360290-4 | Grupo: 611-TURI23
+Joselin Castelan Rivera | Mat: 252410606-5 | Grupo: 214-CONA25
+Maritza Lizbeth Castelan Reynoso | Mat: 250360067-4 | Grupo: 211-TURI25
+Fernando Castillo Gutierrez | Mat: 230360609-5 | Grupo: 614-CONA23
+Molly Adilene Castillo Flores | Mat: 250360029-4 | Grupo: 215-INFO25
+Roberto David Castillo Guzman | Mat: 250360698-6 | Grupo: 215-INFO25
+Franco Leonardo Castrejon Hernandez | Mat: 250360659-8 | Grupo: 212-ALBE25
+Yuridia Castrejon Reyes | Mat: 240360628-4 | Grupo: 411-TURI23
+Aimee Ainara Castro Jaimes | Mat: 241330002-7 | Grupo: 413-ALBE23
+Esmeralda Cedazo Lopez | Mat: 240360465-1 | Grupo: 413-ALBE23
+Ivin Brayan Cedillo Hernandez | Mat: 230360417-3 | Grupo: 615-INFO23
+Keyli Vianney Cedillo Hernandez | Mat: 240360242-4 | Grupo: 411-TURI23
+Maria Fernanda Ceja Jimenez | Mat: 230360328-2 | Grupo: 614-CONA23
+Karlo Patricio Ceron Paz | Mat: 250360198-7 | Grupo: 215-INFO25
+Danna Kimberly Cervantes Barajas | Mat: 240360247-3 | Grupo: 413-ALBE23
+Dayle Guadalupe Cervantes Flores | Mat: 230360233-4 | Grupo: 616-INFO23
+Ximena Altair Cervantes Martinez | Mat: 230360238-3 | Grupo: 611-TURI23
+Andres Daniel Chaparro Elguea | Mat: 250360210-0 | Grupo: 215-INFO25
+Bruno Daneri Chavez Almanza | Mat: 250360344-7 | Grupo: 212-ALBE25
+Emmanuel Chavez Navarro | Mat: 250360658-0 | Grupo: 212-ALBE25
+Ariadna Montserrat Chilero Hidalgo | Mat: 230360462-9 | Grupo: 612-ALBE23
+Carlos Chimal Contreras | Mat: 240360048-5 | Grupo: 414-CONA23
+Stephania Chona Zamudio | Mat: 240360655-7 | Grupo: 411-TURI23
+Wendy Geovana Chona Zamudio | Mat: 230360626-9 | Grupo: 614-CONA23
+Abril Marian Ciriaco Davalos | Mat: 250360090-6 | Grupo: 212-ALBE25
+Sarahi Guadalupe Ciriaco Tagle | Mat: 230360758-0 | Grupo: 614-CONA23
+Sofia Coatzin Najera | Mat: 250360464-3 | Grupo: 212-ALBE25
+Fatima Itzel Corcino Martinez | Mat: 250360193-8 | Grupo: 213-ALBE25
+Christian Cordova Peña | Mat: 250360236-5 | Grupo: 215-INFO25
+Dulce Regina Corona Torres | Mat: 240360044-4 | Grupo: 415-INFO23
+Joseph Corona Astudillo | Mat: 240360363-8 | Grupo: 411-TURI23
+Rafael Corona Najera | Mat: 240360675-5 | Grupo: 411-TURI23
+Jose Maria Cortes Muños | Mat: 230360589-9 | Grupo: 614-CONA23
+Camila Michelle Cruz Barrera | Mat: 250360668-9 | Grupo: 215-INFO25
+Cindy Yamileth Cruz Trejo | Mat: 220360379-6 | Grupo: 613-ALBE23
+Daniela Cruz Moreno | Mat: 250360123-5 | Grupo: 213-ALBE25
+Katherine Cruz Estrada | Mat: 250360099-7 | Grupo: 212-ALBE25
+Lilia Renata Cruz Filio | Mat: 250360271-2 | Grupo: 211-TURI25
+Lilibeth Ariana Cruz Beltran | Mat: 250360001-3 | Grupo: 412-ALBE23
+Maria Fernanda Cruz Ramirez | Mat: 240360171-5 | Grupo: 412-ALBE23
+Paola Itzayana Cruz Organista | Mat: 250360559-0 | Grupo: 214-CONA25
+Rafael Ketzalkoatl Cruz Vejar | Mat: 250360618-4 | Grupo: 215-INFO25
+Tiffany Itzel Cruz Armenta | Mat: 240360543-5 | Grupo: 411-TURI23
+Silvana Monserrath Cuachinillo Mendoza | Mat: 240360013-9 | Grupo: 414-CONA23
+Danna Geraldine Cuautle Servin | Mat: 250360114-4 | Grupo: 214-CONA25
+Evolet Helena Cuevas Velazco | Mat: 240360196-2 | Grupo: 413-ALBE23
+Azul De La Cruz Gomez | Mat: 250360142-5 | Grupo: 214-CONA25
+Jessica De Los Angeles Campuzano | Mat: 240360183-0 | Grupo: 411-TURI23
+David Debray Ocampo | Mat: 230360597-2 | Grupo: 614-CONA23
+Xochitl Esmeralda Degante Domingo | Mat: 240360138-4 | Grupo: 412-ALBE23
+Miriam Del Angel Garcia | Mat: 230360045-2 | Grupo: 616-INFO23
+Edgar Valentin Delgado Garrido | Mat: 240360189-7 | Grupo: 415-INFO23
+Esau Alejandro Delgado Vences | Mat: 230360035-3 | Grupo: 615-INFO23
+Geovanni Delgado Salgado | Mat: 240360677-1 | Grupo: 412-ALBE23
+Jesus Eduardo Delgado Gonzalez | Mat: 250360285-2 | Grupo: 212-ALBE25
+Lucero Delgado Avelino | Mat: 240360518-7 | Grupo: 411-TURI23
+Maria Guadalupe Delgado Almazo | Mat: 250360515-2 | Grupo: 214-CONA25
+Ashley Raquel Delgado-Lopez  | Mat: 240360595-5 | Grupo: 411-TURI23
+Cristofer Adrian Deloya Ocampo | Mat: 230360342-3 | Grupo: 616-INFO23
+Alondra Diaz Cruz | Mat: 250360518-6 | Grupo: 214-CONA25
+Angel Caleb Diaz Garcia | Mat: 240360566-6 | Grupo: 413-ALBE23
+Asael Diaz Valdez | Mat: 250360009-6 | Grupo: 215-INFO25
+Azael Alejandro Diaz Arellano | Mat: 230360760-6 | Grupo: 612-ALBE23
+Dana Anahi Diaz Valdez | Mat: 250360007-0 | Grupo: 215-INFO25
+Gustavo Emiliano Diaz Gonzalez | Mat: 230360678-0 | Grupo: 613-ALBE23
+Keyli Romina Diaz Diaz | Mat: 240360459-4 | Grupo: 411-TURI23
+Kristian Maximiliano Diaz Rosales | Mat: 240360730-8 | Grupo: 414-CONA23
+Leonardo Diaz Enciso | Mat: 240360662-3 | Grupo: 412-ALBE23
+Maria Fernanda Diaz Lopez | Mat: 240360153-3 | Grupo: 414-CONA23
+Marco Antonio Dominguez Vazquez | Mat: 230360257-3 | Grupo: 616-INFO23
+Leandro Damian Dorantes Hernandez | Mat: 240360747-2 | Grupo: 413-ALBE23
+Diego Duarte Hernandez | Mat: 230360460-3 | Grupo: 614-CONA23
+America Giselle Enriquez Gallegos | Mat: 250360424-7 | Grupo: 211-TURI25
+Betsua Samai Erazo Antunez | Mat: 230360686-3 | Grupo: 613-ALBE23
+Matias Erdosay Martinez | Mat: 230360197-1 | Grupo: 612-ALBE23
+Sergio Emmanuel Escobar Medina | Mat: 250360443-7 | Grupo: 213-ALBE25
+Elizabeth Charlotte España Silvar | Mat: 250360213-4 | Grupo: 214-CONA25
+Kimberly Naomi Esquivel Aguilar | Mat: 230360466-0 | Grupo: 613-ALBE23
+Megan Valeria Esquivel Ocampo | Mat: 240360542-7 | Grupo: 413-ALBE23
+Andrea Janit Estrada Torres | Mat: 250360225-8 | Grupo: 212-ALBE25
+Angel Emmanuel Estrada Garcia | Mat: 240360142-6 | Grupo: 411-TURI23
+Jorge Gael Estrada Vega | Mat: 230360368-8 | Grupo: 613-ALBE23
+Santiago Estrada Bahena | Mat: 250360164-9 | Grupo: 215-INFO25
+Yoselyn Guadalupe Evangelista Barrera | Mat: 240360108-7 | Grupo: 414-CONA23
+Abdiel Fajardo Hernandez | Mat: 240360112-9 | Grupo: 415-INFO23
+Carlos Farias Tinoco | Mat: 230360675-6 | Grupo: 612-ALBE23
+Sofia Farias Gregorio | Mat: 230360047-8 | Grupo: 611-TURI23
+Alan Dael Fernandez Cortes | Mat: 230360679-8 | Grupo: 615-INFO23
+Melany Denisse Fernandez Salmeron | Mat: 240360068-3 | Grupo: 415-INFO23
+Aislinn Harumi Flores Vizcarra | Mat: 240360063-4 | Grupo: 414-CONA23
+Angel Alejandro Flores Aguilar | Mat: 240360067-5 | Grupo: 415-INFO23
+Atziry Flores Sanchez | Mat: 250360260-5 | Grupo: 214-CONA25
+Axel Yurem Flores Dominguez | Mat: 240360084-0 | Grupo: 411-TURI23
+Caleb Flores Tarango | Mat: 250360657-2 | Grupo: 211-TURI25
+Camila Sinai Flores Vazquez | Mat: 230360038-7 | Grupo: 612-ALBE23
+Carolina Flores Martinez | Mat: 250360110-2 | Grupo: 211-TURI25
+Diego Ivan Flores Ruiz | Mat: 240360623-5 | Grupo: 414-CONA23
+Eimy Ameli Flores Hernandez | Mat: 250360160-7 | Grupo: 213-ALBE25
+Jesus Eduardo Flores Perez | Mat: 240360224-2 | Grupo: 415-INFO23
+Jesus Omar Flores Jaramillo | Mat: 230360189-8 | Grupo: 614-CONA23
+Kendra Denysse Flores Cruz | Mat: 250360295-1 | Grupo: 212-ALBE25
+Lizbeth Guadalupe Flores Alanis | Mat: 250360477-5 | Grupo: 211-TURI25
+Manuel Flores Gomez | Mat: 240360389-3 | Grupo: 412-ALBE23
+Maria Del Rosario Flores Capote | Mat: 230360163-3 | Grupo: 616-INFO23
+Maria Fernanda Flores Mendoza | Mat: 240360201-0 | Grupo: 415-INFO23
+Miguel David Flores Perdomo | Mat: 240360709-2 | Grupo: 414-CONA23
+Naomi Yamilet Flores Aguero | Mat: 230360308-4 | Grupo: 611-TURI23
+Santiago Flores Martinez | Mat: 240360382-8 | Grupo: 412-ALBE23
+Valeria Flores Castañeda | Mat: 230360118-7 | Grupo: 616-INFO23
+Xavier Flores Figueroa | Mat: 240360373-7 | Grupo: 414-CONA23
+Yamilet Flores Flores | Mat: 250360180-5 | Grupo: 213-ALBE25
+Wendy Sherlyn Fuentes Blanco | Mat: 240360751-4 | Grupo: 612-ALBE23
+Alexa Krystal Galeana Bustamante | Mat: 240360697-9 | Grupo: 412-ALBE23
+Rodrigo Galeana De La Sancha | Mat: 230360508-9 | Grupo: 616-INFO23
+Yesica Galicia Gomez | Mat: 240360272-1 | Grupo: 413-ALBE23
+Christian Eduardo Galindo Gomez | Mat: 250360060-9 | Grupo: 214-CONA25
+Leslie Valeria Galindo Bahena | Mat: 230360087-4 | Grupo: 615-INFO23
+Victor Fernando Galvez Martinez | Mat: 240360122-8 | Grupo: 412-ALBE23
+Nahim Isao Gamez Vazquez | Mat: 230360624-4 | Grupo: 616-INFO23
+Alexis Uriel Garcia Mendez | Mat: 230360592-3 | Grupo: 616-INFO23
+Aylin Paulina Garcia Gomez | Mat: 240360083-2 | Grupo: 415-INFO23
+Denisse Garcia Osorio | Mat: 250360202-7 | Grupo: 213-ALBE25
+Diana Lizbeth Garcia Casarrubias | Mat: 240360002-2 | Grupo: 612-ALBE23
+Dulce Maria Garcia Vazquez | Mat: 230360752-3 | Grupo: 611-TURI23
+Emiliano Enrique Garcia Javier | Mat: 230360092-4 | Grupo: 615-INFO23
+Frida De La Luz Garcia Torres | Mat: 230360351-4 | Grupo: 614-CONA23
+Itzel Valeria Garcia Alvarado | Mat: 230360254-0 | Grupo: 611-TURI23
+Ivonne Garcia Pineda | Mat: 230360344-9 | Grupo: 614-CONA23
+Iñaki Yael Garcia Barragan | Mat: 240360715-9 | Grupo: 414-CONA23
+Jose Ramon Garcia Nava | Mat: 250360725-7 | Grupo: 214-CONA25
+Joseline Leonora Garcia Silva | Mat: 230360043-7 | Grupo: 616-INFO23
+Leonardo Alfredo Garcia Espinoza | Mat: 230360429-8 | Grupo: 615-INFO23
+Manuel Antonio Garcia Hernandez | Mat: 250360032-8 | Grupo: 212-ALBE25
+Margarita Garcia Jimenez | Mat: 240360158-2 | Grupo: 411-TURI23
+Maria Teresa Garcia Bernal | Mat: 230360606-1 | Grupo: 611-TURI23
+Naomi Lucero Garcia Lopez | Mat: 240360482-6 | Grupo: 411-TURI23
+Roque Esau Garcia Salas | Mat: 250360435-3 | Grupo: 215-INFO25
+Stefani Garcia Morales | Mat: 240360077-4 | Grupo: 415-INFO23
+Violeta Abigail Garcia Ballina | Mat: 250360457-7 | Grupo: 213-ALBE25
+Zury Alicia Garcia Hernandez | Mat: 232410516-8 | Grupo: 612-ALBE23
+Sandra Ximena Garduño Salgado | Mat: 240360116-0 | Grupo: 413-ALBE23
+Yaretzi Garduño Salgado | Mat: 250360052-6 | Grupo: 213-ALBE25
+Yulia Mayriyani Garfias Mateo | Mat: 240360178-0 | Grupo: 411-TURI23
+Renata Yamileth Garibay Elguea | Mat: 250360240-7 | Grupo: 211-TURI25
+Jatziry Tonanzynt Gerardo Quevedo | Mat: 250360208-4 | Grupo: 211-TURI25
+Angel Emiliano Giron Beltran | Mat: 240360078-2 | Grupo: 414-CONA23
+Armando Gomez Rosales | Mat: 250360013-8 | Grupo: 215-INFO25
+Bianca Guadalupe Gomez Gonzalez | Mat: 240360155-8 | Grupo: 415-INFO23
+Darien Uziel Gomez Sotelo | Mat: 252410596-8 | Grupo: 212-ALBE25
+Laura Yanaitza Gomez Rangel | Mat: 250360221-7 | Grupo: 211-TURI25
+Maria Jose Gomez Gomez | Mat: 250360433-8 | Grupo: 214-CONA25
+Martin Fidel Gomez Martinez | Mat: 240360425-5 | Grupo: 412-ALBE23
+Sofia Gomez Vega | Mat: 250360077-3 | Grupo: 211-TURI25
+Valeria Mariel Gomez Gonzalez | Mat: 260360002-0 | Grupo: 214-CONA25
+Adriana Gonzalez Gordiano | Mat: 250360031-0 | Grupo: 213-ALBE25
+Andrea Gonzalez Rodriguez | Mat: 250360076-5 | Grupo: 212-ALBE25
+Dulce Marlen Gonzalez Flores | Mat: 230360630-1 | Grupo: 614-CONA23
+Estrella Gonzalez Venancio | Mat: 240360223-4 | Grupo: 413-ALBE23
+Gustavo Gonzalez Hernandez | Mat: 240360642-5 | Grupo: 415-INFO23
+Jose Miguel Gonzalez Aviles | Mat: 230360162-5 | Grupo: 616-INFO23
+Joshua Gonzalez Alia | Mat: 250360200-1 | Grupo: 215-INFO25
+Luis Angel Gonzalez Morales | Mat: 250360390-0 | Grupo: 215-INFO25
+Melanny Guadalupe Gonzalez Martinez | Mat: 250360072-4 | Grupo: 214-CONA25
+Noradina Gonzalez Vega | Mat: 240360369-5 | Grupo: 413-ALBE23
+Sahori Esmeralda Gonzalez Samano | Mat: 240360003-0 | Grupo: 615-INFO23
+Santiago Gonzalez De La Cruz | Mat: 240360647-4 | Grupo: 412-ALBE23
+Santiago Emmanuel Gonzalez Aguilar | Mat: 242120079-7 | Grupo: 215-INFO25
+Yoletzi Shirel Gonzalez Ortiz | Mat: 230360681-4 | Grupo: 611-TURI23
+Aline Constanza Guadarrama Hernandez | Mat: 250360011-2 | Grupo: 211-TURI25
+Lucio Abraham Guadarrama Acosta | Mat: 250360623-4 | Grupo: 213-ALBE25
+Alysa Getsemani Guerrero Flores | Mat: 230360025-4 | Grupo: 616-INFO23
+Braulio Andres Guerrero Gonzalez | Mat: 250360207-6 | Grupo: 212-ALBE25
+Daniel Guerrero Rodriguez | Mat: 230360091-6 | Grupo: 614-CONA23
+Ximena Guerrero Rivera | Mat: 230360122-9 | Grupo: 614-CONA23
+Juan Enrique Gutierrez Peña | Mat: 240360355-4 | Grupo: 415-INFO23
+Marisol Gutierrez Cruz | Mat: 230360072-6 | Grupo: 614-CONA23
+Danna Valeria Guzman Gutierrez | Mat: 230360691-3 | Grupo: 613-ALBE23
+Italia Yazu Guzman Velazquez | Mat: 240360005-5 | Grupo: 616-INFO23
+Joana Sayuri Guzman Jimenez | Mat: 250360157-3 | Grupo: 211-TURI25
+Adriel Said Hernandez Nabor | Mat: 250360365-2 | Grupo: 212-ALBE25
+Allison Elizabeth Hernandez Rodriguez | Mat: 250360230-8 | Grupo: 214-CONA25
+America Leylani Hernandez Cuellar | Mat: 240360436-2 | Grupo: 415-INFO23
+Anabel Hernandez Mendoza | Mat: 250360683-8 | Grupo: 211-TURI25
+Angel Hernandez Garcia | Mat: 250360020-3 | Grupo: 214-CONA25
+Angel Dahir Hernandez Atilano | Mat: 230360028-8 | Grupo: 615-INFO23
+Angel Osvaldo Hernandez Lopez | Mat: 250360111-0 | Grupo: 214-CONA25
+Ariadna Hernandez Hernandez | Mat: 230360181-5 | Grupo: 614-CONA23
+Axel Hernandez Arenas | Mat: 230360573-3 | Grupo: 612-ALBE23
+Brayan Axel Hernandez Carrera | Mat: 250360547-5 | Grupo: 213-ALBE25
+Camila Valeria Hernandez San Pedro | Mat: 230360384-5 | Grupo: 613-ALBE23
+Carlos Uriel Hernandez Bernal | Mat: 250360705-9 | Grupo: 214-CONA25
+Cristian David Hernandez Anguilu | Mat: 230360126-0 | Grupo: 612-ALBE23
+Daira Camila Hernandez Castillo | Mat: 250360296-9 | Grupo: 211-TURI25
+Dulce Evelyn Hernandez Aparicio | Mat: 230360576-6 | Grupo: 616-INFO23
+Emiliano Hernandez Martinez | Mat: 250360028-6 | Grupo: 212-ALBE25
+Evolet Alessandra Hernandez Castro | Mat: 240360597-1 | Grupo: 412-ALBE23
+Gabriela Noemi Hernandez Calderon | Mat: 230360395-1 | Grupo: 612-ALBE23
+Gael Hernandez Martinez | Mat: 230360459-5 | Grupo: 612-ALBE23
+Israel Benjamin Hernandez Martinez | Mat: 230360473-6 | Grupo: 616-INFO23
+Jesus Martin Hernandez Gamez | Mat: 250360727-3 | Grupo: 214-CONA25
+Julieta Hernandez Anguilu | Mat: 240360290-3 | Grupo: 412-ALBE23
+Justin Alexander Hernandez Miranda | Mat: 230360021-3 | Grupo: 611-TURI23
+Laura Amairani Hernandez Ortiz | Mat: 240360052-7 | Grupo: 413-ALBE23
+Luis Angel Hernandez Ortiz | Mat: 230360324-1 | Grupo: 614-CONA23
+Luis Jafet Hernandez Roque | Mat: 250360656-4 | Grupo: 213-ALBE25
+Marimar Hernandez Bahena | Mat: 240360615-1 | Grupo: 415-INFO23
+Melissa Hernandez Diaz | Mat: 220360659-1 | Grupo: 616-INFO23
+Mitzi Paola Hernandez Blas | Mat: 230360285-4 | Grupo: 615-INFO23
+Perla Yuzeth Hernandez Lopez | Mat: 240360549-2 | Grupo: 413-ALBE23
+Romina Yamilet Hernandez Mujica | Mat: 250360058-3 | Grupo: 214-CONA25
+Rubi Hernandez Garcia | Mat: 232940188-5 | Grupo: 614-CONA23
+Vanessa Hernandez Torres | Mat: 250360391-8 | Grupo: 211-TURI25
+Vanessa Sherlin Hernandez Gonzalez | Mat: 230360264-9 | Grupo: 613-ALBE23
+Vivian Andrea Hernandez Rivera | Mat: 250360373-6 | Grupo: 213-ALBE25
+Yanderi Hernandez Brito | Mat: 230360164-1 | Grupo: 611-TURI23
+Nahomi Patricia Herrera Rodriguez | Mat: 230360689-7 | Grupo: 613-ALBE23
+Gabriela Yamileth Hinojosa Valeriano | Mat: 240360094-9 | Grupo: 412-ALBE23
+Adam Yahel Huerta Belmonte | Mat: 250360431-2 | Grupo: 215-INFO25
+Dulce Jemima Ibarra Ramirez | Mat: 250360304-1 | Grupo: 211-TURI25
+Miguel Angel Ibarra Aguilar | Mat: 250360195-3 | Grupo: 215-INFO25
+Benjamin Iturbide De Los Santos | Mat: 240360001-4 | Grupo: 614-CONA23
+Blanca Nahomi Jacobo Garcia | Mat: 250360051-8 | Grupo: 214-CONA25
+Hans Eleazar Jaime Arvizu | Mat: 230360584-0 | Grupo: 614-CONA23
+Diego Jaimes Zepeda | Mat: 230360504-8 | Grupo: 611-TURI23
+Dulce Nathalie Jaimes Espinoza | Mat: 240360703-5 | Grupo: 414-CONA23
+Lesly Rubi Jaimes Ocampo | Mat: 230360734-1 | Grupo: 611-TURI23
+Osiel Alejandro Jaimes Flores | Mat: 240360732-4 | Grupo: 415-INFO23
+Kevin Gabriel Jaramillo Miranda | Mat: 240360503-9 | Grupo: 415-INFO23
+Andrea Lizeth Jimenez Ruiz | Mat: 240360259-8 | Grupo: 414-CONA23
+Damaris Giselle Jimenez Jaimes | Mat: 230360387-8 | Grupo: 613-ALBE23
+Fatima Itzel Jimenez Zavaleta | Mat: 230360654-1 | Grupo: 612-ALBE23
+Fernanda Elizabeth Jimenez Ruiz | Mat: 230360414-0 | Grupo: 612-ALBE23
+Iris Naomi Jimenez Cruz | Mat: 250360216-7 | Grupo: 211-TURI25
+Ana Paola Juarez Lara | Mat: 230360154-2 | Grupo: 612-ALBE23
+Edgar Juarez Guadarrama | Mat: 240360265-5 | Grupo: 412-ALBE23
+Giselle Juarez Bernal | Mat: 240360075-8 | Grupo: 412-ALBE23
+Jorge Oswaldo Juarez Mendoza | Mat: 250360538-4 | Grupo: 213-ALBE25
+Natalia Ivett Juarez Dominguez | Mat: 240360477-6 | Grupo: 415-INFO23
+Nayrobi Abisai Juarez Moreno | Mat: 230360248-2 | Grupo: 611-TURI23
+Ezequiel Labra Garcia | Mat: 240360176-4 | Grupo: 415-INFO23
+Lucero Adriana Laguna Nava | Mat: 230360245-8 | Grupo: 614-CONA23
+Cristal Yosahandy Lagunas Eligio | Mat: 240360481-8 | Grupo: 413-ALBE23
+Diego Said Lagunas Ocampo | Mat: 230360295-3 | Grupo: 615-INFO23
+Thayde Monserrat Lagunas Hernandez | Mat: 240360015-4 | Grupo: 411-TURI23
+Oswaldo Manuel Lamadrid Perez | Mat: 250360194-6 | Grupo: 213-ALBE25
+Danna Paola Landa De Paz | Mat: 240360273-9 | Grupo: 411-TURI23
+Gabriel Alejandro Landa Perez | Mat: 230360651-7 | Grupo: 615-INFO23
+Jaqueline Landeros Ponciano | Mat: 230360086-6 | Grupo: 615-INFO23
+Uriel Lara Gonzalez | Mat: 240360385-1 | Grupo: 412-ALBE23
+Litzi Joani Ledesma Armenta | Mat: 250360673-9 | Grupo: 211-TURI25
+Aylin Berenice Leija Pariente | Mat: 230360041-1 | Grupo: 612-ALBE23
+Ashley Sofia Lemus Santiago | Mat: 230360159-1 | Grupo: 613-ALBE23
+Karime Isabella Lemus Lopez | Mat: 250360116-9 | Grupo: 213-ALBE25
+Aaron Leon Lagunas | Mat: 230360369-6 | Grupo: 615-INFO23
+Grace Aline Leyva Vazquez | Mat: 250360575-6 | Grupo: 215-INFO25
+Leo Leyva Ruiz | Mat: 250360377-7 | Grupo: 212-ALBE25
+Alexa Guadalupe Lopez Flores | Mat: 230360553-5 | Grupo: 611-TURI23
+Anjeli Camila Lopez Lopez | Mat: 250360153-2 | Grupo: 214-CONA25
+Diego Armando Lopez Bahena | Mat: 230360256-5 | Grupo: 615-INFO23
+Dulce Maria Lopez Cortes | Mat: 230360493-4 | Grupo: 612-ALBE23
+Francisco Javier Lopez Cortez | Mat: 230360261-5 | Grupo: 616-INFO23
+Gadiel Lopez Macedo | Mat: 240360102-0 | Grupo: 414-CONA23
+Jose Antonio Lopez Bringas | Mat: 240360593-0 | Grupo: 413-ALBE23
+Leonardo Lopez Fitz | Mat: 250360489-0 | Grupo: 215-INFO25
+Leonardo Antonio Lopez Ocampo | Mat: 230360231-8 | Grupo: 612-ALBE23
+Mayra Jaqueline Lopez Santillan | Mat: 230360572-5 | Grupo: 614-CONA23
+Rogelio Lopez Lopez | Mat: 230360115-3 | Grupo: 614-CONA23
+Valeria Rachel Lopez Luna | Mat: 230360332-4 | Grupo: 611-TURI23
+Yosgart Antonio Lopez Garcia | Mat: 230360539-4 | Grupo: 615-INFO23
+Valeria Yunuem Lucas Flores | Mat: 230360372-0 | Grupo: 612-ALBE23
+Bruce Alexander Lugo Corona | Mat: 230360221-9 | Grupo: 615-INFO23
+Francisco Javier Lugo Flores | Mat: 230360200-3 | Grupo: 615-INFO23
+Ashley Azul Luna Lozano | Mat: 230360127-8 | Grupo: 611-TURI23
+Janet Estefania Luna Sandoval | Mat: 230360067-6 | Grupo: 613-ALBE23
+Abigail Macedo Bahena | Mat: 230360130-2 | Grupo: 614-CONA23
+Valeria Macias Lopez | Mat: 250360624-2 | Grupo: 214-CONA25
+Brandon Alexander Maldonado Santiago | Mat: 240360311-7 | Grupo: 415-INFO23
+Kendra Lizeth Maldonado Castellanos | Mat: 250360023-7 | Grupo: 215-INFO25
+Damaris Manzanares Ayala | Mat: 230360170-8 | Grupo: 616-INFO23
+Gael Sebastian Manzanarez Espinoza | Mat: 230360371-2 | Grupo: 615-INFO23
+Andrea Jocelyn Manzano Vasquez | Mat: 230360537-8 | Grupo: 615-INFO23
+Emilio Manzo Palencia | Mat: 250360602-8 | Grupo: 215-INFO25
+Maria Jose Marchan Salamanca | Mat: 250360669-7 | Grupo: 215-INFO25
+Xochitl Marin San Agustin | Mat: 250360318-1 | Grupo: 215-INFO25
+Angel Romeo Marino Gonzalez | Mat: 240360115-2 | Grupo: 415-INFO23
+Patricio Marino Gonzalez | Mat: 250360133-4 | Grupo: 211-TURI25
+Jose David Marquez Gallegos | Mat: 250360649-9 | Grupo: 213-ALBE25
+Paola Isabel Marquez Brito | Mat: 240360177-2 | Grupo: 412-ALBE23
+Rene Marquina Acuña | Mat: 240360308-3 | Grupo: 415-INFO23
+Luis Angel Martin Cardoso | Mat: 240360710-0 | Grupo: 412-ALBE23
+Alexa Naomi Martinez Rojas | Mat: 240360406-5 | Grupo: 414-CONA23
+Alexis Gabriel Martinez Flores | Mat: 230360464-5 | Grupo: 616-INFO23
+Allison Avril Martinez Reyna | Mat: 230360692-1 | Grupo: 612-ALBE23
+Andres Daniel Martinez Marcial | Mat: 230360327-4 | Grupo: 615-INFO23
+Angel David Martinez Garcia | Mat: 240360364-6 | Grupo: 413-ALBE23
+Elizabeth Martinez Salgado | Mat: 240360484-2 | Grupo: 412-ALBE23
+Eloy Martinez Hernandez | Mat: 230360088-2 | Grupo: 613-ALBE23
+Emily Martinez Abarca | Mat: 250360222-5 | Grupo: 213-ALBE25
+Estefani Naomi Martinez Robles | Mat: 230360735-8 | Grupo: 614-CONA23
+Fernando Martinez Alavez | Mat: 250360359-5 | Grupo: 211-TURI25
+Gael Azaeth Martinez Martinez | Mat: 240360129-3 | Grupo: 415-INFO23
+Ian Yured Martinez Zarraga | Mat: 250360115-1 | Grupo: 212-ALBE25
+Jatziri Yamileth Martinez Cabrera | Mat: 250360407-2 | Grupo: 214-CONA25
+Jorge Eduardo Martinez Rodriguez | Mat: 251730237-4 | Grupo: 212-ALBE25
+Julio Samuel Martinez Bacilio | Mat: 250360374-4 | Grupo: 212-ALBE25
+Kenia Jocelyn Martinez Garcia | Mat: 230360536-0 | Grupo: 613-ALBE23
+Lailah Regina Martinez Alcantara | Mat: 240360607-8 | Grupo: 414-CONA23
+Lizeth Martinez Roman | Mat: 230360525-3 | Grupo: 612-ALBE23
+Monserrat Martinez Colin | Mat: 230360608-7 | Grupo: 613-ALBE23
+Santiago Fernando Martinez Serrano | Mat: 230360203-7 | Grupo: 616-INFO23
+Valentina Martinez Vazquez | Mat: 250360612-7 | Grupo: 215-INFO25
+Yesenia Martinez Alavez | Mat: 230360435-5 | Grupo: 613-ALBE23
+Zury Sadai Martinez Gervacio | Mat: 240360085-7 | Grupo: 412-ALBE23
+Grecia Lizet Mateos Hernandez | Mat: 240360613-6 | Grupo: 412-ALBE23
+Yoali Matias Cruz | Mat: 250360509-5 | Grupo: 213-ALBE25
+Sofia Dariana Mauricio Albarran | Mat: 250360121-9 | Grupo: 215-INFO25
+Iris Vanessa Medina Martinez | Mat: 250360120-1 | Grupo: 211-TURI25
+Sharon Medina Garcia | Mat: 240360038-6 | Grupo: 414-CONA23
+Danna Paola Mejia Zamorano | Mat: 250360633-3 | Grupo: 212-ALBE25
+Fernanda Mejia Mejia | Mat: 250360535-0 | Grupo: 212-ALBE25
+Lukha David Mejia Samano | Mat: 230360527-9 | Grupo: 613-ALBE23
+Josue Eduardo Melquiades Hernandez | Mat: 250360332-2 | Grupo: 214-CONA25
+Amoeneth Montzerrath Mendez Ibarra | Mat: 240360193-9 | Grupo: 414-CONA23
+Jorge Luis Mendez Alonso | Mat: 240360231-7 | Grupo: 415-INFO23
+Santiago Mendez Bahena | Mat: 240360066-7 | Grupo: 412-ALBE23
+Daniela Vanessa Mendiola Hernandez | Mat: 240360045-1 | Grupo: 412-ALBE23
+Alonso Mendoza Cabrera | Mat: 230360027-0 | Grupo: 616-INFO23
+America Yaretzi Mendoza Giles | Mat: 240360393-5 | Grupo: 411-TURI23
+Estefani Azucena Mendoza Salgado | Mat: 250360364-5 | Grupo: 215-INFO25
+Jeremi Mendoza Davalos | Mat: 250360396-7 | Grupo: 215-INFO25
+Paola Menez Valdez | Mat: 240360513-8 | Grupo: 411-TURI23
+Perla Menez Landa | Mat: 250360556-6 | Grupo: 214-CONA25
+Perla Rubi Mijangos Beltran | Mat: 240360024-6 | Grupo: 615-INFO23
+Aurora Jimena Millan Villarreal | Mat: 240360359-6 | Grupo: 411-TURI23
+America Miranda Sebastian | Mat: 230360643-4 | Grupo: 614-CONA23
+Camila Miranda Salgado | Mat: 240360342-2 | Grupo: 413-ALBE23
+Francisco Isaac Miranda Sandoval | Mat: 250360065-8 | Grupo: 215-INFO25
+Keidy Hitzayana Miranda Flores | Mat: 230360628-5 | Grupo: 611-TURI23
+Dennis Mojica Barrios | Mat: 230360218-5 | Grupo: 616-INFO23
+Christofer Alexis Molina Villegas | Mat: 240360683-9 | Grupo: 413-ALBE23
+Dilan Mondragon Hernandez | Mat: 250360302-5 | Grupo: 214-CONA25
+Edward Giovanni Mondragon Beltran | Mat: 240360617-7 | Grupo: 412-ALBE23
+Joselyn Mondragon Arredondo | Mat: 230360381-1 | Grupo: 616-INFO23
+Elder Uriel Monroy Garcia | Mat: 240360282-0 | Grupo: 414-CONA23
+Karen Sthefanny Montaño Anzures | Mat: 230360042-9 | Grupo: 612-ALBE23
+Gabriel Eduardo Monter Carrizales | Mat: 240360230-9 | Grupo: 414-CONA23
+Keylin Monter Lopez | Mat: 230360481-9 | Grupo: 612-ALBE23
+Edgar Manuel Montero Lopez | Mat: 220360680-7 | Grupo: 613-ALBE23
+Ivonne Mariel Montes Bahena | Mat: 220360700-3 | Grupo: 413-ALBE23
+Nara Montes Bahena | Mat: 240360548-4 | Grupo: 415-INFO23
+Valeria Estefania Montiel Villafaña | Mat: 240360199-6 | Grupo: 411-TURI23
+Camila Morales Quintana | Mat: 250360417-1 | Grupo: 213-ALBE25
+Enrique Morales Fuentes | Mat: 250360025-2 | Grupo: 215-INFO25
+Geovanny Morales Toledo | Mat: 230360319-1 | Grupo: 613-ALBE23
+Maria Fernanda Morales Mata | Mat: 230360100-5 | Grupo: 616-INFO23
+Evelyn Iveth Moran Rosalino | Mat: 250360718-2 | Grupo: 214-CONA25
+Estibaliz Morante Sanchez | Mat: 250360139-1 | Grupo: 213-ALBE25
+Giovanni Moreno Paredes | Mat: 230360015-5 | Grupo: 615-INFO23
+Renata Moreno Paredes | Mat: 250360573-1 | Grupo: 213-ALBE25
+Vanessa Mota Bahena | Mat: 230360337-3 | Grupo: 611-TURI23
+Mauricio Jesus Najera Villalobos | Mat: 230360583-2 | Grupo: 614-CONA23
+Oralia Nambo Macedo | Mat: 250360249-8 | Grupo: 214-CONA25
+Iris Lizzeth Nava Tenorio | Mat: 240360654-0 | Grupo: 412-ALBE23
+Jose Misael Navarrete Hernandez | Mat: 230360139-3 | Grupo: 613-ALBE23
+Kimberly Madai Navarrete Hernandez | Mat: 240360025-3 | Grupo: 413-ALBE23
+Jorge Alejandro Navarro Farfan | Mat: 230360287-0 | Grupo: 611-TURI23
+Eunice Abigail Nieto Jaimes | Mat: 230360219-3 | Grupo: 614-CONA23
+Noemi Nieves Ortiz | Mat: 250360492-4 | Grupo: 212-ALBE25
+Alondra Naomi Noguez Ruperto | Mat: 240360670-6 | Grupo: 413-ALBE23
+Katya Dayana Nolasco Porcayo | Mat: 250360088-0 | Grupo: 211-TURI25
+Jose Ramon Nuñez Martinez | Mat: 250360276-1 | Grupo: 212-ALBE25
+David Santiago Ocadiz Casique | Mat: 240360248-1 | Grupo: 413-ALBE23
+Cynthia Camila Ocampo Sanchez | Mat: 240360240-8 | Grupo: 411-TURI23
+Damaris Ocampo Roa | Mat: 230360055-1 | Grupo: 613-ALBE23
+Danely Denisse Ocampo Gonzalez | Mat: 250360021-1 | Grupo: 211-TURI25
+Danna Shanel Ocampo Calderon | Mat: 250360251-4 | Grupo: 215-INFO25
+Esmirna Merari Ocampo Martinez | Mat: 250360046-8 | Grupo: 213-ALBE25
+Hanny Vanessa Ocampo Segura | Mat: 240360746-4 | Grupo: 414-CONA23
+Jared Sabino Ocampo Ramos | Mat: 230360509-7 | Grupo: 613-ALBE23
+Jonathan Fernando Ocampo Arellano | Mat: 240360347-1 | Grupo: 415-INFO23
+Yarid Alejandra Ocampo Menes | Mat: 250360205-0 | Grupo: 215-INFO25
+Andrea Ochoa Mejia | Mat: 250360393-4 | Grupo: 213-ALBE25
+Berenice Ochoa Siu | Mat: 240360058-4 | Grupo: 414-CONA23
+Sua Mical Ojeda Arias | Mat: 240360441-2 | Grupo: 412-ALBE23
+Aislynn Jollette Olea Morales | Mat: 250360425-4 | Grupo: 215-INFO25
+Amayrany Yamileth Olivares Marron | Mat: 250360372-8 | Grupo: 213-ALBE25
+Arleth Kristal Olivares Jimenez | Mat: 230360279-7 | Grupo: 611-TURI23
+Diego Olvera Bravo | Mat: 250360071-6 | Grupo: 215-INFO25
+Jimena Olvera Lucero | Mat: 230360441-3 | Grupo: 613-ALBE23
+Zoe Gabriela Olvera Rangel | Mat: 250360597-0 | Grupo: 213-ALBE25
+Cristian Michel Onofre Jimenez | Mat: 250360105-2 | Grupo: 213-ALBE25
+Vania Camila Orozco Rangel | Mat: 250360386-8 | Grupo: 211-TURI25
+Jaime Alexander Ortega Calvo | Mat: 240360726-6 | Grupo: 414-CONA23
+Leilani Valeria Ortega Rocha | Mat: 250360267-0 | Grupo: 213-ALBE25
+Leon Emmanuel Ortega Ramirez | Mat: 230360506-3 | Grupo: 616-INFO23
+Victor Oswaldo Ortega Sanchez | Mat: 230360687-1 | Grupo: 612-ALBE23
+Alejandro Ortiz Valora | Mat: 240360251-5 | Grupo: 413-ALBE23
+Breyda Nataly Ortiz Flores | Mat: 240360236-6 | Grupo: 411-TURI23
+Bryan Felix Ortiz Tapia | Mat: 250360241-5 | Grupo: 213-ALBE25
+Byron Jesus Ortiz Martinez | Mat: 240360740-7 | Grupo: 411-TURI23
+Gustavo Ortiz Sanchez | Mat: 240360144-2 | Grupo: 415-INFO23
+Johan Dahir Ortiz Calderon | Mat: 230360132-8 | Grupo: 614-CONA23
+Vanessa Oviedo Roman | Mat: 230360119-5 | Grupo: 611-TURI23
+Miguel Pacheco Angeles | Mat: 230360418-1 | Grupo: 614-CONA23
+Brenda Joseline Padilla Sanchez | Mat: 240360612-8 | Grupo: 413-ALBE23
+Naomi Yoltzin Palacios Sanchez | Mat: 250360054-2 | Grupo: 213-ALBE25
+Natalia Lizbeth Palomares Lopez | Mat: 250360467-6 | Grupo: 213-ALBE25
+Ximena Palomo-Melendres  | Mat: 250360748-9 | Grupo: 211-TURI25
+Auri Camila Pantaleon Hernandez | Mat: 240360443-8 | Grupo: 411-TURI23
+Irene Janeth Paredes Ocampo | Mat: 250360383-5 | Grupo: 212-ALBE25
+Lorena Ameyali Partida Avila | Mat: 230360605-3 | Grupo: 616-INFO23
+Amairany Pascual Valberde | Mat: 250360283-7 | Grupo: 212-ALBE25
+Carlos Daniel Pascual Martinez | Mat: 230360591-5 | Grupo: 614-CONA23
+Brisia Adilene Pastrana Herrera | Mat: 230360496-7 | Grupo: 614-CONA23
+Larisa Cristina Patricio Vazquez | Mat: 250360034-4 | Grupo: 213-ALBE25
+Javier Guillermo Pedral Martinez | Mat: 230360174-0 | Grupo: 612-ALBE23
+Alfonso Pegueros Gameros | Mat: 230360161-7 | Grupo: 615-INFO23
+Diego Rafael Peralta Dorantes | Mat: 240360016-2 | Grupo: 415-INFO23
+Yuliana Estephanie Peralta Padilla | Mat: 240360745-6 | Grupo: 412-ALBE23
+Abraham Perez Felix | Mat: 230360286-2 | Grupo: 611-TURI23
+Erika Jazmin Perez Delgado | Mat: 230360194-8 | Grupo: 616-INFO23
+Javier Gibran Perez Fuentes | Mat: 250360427-0 | Grupo: 212-ALBE25
+Karen Perez Garcia | Mat: 230360018-9 | Grupo: 614-CONA23
+Maria De Los Angeles Perez Zamudio | Mat: 230360034-6 | Grupo: 616-INFO23
+Sofia Azul Perez Garcia | Mat: 240360029-5 | Grupo: 411-TURI23
+Zaid Perez Castillo | Mat: 230360544-4 | Grupo: 413-ALBE23
+Fernando Uriel Peña Colin | Mat: 240360286-1 | Grupo: 413-ALBE23
+Itzi Pilar Peña Gutierrez | Mat: 240360226-7 | Grupo: 413-ALBE23
+Valeria Peña Salazar | Mat: 250360574-9 | Grupo: 211-TURI25
+Alizon Pichardo Juarez | Mat: 240360027-9 | Grupo: 414-CONA23
+Yair Pineda Torres | Mat: 230360412-4 | Grupo: 612-ALBE23
+Yatziri Rubi Pintor Hernandez | Mat: 240360449-5 | Grupo: 415-INFO23
+Frida Nahomi Plata Rodriguez | Mat: 230360094-0 | Grupo: 611-TURI23
+Montserrat Poblete Pita | Mat: 230360171-6 | Grupo: 613-ALBE23
+Juan Santiago Ponciano Diaz | Mat: 230360111-2 | Grupo: 614-CONA23
+Sara Ponciano Montero | Mat: 240360622-7 | Grupo: 413-ALBE23
+Brayan Porcayo Ascencio | Mat: 230360225-0 | Grupo: 616-INFO23
+Miriam Yazmin Porcayo Rueda | Mat: 240360657-3 | Grupo: 411-TURI23
+Wendy Nayeli Puc Mercenario | Mat: 250360291-0 | Grupo: 214-CONA25
+Alondra Monserrat Quintal Sanchez | Mat: 250360244-9 | Grupo: 215-INFO25
+Angel Gabriel Quintero Parra | Mat: 230360179-9 | Grupo: 614-CONA23
+David Quintero Garcia | Mat: 250360274-6 | Grupo: 211-TURI25
+Alberta Rubi Ramirez Ortiz | Mat: 230360440-5 | Grupo: 611-TURI23
+Angel Josmar Ramirez Tino | Mat: 250360531-9 | Grupo: 212-ALBE25
+Denisse Arleth Ramirez Aranda | Mat: 240360507-0 | Grupo: 411-TURI23
+Iris Antonia Ramirez Joaquin | Mat: 240360244-0 | Grupo: 411-TURI23
+Ivon Sarai Ramirez Arquieta | Mat: 230360550-1 | Grupo: 612-ALBE23
+Katherine Ramirez Serrano | Mat: 230360700-2 | Grupo: 611-TURI23
+Laura Itzel Ramirez Ramirez | Mat: 230360065-0 | Grupo: 615-INFO23
+Aylin Ramos Bustos | Mat: 230360106-2 | Grupo: 613-ALBE23
+Gustavo Ramos Lopez | Mat: 240360439-6 | Grupo: 414-CONA23
+Mahealani Sofia Ramos Gordillo | Mat: 240360137-6 | Grupo: 413-ALBE23
+Sergio Isaac Ramos Miranda | Mat: 240360061-8 | Grupo: 412-ALBE23
+Luis Enrique Rebollar Fabian | Mat: 250360049-2 | Grupo: 215-INFO25
+Sofia Krista Rebollar Toralla | Mat: 250360322-3 | Grupo: 214-CONA25
+Alexia Susana Reyes Cardenas | Mat: 230360388-6 | Grupo: 613-ALBE23
+Gilberto Matias Reyes Angulo | Mat: 250360639-0 | Grupo: 212-ALBE25
+Jesus Eduardo Reyes Garcia | Mat: 250360292-8 | Grupo: 211-TURI25
+Luna Reyes Segura | Mat: 240360304-2 | Grupo: 411-TURI23
+Maria Clarissa Reyes Flores | Mat: 230360258-1 | Grupo: 615-INFO23
+Mia Lizette Reyes Aguilar | Mat: 240360106-1 | Grupo: 412-ALBE23
+Roberto Jafet Reyes Garcia | Mat: 230360237-5 | Grupo: 614-CONA23
+Yosgart Emmanuel Reyes Hernandez | Mat: 240360260-6 | Grupo: 412-ALBE23
+Lesli Reyna Albiter | Mat: 230360439-7 | Grupo: 611-TURI23
+Jesus Reyna Jr  | Mat: 240360257-2 | Grupo: 415-INFO23
+Carlos Reza Morales | Mat: 240360303-4 | Grupo: 415-INFO23
+Lia Itzel Reza Morales | Mat: 240360301-8 | Grupo: 411-TURI23
+Clemente Alonso Rico Mora | Mat: 250360592-1 | Grupo: 212-ALBE25
+Maria Fernanda Rios Gomez | Mat: 230360756-4 | Grupo: 611-TURI23
+Nahomi Yareth Rios Lopez | Mat: 240360687-0 | Grupo: 411-TURI23
+Rebeca Sofia Rios Gurrusquieta | Mat: 250360607-7 | Grupo: 215-INFO25
+Sandra Janahi Rios Porcayo | Mat: 240360288-7 | Grupo: 411-TURI23
+Erika Yulissa Rivas Conda | Mat: 250360463-5 | Grupo: 212-ALBE25
+Rosi Esmeralda Rivas Conda | Mat: 230360719-2 | Grupo: 614-CONA23
+Allyson Aislinn Rivera Bustos | Mat: 230360601-2 | Grupo: 611-TURI23
+Jocelyn Roblero Salgado | Mat: 250360245-6 | Grupo: 212-ALBE25
+Hector Daniel Robles Brito | Mat: 240360499-0 | Grupo: 414-CONA23
+Jonathan Yael Robles Jaimes | Mat: 240360203-6 | Grupo: 415-INFO23
+Alanna Rodriguez Valladares | Mat: 230360645-9 | Grupo: 616-INFO23
+Andrea Rodriguez Torres | Mat: 240360095-6 | Grupo: 415-INFO23
+Azul Maritza Rodriguez Gonzales | Mat: 240360630-0 | Grupo: 411-TURI23
+Daniela Jimena Rodriguez Gonzalez | Mat: 240360246-5 | Grupo: 411-TURI23
+Diego Rodriguez Reyes | Mat: 230360649-1 | Grupo: 613-ALBE23
+Estefani Berenice Rodriguez Ayala | Mat: 250360423-9 | Grupo: 213-ALBE25
+Israel Emiliano Rodriguez Dominguez | Mat: 250360631-7 | Grupo: 214-CONA25
+Ixchel Rodriguez Valladares | Mat: 240360340-6 | Grupo: 413-ALBE23
+Jade Julie Rodriguez Leyva | Mat: 240360723-3 | Grupo: 411-TURI23
+Jahemy Maday Rodriguez Trejo | Mat: 210360518-0 | Grupo: 613-ALBE23
+Jessica Rodriguez Martinez | Mat: 250360192-0 | Grupo: 215-INFO25
+Jose Armando Rodriguez Martinez | Mat: 230360293-8 | Grupo: 615-INFO23
+Leonardo Rodriguez Antunez | Mat: 230360362-1 | Grupo: 616-INFO23
+Mayte Rodriguez Martinez | Mat: 230360150-0 | Grupo: 615-INFO23
+Paola Rodriguez Gonzalez | Mat: 250360074-0 | Grupo: 214-CONA25
+Rubi Guadalupe Rodriguez Botello | Mat: 240360659-9 | Grupo: 414-CONA23
+Victor Antonio Rodriguez Aparicio | Mat: 240360582-3 | Grupo: 413-ALBE23
+Yoleth Rodriguez Gomez | Mat: 250360382-7 | Grupo: 213-ALBE25
+Anali Merary Rojas Hernandez | Mat: 250360566-5 | Grupo: 215-INFO25
+Jatniel Abigail Rojas Roman | Mat: 230360399-3 | Grupo: 611-TURI23
+Karent Melissa Rojas Avila | Mat: 250360532-7 | Grupo: 212-ALBE25
+Laura Esmeralda Rojas Ruano | Mat: 250360375-1 | Grupo: 213-ALBE25
+Luis Angel Rojas Martinez | Mat: 230360534-5 | Grupo: 612-ALBE23
+Mia Jatziry Rojo Velazquez | Mat: 250360495-7 | Grupo: 212-ALBE25
+Athalia Roman Fuentes | Mat: 240360640-9 | Grupo: 411-TURI23
+Cristoval Roman Perez | Mat: 240360721-7 | Grupo: 414-CONA23
+Dafne Solange Roman Deolarte | Mat: 250360544-2 | Grupo: 213-ALBE25
+Dorianh Michel Roman Tapia | Mat: 230360277-1 | Grupo: 613-ALBE23
+Giovany Roman Franco | Mat: 240360360-4 | Grupo: 414-CONA23
+Miriam Roman Roman | Mat: 250360691-1 | Grupo: 212-ALBE25
+Sinai Roman Ocampo | Mat: 230360251-6 | Grupo: 611-TURI23
+Johan Yerai Romano Cardoso | Mat: 240360140-0 | Grupo: 412-ALBE23
+Luis Enrique Romero Hernandez | Mat: 240360252-3 | Grupo: 411-TURI23
+Alexis Eduardo Rosales Villegas | Mat: 250360117-7 | Grupo: 215-INFO25
+Eduardo Alexander Rosales Loera | Mat: 250360648-1 | Grupo: 212-ALBE25
+Carlos Matias Rosas Sanchez | Mat: 240360524-5 | Grupo: 415-INFO23
+Regina Rosas Torres | Mat: 250360340-5 | Grupo: 214-CONA25
+Maritza Jade Ruiz Garcia | Mat: 250360553-3 | Grupo: 211-TURI25
+Ricardo Ruiz Reyes | Mat: 240360030-3 | Grupo: 414-CONA23
+Samantha Ruiz  | Mat: 230360026-2 | Grupo: 616-INFO23
+Isai Salazar Trujillo | Mat: 240360036-0 | Grupo: 413-ALBE23
+Jorge Alejandro Salgado Landa | Mat: 230360354-8 | Grupo: 614-CONA23
+Kelly Camila Salgado Abarca | Mat: 250360093-0 | Grupo: 215-INFO25
+Sara Fernanda Salgado Gomez | Mat: 230360357-1 | Grupo: 613-ALBE23
+Sheila Yamileth Salgado Abarca | Mat: 240360429-7 | Grupo: 412-ALBE23
+Vanessa Salgado Medina | Mat: 230360097-3 | Grupo: 611-TURI23
+Fernanda Salgado Castillo  | Mat: 230360302-7 | Grupo: 614-CONA23
+Gabriel Armando Salmeron Miranda | Mat: 230360273-0 | Grupo: 613-ALBE23
+Manuel Alejandro Salvador Maximo | Mat: 240360141-8 | Grupo: 413-ALBE23
+Alvin Sanchez Lopez | Mat: 250360082-3 | Grupo: 214-CONA25
+Ana Laura Sanchez Mañon | Mat: 230360098-1 | Grupo: 611-TURI23
+Camila Sanchez Zamacona | Mat: 260360001-2 | Grupo: 212-ALBE25
+Christian Sanchez Gonzalez | Mat: 250360625-9 | Grupo: 211-TURI25
+Eder Andres Sanchez Rodriguez | Mat: 240360145-9 | Grupo: 413-ALBE23
+Geraldine Sanchez Flores | Mat: 230360370-4 | Grupo: 612-ALBE23
+Jasia Lisan Sanchez Vazquez | Mat: 250360428-8 | Grupo: 211-TURI25
+Jesus Alberto Sanchez Sotelo | Mat: 240360337-2 | Grupo: 412-ALBE23
+Joshua Gamaliel Sanchez Alonso | Mat: 240360458-6 | Grupo: 412-ALBE23
+Kiara Yaretzi Sanchez Garcia | Mat: 230360701-0 | Grupo: 612-ALBE23
+Kytzia Rebeca Sanchez Rodriguez | Mat: 230360053-6 | Grupo: 612-ALBE23
+Laura Stephani Sanchez Martinez | Mat: 230360206-0 | Grupo: 614-CONA23
+Mildred Ariadna Sanchez Ramirez | Mat: 230360625-1 | Grupo: 613-ALBE23
+Paola Sanchez De Jesus | Mat: 230360694-7 | Grupo: 615-INFO23
+Sandy Sanchez Martinez | Mat: 230360343-1 | Grupo: 614-CONA23
+Stefanny Yamilleth Sanchez Landa | Mat: 230360140-1 | Grupo: 612-ALBE23
+Stephanie Joselin Sanchez Arcos | Mat: 250360481-7 | Grupo: 214-CONA25
+Ulises Nahim Sanchez Flores | Mat: 250360307-4 | Grupo: 215-INFO25
+Ricardo Santamaria Rodea | Mat: 240360091-5 | Grupo: 415-INFO23
+Samuel Ivan Santana Valdez | Mat: 250360253-0 | Grupo: 215-INFO25
+Sandra Vianey Santiago Serrano | Mat: 250360119-3 | Grupo: 213-ALBE25
+Alma Karime Santibañez Salgado | Mat: 230360392-8 | Grupo: 612-ALBE23
+Keimy Ayanamy Santos Yoshino | Mat: 250360092-2 | Grupo: 213-ALBE25
+Edgar Noe Sarabia Godinez | Mat: 250360735-6 | Grupo: 212-ALBE25
+Michelle Sedano Casarruvias | Mat: 230360199-7 | Grupo: 611-TURI23
+Denisson Manuel Serrano Segovia | Mat: 240360498-2 | Grupo: 412-ALBE23
+Juan Aurelio Serrano Sotelo | Mat: 240360130-1 | Grupo: 412-ALBE23
+Johanna Mitzary Servin Vargas | Mat: 240360180-6 | Grupo: 413-ALBE23
+Ruben Sesmas Perez | Mat: 250360456-9 | Grupo: 215-INFO25
+Rodrigo Fernando Sevilla Mendez | Mat: 240360539-3 | Grupo: 413-ALBE23
+Ariadne Juliet Silva Huicochea | Mat: 230360166-6 | Grupo: 613-ALBE23
+Misael Silva Jacobo | Mat: 240360358-8 | Grupo: 412-ALBE23
+Jose Eduardo Silvestre Sotelo | Mat: 250360341-3 | Grupo: 215-INFO25
+Gianna Paola Solano Prado | Mat: 230360044-5 | Grupo: 613-ALBE23
+Alejandra Solis Mendez | Mat: 240360322-4 | Grupo: 414-CONA23
+Cristhian Amaury Soriano Sanchez | Mat: 250360726-5 | Grupo: 213-ALBE25
+Danna Yuleimi Soriano Velazquez | Mat: 240360099-8 | Grupo: 413-ALBE23
+Ailed Alejandra Sosa Marmolejo | Mat: 240360049-3 | Grupo: 415-INFO23
+Axel Ruben Sotelo Alvarez | Mat: 250360035-1 | Grupo: 212-ALBE25
+Adilene Soto Velez | Mat: 230360313-4 | Grupo: 613-ALBE23
+Alexia Dayanna Soto Reyes | Mat: 250360155-7 | Grupo: 214-CONA25
+Santiago Soto De Los Santos | Mat: 250360102-9 | Grupo: 212-ALBE25
+Matthew Spenar Gonzalez | Mat: 250360362-9 | Grupo: 215-INFO25
+Jacobo Mario Ramon Suarez Torres | Mat: 250360675-4 | Grupo: 212-ALBE25
+Xochitl Rubi Tabares Hernandez | Mat: 230360405-8 | Grupo: 616-INFO23
+Valeria Tello Cortez | Mat: 240360590-6 | Grupo: 411-TURI23
+Damaris Arely Tenorio Garcia | Mat: 250360310-8 | Grupo: 213-ALBE25
+Diana Rubi Tenorio Garcia | Mat: 240360021-2 | Grupo: 415-INFO23
+Gustavo Gael Teran Sanchez | Mat: 230360345-6 | Grupo: 615-INFO23
+Eduardo Daniel Tirado Becerra | Mat: 250360512-9 | Grupo: 213-ALBE25
+Gerardo Tlache Martinez | Mat: 250360409-8 | Grupo: 212-ALBE25
+Ana Karen Torres Feliciano | Mat: 250360504-6 | Grupo: 214-CONA25
+Marieli Torres Guillen | Mat: 250360503-8 | Grupo: 211-TURI25
+Angelica Michelle Trejo Espinoza | Mat: 250360521-0 | Grupo: 211-TURI25
+David Uriel Trejo Arrieta | Mat: 240360705-0 | Grupo: 414-CONA23
+Emmanuel Trejo Lopez | Mat: 240360300-0 | Grupo: 414-CONA23
+Juan Asis Trejo Ibarra | Mat: 250360112-8 | Grupo: 215-INFO25
+Megan Teresa Triquis Cuevas | Mat: 240360096-4 | Grupo: 411-TURI23
+Aylin Paola Trujillo Carreño | Mat: 250360215-9 | Grupo: 211-TURI25
+Jairo Jadiel Urbina Alaniz | Mat: 240360277-0 | Grupo: 414-CONA23
+Frida Valeria Uribe Rodriguez | Mat: 240360656-5 | Grupo: 415-INFO23
+Arlet Uriostegui Hernandez | Mat: 230360490-0 | Grupo: 615-INFO23
+Vanessa Mishel Uriostegui Oloarca | Mat: 250360564-0 | Grupo: 213-ALBE25
+Cesar Santiago Uriza Orbe | Mat: 240360074-1 | Grupo: 413-ALBE23
+Angel Daniel Valdez Vazquez | Mat: 230360389-4 | Grupo: 616-INFO23
+Brandon Yoel Valdez Calixto | Mat: 240360414-9 | Grupo: 415-INFO23
+Diego Antonio Valdez Gomez | Mat: 230360554-3 | Grupo: 616-INFO23
+Enrique Valdez Trujillo | Mat: 250360548-3 | Grupo: 214-CONA25
+Erika Valdez Rios | Mat: 240360464-4 | Grupo: 411-TURI23
+Jael Valdez Gomez | Mat: 230360492-6 | Grupo: 613-ALBE23
+Cristina Vanesa Valladares Alvarez | Mat: 230360355-5 | Grupo: 615-INFO23
+Cynthia Jacqueline Valladares Quevedo | Mat: 250360277-9 | Grupo: 213-ALBE25
+Beatriz Adriana Valle Hernandez | Mat: 250360184-7 | Grupo: 214-CONA25
+Jared Yahir Valle Guzman | Mat: 240360667-2 | Grupo: 411-TURI23
+Jose Gabriel Vaquero Ruiz | Mat: 230360209-4 | Grupo: 612-ALBE23
+Mayte Zuley Vargas Martinez | Mat: 232410245-4 | Grupo: 614-CONA23
+Sua Naharai Vasquez Osorio | Mat: 240360398-4 | Grupo: 414-CONA23
+Fernando Vazquez Gonzalez | Mat: 230360114-6 | Grupo: 614-CONA23
+Xochitl Itzel Vazquez Campuzano | Mat: 250360196-1 | Grupo: 211-TURI25
+Antonio Abdiel Vega Padilla | Mat: 230360431-4 | Grupo: 615-INFO23
+Maria Fernanda Vega Leon | Mat: 230360143-5 | Grupo: 612-ALBE23
+Zaira Naomi Vega Zagal | Mat: 240360692-0 | Grupo: 412-ALBE23
+Ximena Velasco Barrios | Mat: 230360146-8 | Grupo: 612-ALBE23
+Arleth Velazquez Valladares | Mat: 250360252-2 | Grupo: 211-TURI25
+Brenda Velazquez Uriostegui | Mat: 230360479-3 | Grupo: 614-CONA23
+Naomi Ayeleth Velazquez Brito | Mat: 250360070-8 | Grupo: 211-TURI25
+Samuel Vences Salgado | Mat: 250360323-1 | Grupo: 213-ALBE25
+Alisson Valeria Vera Segura | Mat: 240360042-8 | Grupo: 415-INFO23
+Ana Paola Vicente Galeana | Mat: 240360197-0 | Grupo: 412-ALBE23
+Marlene Victoriano Navarro | Mat: 250360636-6 | Grupo: 214-CONA25
+Alisson Vilchis Flores | Mat: 240360594-8 | Grupo: 613-ALBE23
+Ariela Michell Vilchis Salgado | Mat: 230360373-8 | Grupo: 614-CONA23
+Luis Angel Vilchis Perez | Mat: 230360320-9 | Grupo: 612-ALBE23
+Steve Vilchis Jurado | Mat: 240360110-3 | Grupo: 413-ALBE23
+Angel Eduardo Villagran Bahena | Mat: 240360520-3 | Grupo: 415-INFO23
+Jorge Alexander Villalva Sanchez | Mat: 240360371-1 | Grupo: 413-ALBE23
+Evelyn Villanueva Basilio | Mat: 250360351-2 | Grupo: 215-INFO25
+Israel Villanueva Basilio | Mat: 250360580-6 | Grupo: 211-TURI25
+Miguel Angel Villanueva Uriostegui | Mat: 230360380-3 | Grupo: 614-CONA23
+Carlos Antonio Villarreal Mejia | Mat: 240360261-4 | Grupo: 414-CONA23
+Melissa Nicte Villazana Torres | Mat: 240360215-0 | Grupo: 412-ALBE23
+Perla Darian Zagal Tabarez | Mat: 240360537-7 | Grupo: 413-ALBE23
+Katia Esmeralda Zamora Jaimes | Mat: 230360623-6 | Grupo: 611-TURI23
+Rubi Carolina Zamora Jaimes | Mat: 250360557-4 | Grupo: 213-ALBE25
+Zoe Jocelyne Zamudio Jimenez | Mat: 240360663-1 | Grupo: 413-ALBE23
+Jorge Zuñiga Cruz | Mat: 250360261-3 | Grupo: 214-CONA25
+
+--- VESPERTINO (504) ---
+Maria Ines Abarca Batalla | Mat: 250360749-7 | Grupo: 225-INFO25
+Oswaldo Enrique Abarca Contreras | Mat: 240360172-3 | Grupo: 422-ALBE23
+Emiliano Hafid Abdala Gutierrez | Mat: 250360183-9 | Grupo: 223-ALBE25
+Dulce Acevedo Melchor | Mat: 240360190-5 | Grupo: 423-CONA23
+Karen Itzel Acevedo Monroy | Mat: 240360348-9 | Grupo: 422-ALBE23
+Huriel Aceves Vergara | Mat: 240360232-5 | Grupo: 423-CONA23
+Lissandro Acosta Galeana | Mat: 230360427-2 | Grupo: 623-INFO23
+Abdiel Jesus Aguilar Gonzalez | Mat: 230360204-5 | Grupo: 625-ALBE23
+Denia Yadani Aguilar Castañeda | Mat: 240360162-4 | Grupo: 422-ALBE23
+Dilan Lysander Aguilar Sanchez | Mat: 250360371-0 | Grupo: 225-INFO25
+Ingrid Michel Aguilar Pedraza | Mat: 240360377-8 | Grupo: 425-INFO23
+Pamela Lisandi Aguilar Pedraza | Mat: 230360510-5 | Grupo: 623-INFO23
+Carlos Aguilera Aleman | Mat: 250360125-0 | Grupo: 224-CONA25
+Jennifer Aguirre Cuevas | Mat: 240360451-1 | Grupo: 423-CONA23
+David Alanis Mendoza | Mat: 240360501-3 | Grupo: 425-INFO23
+Erika Lucero Albavera Garcia | Mat: 250360387-6 | Grupo: 221-TURI25
+Marcos Fernando Aldana Limon | Mat: 240360345-5 | Grupo: 425-INFO23
+Kayra Denisse Aleman Juarez | Mat: 250360149-0 | Grupo: 224-CONA25
+Samantha Lizbeth Alfonso Medero | Mat: 250360599-6 | Grupo: 222-ALBE25
+Lucero Viridiana Almanza Rodriguez | Mat: 250360246-4 | Grupo: 221-TURI25
+Oliver Samuel Alonzo Villa | Mat: 250360732-3 | Grupo: 224-CONA25
+Oscar Alpizar Silvar | Mat: 230360457-9 | Grupo: 622-ALBE23
+Abigail Alvarado Rios | Mat: 240360100-4 | Grupo: 424-INFO23
+Mayrin Alvarado Porcayo | Mat: 230360135-1 | Grupo: 622-ALBE23
+Osmar Neftali Alvarado Montufar | Mat: 230360382-9 | Grupo: 622-ALBE23
+Esteban Abel Alvarez Lopez | Mat: 250360109-4 | Grupo: 224-CONA25
+Hanna Sarai Alvarez Hernandez | Mat: 250360406-4 | Grupo: 225-INFO25
+Miguel Alvarez Rojas | Mat: 250360212-6 | Grupo: 223-ALBE25
+Raymundo Exael Alvarez Gomez | Mat: 240360008-9 | Grupo: 422-ALBE23
+Yuliana Amador Hernandez | Mat: 250360124-3 | Grupo: 226-INFO25
+Roberto Amores Garrido | Mat: 240360319-0 | Grupo: 425-INFO23
+Santiago Amores Tavares | Mat: 250360234-0 | Grupo: 226-INFO25
+Janeth Nataly Antunez Delgado | Mat: 250360178-9 | Grupo: 222-ALBE25
+Lizbeth Angelica Aparicio Ruiz | Mat: 240360500-5 | Grupo: 421-TURI23
+Oscar Aparicio Velazquez | Mat: 250360561-6 | Grupo: 224-CONA25
+Anthony Josue Aranda Nuñez | Mat: 240360651-6 | Grupo: 226-INFO25
+Yunuen Jatziry Aranda Trinidad | Mat: 240360182-2 | Grupo: 421-TURI23
+Fernando Arellano Jaimes | Mat: 230360535-2 | Grupo: 626-CONA23
+Bryan Arias Garcia | Mat: 230360500-6 | Grupo: 623-INFO23
+Nathali Valeria Arias Garcia | Mat: 240360456-0 | Grupo: 421-TURI23
+Fernando Armas Martinez | Mat: 250360232-4 | Grupo: 223-ALBE25
+Alexander Miguel Arrieta Ignacio | Mat: 250360519-4 | Grupo: 226-INFO25
+Ana Mariel Ascencio Rivas | Mat: 230360711-9 | Grupo: 621-TURI23
+Maria Fernanda Ascencion Aviles | Mat: 250360530-1 | Grupo: 221-TURI25
+Evelin Mariela Aurelio Perez | Mat: 230360578-2 | Grupo: 623-INFO23
+Fernando Aviles Jimenez | Mat: 240360560-9 | Grupo: 425-INFO23
+Ximena Aviles Martinez | Mat: 230360274-8 | Grupo: 625-ALBE23
+Alessandra Nahomi Ayala Alvarez | Mat: 230360241-7 | Grupo: 626-CONA23
+Luis Jared Ayala Calixto | Mat: 240360415-6 | Grupo: 223-ALBE25
+Leonardo Geovani Azcue Romo | Mat: 250360526-9 | Grupo: 224-CONA25
+Alan Josue Bahena Arreguin | Mat: 240360213-5 | Grupo: 424-INFO23
+Israel Bahena Hernandez | Mat: 250360590-5 | Grupo: 221-TURI25
+Jesus Antonio Bahena Maximo | Mat: 250360482-5 | Grupo: 225-INFO25
+Jimena Bahena Hernandez | Mat: 240360020-4 | Grupo: 421-TURI23
+Alan Omar Barranco Ramirez | Mat: 230360205-2 | Grupo: 622-ALBE23
+Cesar Abraham Barrera Cuenca | Mat: 230360375-3 | Grupo: 622-ALBE23
+Layla Suad Barrera Peralta | Mat: 240360051-9 | Grupo: 422-ALBE23
+Rodrigo Gael Barrera Dominguez | Mat: 230360014-8 | Grupo: 623-INFO23
+Samuel Barrientos Hernandez | Mat: 250360305-8 | Grupo: 222-ALBE25
+Daniela Lizbeth Barrios Campeano | Mat: 232410514-3 | Grupo: 421-TURI23
+Jaime Rafael Barrios Marroquin | Mat: 170360091-4 | Grupo: 626-CONA23
+Anette Pamela Barron Juarez | Mat: 230360461-1 | Grupo: 623-INFO23
+Ellian Ulises Bañon Velazquez | Mat: 230360653-3 | Grupo: 623-INFO23
+Benjamin Bedolla Salazar | Mat: 242940378-1 | Grupo: 226-INFO25
+Nubia Estefany Beltran Olvera | Mat: 240360200-2 | Grupo: 425-INFO23
+Vianey Beltran Quecho | Mat: 250360466-8 | Grupo: 221-TURI25
+Brenda Itzel Benitez Vargas | Mat: 250360033-6 | Grupo: 223-ALBE25
+Jhojan Azael Benitez Velazquez | Mat: 240360309-1 | Grupo: 222-ALBE25
+Gabriela Bernal Trinidad | Mat: 220360698-9 | Grupo: 224-CONA25
+Lesli Bernal Jaimes | Mat: 230360216-9 | Grupo: 626-CONA23
+Victor Yael Bernal Gallegos | Mat: 230360294-6 | Grupo: 425-INFO23
+Johana Blanquet Mata | Mat: 240360457-8 | Grupo: 424-INFO23
+Jovana Blanquet Mata | Mat: 240360453-7 | Grupo: 424-INFO23
+Abram Uziel Bravo Hernandez | Mat: 240360124-4 | Grupo: 422-ALBE23
+Alexis Uriel Brito Solano | Mat: 240360626-8 | Grupo: 424-INFO23
+Maritza Esmeralda Bruno Zarco | Mat: 240360672-2 | Grupo: 421-TURI23
+Jonathan Eduardo Caballero Sanchez | Mat: 240360419-8 | Grupo: 422-ALBE23
+Kevin Alexis Calderon Sanchez | Mat: 250360108-6 | Grupo: 223-ALBE25
+Luis Fernando Cambray Cruz | Mat: 250360539-2 | Grupo: 222-ALBE25
+Daniela Canche Saavedra | Mat: 240360454-5 | Grupo: 422-ALBE23
+Alexa Escarlett Carbajal Quiñones | Mat: 250360100-3 | Grupo: 226-INFO25
+Oswaldo Arturo Carmona Garcia | Mat: 230360666-5 | Grupo: 624-TURI23
+Julio Cesar Carreon Teodoro | Mat: 230360420-7 | Grupo: 623-INFO23
+Ximena Itzel Carrera Palomares | Mat: 250360229-0 | Grupo: 222-ALBE25
+Dante Santiago Castañeda Lagunas | Mat: 240360321-6 | Grupo: 222-ALBE25
+Vania Camila Castañeda Ferreyra | Mat: 250360248-0 | Grupo: 221-TURI25
+Samantha Nahomi Castillo Olarte | Mat: 250360275-3 | Grupo: 221-TURI25
+Yaretzi Castrejon Roman | Mat: 250360439-5 | Grupo: 223-ALBE25
+Eduardo Castro Reyes | Mat: 240360131-9 | Grupo: 422-ALBE23
+Hector Adrian Castro Ocampo | Mat: 230360175-7 | Grupo: 623-INFO23
+Getsemani Catalan Sanchez | Mat: 250360273-8 | Grupo: 225-INFO25
+Alan Salvador Cedillo Gutierrez | Mat: 240360343-0 | Grupo: 425-INFO23
+Cesar Alexander Cedillo Marban | Mat: 220360163-4 | Grupo: 622-ALBE23
+Estefani Celis Tapia | Mat: 250360254-8 | Grupo: 226-INFO25
+Donovan Rafael Chavez Barrios | Mat: 240360448-7 | Grupo: 423-CONA23
+Luis Daniel Chavez Miranda | Mat: 230360322-5 | Grupo: 621-TURI23
+Juan Andres Cirilo Bernal | Mat: 240360012-1 | Grupo: 424-INFO23
+Kelly Clavel Rojas | Mat: 230360747-3 | Grupo: 626-CONA23
+Alexis Fernando Collado Barranca | Mat: 250360587-1 | Grupo: 222-ALBE25
+Valentina Contreras Cabrera | Mat: 240360472-7 | Grupo: 424-INFO23
+Vianey Cortes Muños | Mat: 220360332-5 | Grupo: 421-TURI23
+Viridiana Colette Cortez Acosta | Mat: 240360327-3 | Grupo: 421-TURI23
+Evelyn Jaqueline Cruz Gonzalez | Mat: 250360191-2 | Grupo: 226-INFO25
+Gardenia Cruz Lopez | Mat: 240360139-2 | Grupo: 421-TURI23
+Kenia Cruz  | Mat: 230360081-7 | Grupo: 622-ALBE23
+Sebastian Cruz Torres | Mat: 240360073-3 | Grupo: 422-ALBE23
+Juan Rodrigo Cuellar Gomez | Mat: 260360003-8 | Grupo: 222-ALBE25
+Alejandra Yatzyri Cuevas Avila | Mat: 250360233-2 | Grupo: 224-CONA25
+Nesli Cuevas Carreto | Mat: 240360154-1 | Grupo: 424-INFO23
+Uriel Cuevas Delgadillo | Mat: 240360202-8 | Grupo: 425-INFO23
+Christopher Gael De La Crus Rodriguez | Mat: 250360243-1 | Grupo: 223-ALBE25
+Jesus Efren De La Rosa Castillo | Mat: 230360160-9 | Grupo: 422-ALBE23
+Alexander De Nova Doroteo | Mat: 250360626-7 | Grupo: 224-CONA25
+Aaron Diaz Ortega | Mat: 260360004-6 | Grupo: 224-CONA25
+Angel Ricardo Diaz Rodriguez | Mat: 220360067-7 | Grupo: 623-INFO23
+Ariadne Sheccid Diaz Gonzalez | Mat: 230360546-9 | Grupo: 625-ALBE23
+Brenda Dennis Diaz Robles | Mat: 240360375-2 | Grupo: 422-ALBE23
+Daren Ariel Diaz Romero | Mat: 230360112-0 | Grupo: 625-ALBE23
+Eder Usiel Diaz Morales | Mat: 250360002-1 | Grupo: 221-TURI25
+Jose Jesus Diaz Araujo | Mat: 240360208-5 | Grupo: 222-ALBE25
+Jose Luis Dircio Mateos | Mat: 250360056-7 | Grupo: 221-TURI25
+Diana Elizabeth Dominguez Hernandez | Mat: 240360738-1 | Grupo: 422-ALBE23
+Elina Cristelle Dominguez Ocampo | Mat: 240360136-8 | Grupo: 422-ALBE23
+Evan Eduardo Dominguez Barrios | Mat: 240360660-7 | Grupo: 222-ALBE25
+Israel Dominguez Martinez | Mat: 250360441-1 | Grupo: 221-TURI25
+Keren Sarai Dominguez Adame | Mat: 250360666-3 | Grupo: 224-CONA25
+Madeline Cossete Dominguez Martinez | Mat: 230360727-5 | Grupo: 621-TURI23
+Melani Yazmin Dominguez Suarez | Mat: 250360613-5 | Grupo: 226-INFO25
+Naomi Jacqueline Dominguez Albiter | Mat: 250360293-6 | Grupo: 226-INFO25
+Martin Fabian Duran Guzman | Mat: 240360334-9 | Grupo: 423-CONA23
+Nur Azul El Sayed Lopez | Mat: 230360585-7 | Grupo: 627-INFO23
+Maria Cristina Eleocadio Rodriguez | Mat: 240360614-4 | Grupo: 422-ALBE23
+Jesus Eduardo Elguea Romero | Mat: 250360209-2 | Grupo: 223-ALBE25
+Camila Espindola Hernandez | Mat: 240360118-6 | Grupo: 424-INFO23
+Jose Fernando Espinoza Hernandez | Mat: 250360686-1 | Grupo: 223-ALBE25
+Alan Oswaldo Esteban Bustamante | Mat: 220360278-0 | Grupo: 423-CONA23
+Alice Sherlin Estrada Garcia | Mat: 250360278-7 | Grupo: 221-TURI25
+Angel Armando Estrada Garcia | Mat: 220360488-5 | Grupo: 623-INFO23
+Carol Ibeth Estrada Pioquinto | Mat: 250360661-4 | Grupo: 226-INFO25
+Miguel Angel Estrada Garcia | Mat: 220360226-9 | Grupo: 622-ALBE23
+Zurisaddai Ruben Falcon Clavel | Mat: 230360235-9 | Grupo: 425-INFO23
+Gadi Silem Ferias Ramos | Mat: 250360311-6 | Grupo: 222-ALBE25
+Ariadna Michelle Fernandez Rincon | Mat: 250360454-4 | Grupo: 225-INFO25
+Diego Kenai Fernandez Andres | Mat: 250360711-7 | Grupo: 224-CONA25
+Estefany Michel Fernandez Cervantes | Mat: 240360447-9 | Grupo: 424-INFO23
+Jenifer Figueroa Torres | Mat: 250360113-6 | Grupo: 221-TURI25
+Stephanie Jared Figueroa Cruz | Mat: 230360060-1 | Grupo: 622-ALBE23
+Miguel Angel Fitz Reyna | Mat: 250360434-6 | Grupo: 221-TURI25
+Angel Issac Flores Diaz | Mat: 240360072-5 | Grupo: 424-INFO23
+Antonio Flores Ibarra | Mat: 250360259-7 | Grupo: 221-TURI25
+Ashley Yatziry Flores De Leon | Mat: 230360136-9 | Grupo: 621-TURI23
+Carlos Eduardo Flores Martinez | Mat: 250360578-0 | Grupo: 225-INFO25
+Itzayana Jazmin Flores Maciel | Mat: 250360343-9 | Grupo: 221-TURI25
+Jose Flores Benitez | Mat: 240360641-7 | Grupo: 425-INFO23
+Jose Luis Flores Casarrubias | Mat: 230360528-7 | Grupo: 625-ALBE23
+Markelia Denisse Flores Rogel | Mat: 250360255-5 | Grupo: 221-TURI25
+Misael Flores Garcia | Mat: 230360310-0 | Grupo: 627-INFO23
+Naomi Flores Ibarra | Mat: 250360256-3 | Grupo: 221-TURI25
+Roxana Valentina Flores Viveros | Mat: 230360031-2 | Grupo: 622-ALBE23
+Sebastian Flores Gonzalez | Mat: 192410083-5 | Grupo: 422-ALBE23
+Vega Alexis Flores Rivera | Mat: 250360363-7 | Grupo: 221-TURI25
+Jair Sinuhe Franco Brito | Mat: 230360109-6 | Grupo: 622-ALBE23
+Cassandra Fuentes Hernandez | Mat: 232940424-4 | Grupo: 624-TURI23
+Karina Naomi Fuentes Gutierrez | Mat: 240360328-1 | Grupo: 421-TURI23
+Keila Sofia Fuentes Perez | Mat: 220360244-2 | Grupo: 621-TURI23
+Luis Fernando Galeana Cardenas | Mat: 240360378-6 | Grupo: 422-ALBE23
+Aixa Deyanira Galindo Hernandez | Mat: 250360549-1 | Grupo: 221-TURI25
+Denisse Galindo Cruz | Mat: 240360270-5 | Grupo: 422-ALBE23
+Sayra Yaretzi Galvan Armenta | Mat: 240360412-3 | Grupo: 421-TURI23
+Lesly Alexandra Galvez Laredo | Mat: 250360522-8 | Grupo: 224-CONA25
+Alberto Isai Garcia Oviedo | Mat: 240360033-7 | Grupo: 424-INFO23
+Axel Yael Garcia Isidoro | Mat: 230360158-3 | Grupo: 623-INFO23
+Brianna Alexa Garcia Trinidad | Mat: 240360023-8 | Grupo: 222-ALBE25
+Carlos Ulises Garcia Silverio | Mat: 230360338-1 | Grupo: 623-INFO23
+Cesar Jafet Garcia Garcia | Mat: 230360083-3 | Grupo: 623-INFO23
+David Francisco Garcia Sanchez | Mat: 250360150-8 | Grupo: 224-CONA25
+Elizabeth Garcia Bastian | Mat: 240360370-3 | Grupo: 421-TURI23
+Evelyn Sarahi Garcia Moreno | Mat: 230360531-1 | Grupo: 626-CONA23
+Gladis Itzel Garcia Diaz | Mat: 240360113-7 | Grupo: 223-ALBE25
+Hector Jair Garcia Galiana | Mat: 230360426-4 | Grupo: 425-INFO23
+Jaqueline Sarhet Garcia Reyes | Mat: 230360062-7 | Grupo: 621-TURI23
+Jose De Jesus Garcia Sotelo | Mat: 240360039-4 | Grupo: 226-INFO25
+Jose Eduardo Garcia Bravo | Mat: 250360041-9 | Grupo: 224-CONA25
+Julio Gabriel Garcia Brito | Mat: 240360470-1 | Grupo: 423-CONA23
+Luis Angel Garcia Figuero | Mat: 250360107-8 | Grupo: 222-ALBE25
+Mario Sebastian Garcia Alejandro | Mat: 230360581-6 | Grupo: 622-ALBE23
+Sinai Garcia Vargas | Mat: 240360222-6 | Grupo: 421-TURI23
+Sofia Garcia Acatitlan | Mat: 250360017-9 | Grupo: 221-TURI25
+Yaneth Garcia Sanchez | Mat: 240360678-9 | Grupo: 425-INFO23
+Angel Daniel Gomez Salgado | Mat: 250360751-3 | Grupo: 226-INFO25
+Axel Javier Gomez Arroyo | Mat: 240360229-1 | Grupo: 422-ALBE23
+Ethan Said Gomez De La Rosa | Mat: 250360594-7 | Grupo: 224-CONA25
+Miguel Angel Gomez Arias | Mat: 250360131-8 | Grupo: 224-CONA25
+Eiza Fernanda Gonzalez Estrada | Mat: 230360266-4 | Grupo: 623-INFO23
+Emmanuel Jamin Gonzalez Roman | Mat: 240360735-7 | Grupo: 224-CONA25
+Erik Ivan Gonzalez Cervantes | Mat: 250360385-0 | Grupo: 225-INFO25
+Jazmin Gonzalez Silvar | Mat: 230360489-2 | Grupo: 622-ALBE23
+Jessica Alexa Gonzalez Flores | Mat: 250360565-7 | Grupo: 221-TURI25
+Jose David Gonzalez Hernandez | Mat: 250360337-1 | Grupo: 221-TURI25
+Jovany Guerrero Guerrero | Mat: 250360679-6 | Grupo: 224-CONA25
+Lluvia Guzman Hernandez | Mat: 240360268-9 | Grupo: 422-ALBE23
+Merari Guzman De Jesus | Mat: 230360334-0 | Grupo: 623-INFO23
+Veronica Hernandes Coahuilas | Mat: 230360378-7 | Grupo: 622-ALBE23
+Ashly Liliana Hernandez Paredes | Mat: 240360680-5 | Grupo: 425-INFO23
+Brando Hernandez Beltran | Mat: 250360404-9 | Grupo: 226-INFO25
+Camila Sofia Hernandez Antonio | Mat: 240360380-2 | Grupo: 421-TURI23
+Eduardo Hernandez Diaz | Mat: 240360417-2 | Grupo: 424-INFO23
+Emely Hernandez Gomez | Mat: 242410349-3 | Grupo: 423-CONA23
+Getsemani Hernandez Carpintero | Mat: 240360046-9 | Grupo: 421-TURI23
+Isaac Hernandez Brito | Mat: 230360590-7 | Grupo: 423-CONA23
+Jose Antonio Hernandez Ramirez | Mat: 230360243-3 | Grupo: 621-TURI23
+Julia Celeste Hernandez Aguilar | Mat: 230360210-2 | Grupo: 622-ALBE23
+Kevin Jair Hernandez Lopez | Mat: 240360263-0 | Grupo: 425-INFO23
+Kimberly Estephany Hernandez Ramirez | Mat: 250360145-8 | Grupo: 222-ALBE25
+Mariana Hernandez Cruz | Mat: 230360557-6 | Grupo: 626-CONA23
+Milca Betsaida Hernandez Miranda | Mat: 230360260-7 | Grupo: 422-ALBE23
+Ricardo Hernandez Reza | Mat: 250360493-2 | Grupo: 222-ALBE25
+Sayuri Magdalena Hernandez Uribe | Mat: 240360695-3 | Grupo: 423-CONA23
+Kimberly Higuera Bustamante | Mat: 250360239-9 | Grupo: 224-CONA25
+Evelyn Ahide Horcasitas Castañeda | Mat: 250360418-9 | Grupo: 225-INFO25
+Jose Angel Valentin Hurtado Bautista | Mat: 250360446-0 | Grupo: 226-INFO25
+Cesar Ignacio Diego | Mat: 250360342-1 | Grupo: 226-INFO25
+Perla Ignacio Brito | Mat: 230360316-7 | Grupo: 623-INFO23
+Tracy Michelle Ixba Nuñez | Mat: 250360368-6 | Grupo: 221-TURI25
+Mireya Dayanna Jacobo Orozco | Mat: 250360685-3 | Grupo: 224-CONA25
+Zaira Jaimes Gonzalez | Mat: 230360538-6 | Grupo: 625-ALBE23
+Andrea Yamile Jaimez Dominguez | Mat: 240360374-5 | Grupo: 422-ALBE23
+Allison Mairen Jeronimo Dominguez | Mat: 240360469-3 | Grupo: 421-TURI23
+Litzi America Jeronimo Hernandez | Mat: 240360239-0 | Grupo: 422-ALBE23
+Aidan Isai Jimenez Soteno | Mat: 250360632-5 | Grupo: 221-TURI25
+Alexander Jimenez Gutierrez | Mat: 240360295-2 | Grupo: 424-INFO23
+Betsaida Jimenez Estrada | Mat: 220360099-0 | Grupo: 621-TURI23
+Elizabeth Jimenez Flores | Mat: 250360470-0 | Grupo: 222-ALBE25
+Maria Guadalupe Jimenez Torres | Mat: 240360600-3 | Grupo: 421-TURI23
+Melany Yessely Jimenez Garcia | Mat: 230360090-8 | Grupo: 623-INFO23
+Oswaldo Jimenez Lara | Mat: 240360584-9 | Grupo: 421-TURI23
+Cristal Juarez Lopez | Mat: 250360026-0 | Grupo: 224-CONA25
+Alan Alexis Lagunas Bonifacio | Mat: 240360192-1 | Grupo: 424-INFO23
+Bryan Alexis Lagunas Solis | Mat: 240360427-1 | Grupo: 222-ALBE25
+Joselin Alexandra Lagunas Morales | Mat: 250360242-3 | Grupo: 221-TURI25
+Axel Fernando Landa Mendez | Mat: 241120247-2 | Grupo: 425-INFO23
+Michel Yael Landa Jardon | Mat: 250360724-0 | Grupo: 223-ALBE25
+Juan Pablo Lara Agapito | Mat: 240360235-8 | Grupo: 425-INFO23
+Matteo Sebastian Lastra Aguilar | Mat: 250360598-8 | Grupo: 223-ALBE25
+Dayla Genesis Leal Polanco | Mat: 250360546-7 | Grupo: 222-ALBE25
+Oliver Leyva Garcia | Mat: 230360706-9 | Grupo: 625-ALBE23
+Alexis Lopez Martinez | Mat: 230360167-4 | Grupo: 623-INFO23
+Brayan Axel Lopez Hernandez | Mat: 200360231-1 | Grupo: 424-INFO23
+Esmeralda Flor De Liz Lopez Terrones | Mat: 250360130-0 | Grupo: 223-ALBE25
+Josue Francisco Lopez Popoca | Mat: 240360621-9 | Grupo: 226-INFO25
+Kenya Yamilet Lopez Lopez | Mat: 250360161-5 | Grupo: 223-ALBE25
+Marco Antonio Lopez Ahedo | Mat: 240360312-5 | Grupo: 423-CONA23
+Miguel Emmanuel Lopez Alvarez | Mat: 230360741-6 | Grupo: 421-TURI23
+Pedro Jared Lopez Flores | Mat: 222410551-6 | Grupo: 621-TURI23
+Sonia Yareli Lopez Salinas | Mat: 240360325-7 | Grupo: 226-INFO25
+Victor Samuel Lopez Bonifacio | Mat: 250360217-5 | Grupo: 222-ALBE25
+Yosmar Aron Lopez Sanchez | Mat: 240360305-9 | Grupo: 424-INFO23
+Herson Isai Luengas Ahedo | Mat: 232410640-6 | Grupo: 424-INFO23
+Said Josue Luna Gomez | Mat: 230360019-7 | Grupo: 625-ALBE23
+Santiago Vicente Macedo Salgado | Mat: 240360495-8 | Grupo: 425-INFO23
+Diego Emanuel Manzanarez Espinoza | Mat: 240360368-7 | Grupo: 421-TURI23
+Sarah Yanina Marchan Zamora | Mat: 230360582-4 | Grupo: 423-CONA23
+Gael Marquez Ruiz | Mat: 230360276-3 | Grupo: 622-ALBE23
+Yahir Alexander Marquez Alonso | Mat: 240360403-2 | Grupo: 424-INFO23
+Rafael Lorenzo Marquina Francisco | Mat: 230360024-7 | Grupo: 622-ALBE23
+Edson Ali Marroquin Martinez | Mat: 250360642-4 | Grupo: 225-INFO25
+Alejandro Martinez Velazquez | Mat: 230360637-6 | Grupo: 424-INFO23
+Balam Quitze Martinez Felix | Mat: 250360494-0 | Grupo: 225-INFO25
+Dulce Camila Martinez Mañon | Mat: 230360518-8 | Grupo: 624-TURI23
+Dulce Liliana Martinez Garcia | Mat: 230360602-0 | Grupo: 621-TURI23
+Edgar Eduardo Martinez Martinez | Mat: 230360437-1 | Grupo: 622-ALBE23
+Edwin Yael Martinez Hernandez | Mat: 240360055-0 | Grupo: 222-ALBE25
+Erick Martinez Garcia | Mat: 250360269-6 | Grupo: 222-ALBE25
+Gabriela Martinez Rodriguez | Mat: 240360217-6 | Grupo: 425-INFO23
+Itzel Arlen Martinez Hernandez | Mat: 230360478-5 | Grupo: 621-TURI23
+Melanie Martinez Guillen | Mat: 240360284-6 | Grupo: 425-INFO23
+Miguel Natanael Martinez Rodriguez | Mat: 230360196-3 | Grupo: 623-INFO23
+Nidia Paola Martinez Salazar | Mat: 230360142-7 | Grupo: 625-ALBE23
+Paola Abigail Martinez Garcia | Mat: 230360600-4 | Grupo: 621-TURI23
+Samantha Yalile Martinez Coria | Mat: 250360593-9 | Grupo: 221-TURI25
+Marbella Denis Mañon Garcia | Mat: 240360035-2 | Grupo: 423-CONA23
+Jennedy Carolina Mejia Dominguez | Mat: 220360045-3 | Grupo: 622-ALBE23
+Nahomi Yorley Melchor Cruz | Mat: 250360644-0 | Grupo: 221-TURI25
+Natali Melchor Estrada | Mat: 230360415-7 | Grupo: 623-INFO23
+Angelica Memije Mendoza | Mat: 240360198-8 | Grupo: 424-INFO23
+Jose Benjamin Mendez Mena | Mat: 250360019-5 | Grupo: 225-INFO25
+Angel Miguel Mendoza Lopez | Mat: 250360053-4 | Grupo: 221-TURI25
+Britney Guadalupe Mendoza Carranza | Mat: 250360313-2 | Grupo: 224-CONA25
+Gael Oleff Mendoza Aranda | Mat: 250360188-8 | Grupo: 221-TURI25
+Henry Isai Mendoza Gallegos | Mat: 240360187-1 | Grupo: 424-INFO23
+Jose Miguel Mendoza Jaimes | Mat: 250360361-1 | Grupo: 225-INFO25
+Mikheel Mendoza Hernandez | Mat: 250360662-2 | Grupo: 225-INFO25
+Valentin Mendoza Romero | Mat: 230360620-2 | Grupo: 623-INFO23
+Diego Josue Menez Torres | Mat: 230360732-5 | Grupo: 627-INFO23
+Jose Antonio Meraz Martinez | Mat: 230360265-6 | Grupo: 622-ALBE23
+Isaac Nicolas Mercenario Gaspar | Mat: 250360440-3 | Grupo: 226-INFO25
+Cristian Antonio Meza Herrera | Mat: 240360006-3 | Grupo: 627-INFO23
+Jose Isidro Miguel Mondragon | Mat: 230360144-3 | Grupo: 423-CONA23
+Dafne Millan Hernandez | Mat: 230360685-5 | Grupo: 624-TURI23
+Yaneli Guadalupe Millan Jimenez | Mat: 230360603-8 | Grupo: 623-INFO23
+Cristopher Emmanuel Miranda Hernandez | Mat: 250360187-0 | Grupo: 226-INFO25
+Alessandra Mondragon Bahena | Mat: 230360232-6 | Grupo: 623-INFO23
+Isai Adonai Montero Martinez | Mat: 240360366-1 | Grupo: 223-ALBE25
+Jatziri Lizeth Montero Martinez | Mat: 230360733-3 | Grupo: 421-TURI23
+Yosselin Montoya Ruiz | Mat: 250360043-5 | Grupo: 226-INFO25
+Angel Yurem Morales Morales | Mat: 250360289-4 | Grupo: 224-CONA25
+Carlos Antonio Morales Martinez | Mat: 230360661-6 | Grupo: 623-INFO23
+Esmeralda Morales Arciniega | Mat: 240360210-1 | Grupo: 425-INFO23
+Juan Pablo Morales Ignacio | Mat: 250360484-1 | Grupo: 222-ALBE25
+Lizbeth Morales Garcia | Mat: 240360508-8 | Grupo: 421-TURI23
+Maria Fernanda Morales Sotelo | Mat: 240360351-3 | Grupo: 422-ALBE23
+Brisa Zulem Moreno Reyes | Mat: 240360081-6 | Grupo: 424-INFO23
+Luz Esther Moreno Ortiz | Mat: 250360696-0 | Grupo: 223-ALBE25
+Usiel Moreno Ortiz | Mat: 230360270-6 | Grupo: 623-INFO23
+Ian David Mota Soria | Mat: 230360089-0 | Grupo: 623-INFO23
+Sandra Camila Mota Bahena | Mat: 250360715-8 | Grupo: 221-TURI25
+Daniela Yamileth Muñiz Garcia | Mat: 230360744-0 | Grupo: 621-TURI23
+Dylan Muñoz Camacho | Mat: 250360103-7 | Grupo: 225-INFO25
+Emiliano Najera Salazar | Mat: 230360070-0 | Grupo: 622-ALBE23
+Priscila Elizabeth Najera Fajardo | Mat: 250360081-5 | Grupo: 225-INFO25
+Ruth Mayre Najera Fernandez | Mat: 250360419-7 | Grupo: 224-CONA25
+Oswaldo Naranjo Lara | Mat: 230360244-1 | Grupo: 627-INFO23
+Anny Jeraldine Nava Dominguez | Mat: 242570298-8 | Grupo: 422-ALBE23
+Sarahi Zurisaday Ocampo Perez | Mat: 250360620-0 | Grupo: 224-CONA25
+Zaid Josue Ocampo Guerrero | Mat: 240360018-8 | Grupo: 424-INFO23
+Oscar Ivan Olea Morales | Mat: 230360487-6 | Grupo: 622-ALBE23
+Sebastian Olea Lara | Mat: 240360423-0 | Grupo: 422-ALBE23
+Daniel Onofre Teran | Mat: 230360269-8 | Grupo: 623-INFO23
+Harumi Aisslin Orihuela Martinez | Mat: 240360474-3 | Grupo: 421-TURI23
+Daniel Absalon Oropeza Roman | Mat: 250360055-9 | Grupo: 225-INFO25
+Ricardo Andres Orrostieta Campos | Mat: 250360129-2 | Grupo: 225-INFO25
+Maria De Jesus Ortega Salgado | Mat: 240360438-8 | Grupo: 423-CONA23
+Angel Jesus Ortiz Bahena | Mat: 240360356-2 | Grupo: 423-CONA23
+Joshua Ortiz Fernandez | Mat: 240360365-3 | Grupo: 422-ALBE23
+Jose Fernando Ortuño Ramos | Mat: 250360728-1 | Grupo: 224-CONA25
+Eric Valentin Osorio Vicente | Mat: 240360256-4 | Grupo: 424-INFO23
+Renata Aidet Osorio Martinez | Mat: 250360127-6 | Grupo: 224-CONA25
+Carlos Daniel Padilla Montes De Oca | Mat: 240360552-6 | Grupo: 425-INFO23
+Evelin Yuliana Palma Gonzalez | Mat: 240360120-2 | Grupo: 425-INFO23
+Ruben Parra Ortiz | Mat: 240360283-8 | Grupo: 425-INFO23
+Zuri Abigail Parra Rivera | Mat: 240360479-2 | Grupo: 422-ALBE23
+Katia Ximena Pastrana Arellano | Mat: 250360179-7 | Grupo: 223-ALBE25
+Pedro Aaron Paz Cortes | Mat: 230360629-3 | Grupo: 621-TURI23
+Blanca Jesus Peralta Santos | Mat: 240360314-1 | Grupo: 425-INFO23
+Yulisa Peralta Valladares | Mat: 250360290-2 | Grupo: 223-ALBE25
+Maria Guadalupe Perea Marin | Mat: 240360105-3 | Grupo: 422-ALBE23
+Angel Jireth Perez Leon | Mat: 240360262-2 | Grupo: 422-ALBE23
+Dulce Dayana Perez Najera | Mat: 240360253-1 | Grupo: 423-CONA23
+Hector Daniel Perez Pita | Mat: 240360541-9 | Grupo: 422-ALBE23
+Jesus Orlando Perez Garcia | Mat: 230360323-3 | Grupo: 622-ALBE23
+Leonardo Fermin Perez Hernandez | Mat: 240360627-6 | Grupo: 425-INFO23
+Matias Aldair Perez Meza | Mat: 250360336-3 | Grupo: 226-INFO25
+Naim Gonzalo Perez Castillo | Mat: 250360640-8 | Grupo: 226-INFO25
+Pedro Perez Flores | Mat: 240360568-2 | Grupo: 224-CONA25
+Cristofer Armando Piña Solano | Mat: 250360487-4 | Grupo: 224-CONA25
+Lucero Popoca Cruz | Mat: 230360385-2 | Grupo: 623-INFO23
+Yadira Guadalupe Popoca Castañeda | Mat: 250360355-3 | Grupo: 221-TURI25
+Israel Portillo Ibarra | Mat: 250360471-8 | Grupo: 222-ALBE25
+Saul Israel Quiterio Teliz | Mat: 250360744-8 | Grupo: 226-INFO25
+Bryan Ramirez Diaz | Mat: 230360326-6 | Grupo: 623-INFO23
+Cristian Manuel Ramirez Trujillo | Mat: 240360440-4 | Grupo: 422-ALBE23
+Emiliano Ramirez Castillo | Mat: 240360409-9 | Grupo: 425-INFO23
+Fernanda Ramirez Acevedo | Mat: 240360250-7 | Grupo: 425-INFO23
+Maria Ivon Ramirez Sanchez | Mat: 250360500-4 | Grupo: 222-ALBE25
+Michell Ramirez Barrera | Mat: 230360647-5 | Grupo: 424-INFO23
+Rafael Ramirez Rojas | Mat: 240360430-5 | Grupo: 425-INFO23
+Ricardo Ramirez Desion | Mat: 240360056-8 | Grupo: 421-TURI23
+Uriel Ramirez Sanchez | Mat: 240360143-4 | Grupo: 425-INFO23
+Alejandro Sinai Ramos Bandera | Mat: 230360033-8 | Grupo: 623-INFO23
+Angel Gabriel Rangel Andres | Mat: 250360459-3 | Grupo: 224-CONA25
+Juan Carlos Rea Silvestre | Mat: 230360695-4 | Grupo: 627-INFO23
+Alexa Samantha Remigio Ocampo | Mat: 240360629-2 | Grupo: 421-TURI23
+Evelyn Vanessa Reyes Martinez | Mat: 240360204-4 | Grupo: 421-TURI23
+Jacqueline Reyes Garcia | Mat: 240360151-7 | Grupo: 224-CONA25
+Maria De Jesus Reyes Vargas | Mat: 240360134-3 | Grupo: 422-ALBE23
+Diego Rios Sierra | Mat: 250360703-4 | Grupo: 222-ALBE25
+Jorge Alberto Rivera Jaimes | Mat: 250360069-0 | Grupo: 226-INFO25
+Melany Abril Rivero Espinoza | Mat: 230360278-9 | Grupo: 621-TURI23
+Andrea Joselyn Robles Flores | Mat: 250360190-4 | Grupo: 221-TURI25
+Alison Kendra Rodriguez Callado | Mat: 240360149-1 | Grupo: 422-ALBE23
+Cristian Rodriguez Soto | Mat: 240360167-3 | Grupo: 422-ALBE23
+Dana Betzaida Rodriguez Fuentes | Mat: 250360134-2 | Grupo: 223-ALBE25
+Jesus Angel Rodriguez Garcia | Mat: 250360392-6 | Grupo: 221-TURI25
+Luis German Rodriguez Garcia | Mat: 230360228-4 | Grupo: 626-CONA23
+Naomi Yiret Rodriguez Aparicio | Mat: 240360354-7 | Grupo: 422-ALBE23
+Sayuri Bridget Rodriguez Fernandez | Mat: 220360267-3 | Grupo: 423-CONA23
+Sofia Rodriguez Carrillo | Mat: 240360395-0 | Grupo: 424-INFO23
+Ivana Geraldine Rojas Delgado | Mat: 240360037-8 | Grupo: 422-ALBE23
+Yadira Rojas Zamudio | Mat: 230360617-8 | Grupo: 624-TURI23
+Eric Jose Roldan Aviles | Mat: 250360226-6 | Grupo: 224-CONA25
+Abran Roman Duran | Mat: 230360409-0 | Grupo: 623-INFO23
+Josue Saul Roman Campos | Mat: 240360335-6 | Grupo: 425-INFO23
+Camila Monserrat Romaniz Merida | Mat: 250360030-2 | Grupo: 224-CONA25
+Alejandra Romero Olivares | Mat: 230360361-3 | Grupo: 622-ALBE23
+Wendy Yamileth Romero Morales | Mat: 250360563-2 | Grupo: 224-CONA25
+Neri Yosmar Roque Gonzalez | Mat: 240360372-9 | Grupo: 423-CONA23
+Vanessa Roque Garcia | Mat: 250360270-4 | Grupo: 223-ALBE25
+Israel Rosales Fermin | Mat: 230360321-7 | Grupo: 623-INFO23
+Angel Moises Rosas Villagomez | Mat: 250360181-3 | Grupo: 224-CONA25
+Mariana Rosas Silvar | Mat: 250360498-1 | Grupo: 223-ALBE25
+Jael Madai Rufino Salmeron | Mat: 222410136-6 | Grupo: 421-TURI23
+Jossimar Azael Ruiz Amador | Mat: 220360320-0 | Grupo: 622-ALBE23
+Liliana Iveth Ruiz Arteaga | Mat: 240360237-4 | Grupo: 422-ALBE23
+Carolyn Saenz Julian | Mat: 250360329-8 | Grupo: 226-INFO25
+Katia Nayeli Salazar Villanueva | Mat: 250360287-8 | Grupo: 223-ALBE25
+Ximena Valeria Salazar Arteaga | Mat: 230360271-4 | Grupo: 623-INFO23
+Mayra Marlene Salcedo Jimenez | Mat: 230360071-8 | Grupo: 622-ALBE23
+Ana Jean Salgado Cruz | Mat: 210360436-5 | Grupo: 221-TURI25
+Diego Alberto Salgado Basave | Mat: 250360445-2 | Grupo: 225-INFO25
+Emely Alexa Salgado Razo | Mat: 250360571-5 | Grupo: 221-TURI25
+Emmanuel Salgado Roman | Mat: 250360742-2 | Grupo: 225-INFO25
+Jocelyn Salgado Guzman | Mat: 250360118-5 | Grupo: 225-INFO25
+Johanna Laday Salgado Razo | Mat: 250360569-9 | Grupo: 221-TURI25
+Luis Erik Salgado Lomas | Mat: 240360652-4 | Grupo: 225-INFO25
+Jesus Geovani Salmeron Quesada | Mat: 250360638-2 | Grupo: 224-CONA25
+Eileen Rebeca San Juan Alvarez | Mat: 230360049-4 | Grupo: 626-CONA23
+Allison Wendi Sanchez Cayetano | Mat: 250360641-6 | Grupo: 225-INFO25
+Benjamin Nebayot Sanchez Pita | Mat: 230360117-9 | Grupo: 623-INFO23
+Camila Yazmin Sanchez Cardoso | Mat: 230360040-3 | Grupo: 622-ALBE23
+Diego Sanchez Ceja | Mat: 250360542-6 | Grupo: 226-INFO25
+Noli Sherlyn Sanchez Garcia | Mat: 240360559-1 | Grupo: 425-INFO23
+Norma Angelica Sanchez Tapia | Mat: 250360754-7 | Grupo: 224-CONA25
+Santiago Sanchez Vega | Mat: 250360061-7 | Grupo: 224-CONA25
+Valeria Monserrat Sanchez Cayetano | Mat: 230360604-6 | Grupo: 623-INFO23
+Yatziri Sanchez Brito | Mat: 250360148-2 | Grupo: 225-INFO25
+Juan David Sandoval Jaimes | Mat: 230360475-1 | Grupo: 623-INFO23
+Ximena Isabel Sandoval Morales | Mat: 230360745-7 | Grupo: 621-TURI23
+Carmen Mayte Santamaria Renteria | Mat: 250360073-2 | Grupo: 223-ALBE25
+Camila Santiago Gonzalez | Mat: 240360184-8 | Grupo: 421-TURI23
+Carlos Daniel Santiago Peñaranda | Mat: 230360707-7 | Grupo: 622-ALBE23
+Erika Yuleny Santiago Barragan | Mat: 240360583-1 | Grupo: 425-INFO23
+Emmanuel Santos Romero | Mat: 250360525-1 | Grupo: 226-INFO25
+Emmanuel Santos Velazquez | Mat: 250360339-7 | Grupo: 226-INFO25
+Karla Rubi Santos Ramirez | Mat: 232410627-3 | Grupo: 625-ALBE23
+Ana Michelle Santoscoy Ramirez | Mat: 230360761-4 | Grupo: 621-TURI23
+Edgar Alonso Segundo Peralta | Mat: 250360312-4 | Grupo: 225-INFO25
+Luna Odalys Segura Bautista | Mat: 230360300-1 | Grupo: 625-ALBE23
+Erick Patricio Selva Brozal | Mat: 250360152-4 | Grupo: 223-ALBE25
+Wendy Vanessa Serna Ramirez | Mat: 250360614-3 | Grupo: 226-INFO25
+Luis Fernando Silvar Gomez | Mat: 230360131-0 | Grupo: 622-ALBE23
+Danna Lizeth Solano Cervantes | Mat: 250360334-8 | Grupo: 221-TURI25
+Tamara Rubi Solano Brito | Mat: 252410521-6 | Grupo: 223-ALBE25
+Monica Solis Mendez | Mat: 250360520-2 | Grupo: 226-INFO25
+Abigail Sotelo De La Rosa | Mat: 230360386-0 | Grupo: 621-TURI23
+Alondra Paola Sotelo Guadarrama | Mat: 230360259-9 | Grupo: 626-CONA23
+Katherine Sotelo Torres | Mat: 240360361-2 | Grupo: 425-INFO23
+Kimberly Yoana Sotelo Guzman | Mat: 250360502-0 | Grupo: 223-ALBE25
+Mario Emiliano Soto Garcia | Mat: 250360697-8 | Grupo: 225-INFO25
+Keyla Sharis Suarez Figueroa | Mat: 252940179-2 | Grupo: 221-TURI25
+Axel Dariel Tabarez Jaramillo | Mat: 240360326-5 | Grupo: 424-INFO23
+Juan Carlos Tapia Mendez | Mat: 230360432-2 | Grupo: 623-INFO23
+Ana Tavira Figueroa | Mat: 240360734-0 | Grupo: 421-TURI23
+Araceli Teran Popoca | Mat: 230360567-5 | Grupo: 621-TURI23
+Emmanuel Teran Garcia | Mat: 250360478-3 | Grupo: 224-CONA25
+Brian Jesus Toledo Flores | Mat: 250360039-3 | Grupo: 222-ALBE25
+Axel Yahir Toral Rodriguez | Mat: 240360684-7 | Grupo: 421-TURI23
+Kevin Alexis Toral Rodriguez | Mat: 230360413-2 | Grupo: 626-CONA23
+Javier Toto Hernandez | Mat: 250360737-2 | Grupo: 223-ALBE25
+Edgar Fernando Trejo Ibarra | Mat: 230360020-5 | Grupo: 627-INFO23
+Joshua Alexander Trucios Fernandez | Mat: 240360087-3 | Grupo: 421-TURI23
+Azucena Trujillo Olivares | Mat: 250360589-7 | Grupo: 221-TURI25
+Jaime Trujillo Villegas | Mat: 250360452-8 | Grupo: 226-INFO25
+Joan Alain Uriostegui Galindo | Mat: 240360553-4 | Grupo: 423-CONA23
+Esteban Said Valdez Noriega | Mat: 240360401-6 | Grupo: 422-ALBE23
+Giovanni Alexander Valdez Salinas | Mat: 240360032-9 | Grupo: 425-INFO23
+Miguel Angel Valdovinos Hernandez | Mat: 230360074-2 | Grupo: 425-INFO23
+Eduardo Mauricio Valladares Quevedo | Mat: 230360312-6 | Grupo: 623-INFO23
+Estefani Valladares Pastrana | Mat: 230360084-1 | Grupo: 621-TURI23
+Camila Jacquelyn Valle Morales | Mat: 232410145-6 | Grupo: 621-TURI23
+Ana Victoria Vargas Vazquez | Mat: 250360517-8 | Grupo: 221-TURI25
+Dereck Abraham Vargas Juarez | Mat: 240360194-7 | Grupo: 425-INFO23
+Erandi Janeisi Vargas Benitez | Mat: 240360349-7 | Grupo: 422-ALBE23
+Ivonne Ariadna Vargas Antunez | Mat: 250360622-6 | Grupo: 223-ALBE25
+Jose Antonio Vargas Mercado | Mat: 240360209-3 | Grupo: 424-INFO23
+Angel Gabriel Vazquez Landa | Mat: 250360720-8 | Grupo: 226-INFO25
+Angel Leonardo Vazquez Guevara | Mat: 250360315-7 | Grupo: 225-INFO25
+Gerardo Javier Vazquez Gonzalez | Mat: 250360451-0 | Grupo: 226-INFO25
+Jaquelinne Vazquez Trejo | Mat: 250360746-3 | Grupo: 224-CONA25
+Emiliano Vega Munguia | Mat: 250360469-2 | Grupo: 224-CONA25
+Jesus Emmanuel Velazquez Bahena | Mat: 230360391-0 | Grupo: 623-INFO23
+Jose Martin Velazquez Onofre | Mat: 250360402-3 | Grupo: 225-INFO25
+Lluvia Valentina Velazquez Lara | Mat: 230360289-6 | Grupo: 622-ALBE23
+Mary Carmen Velazquez Vergara | Mat: 230360430-6 | Grupo: 621-TURI23
+Miguel Angel Velazquez Perez | Mat: 250360497-3 | Grupo: 223-ALBE25
+Monserrath Velazquez Pedroza | Mat: 240360748-0 | Grupo: 424-INFO23
+Oscar Rodrigo Velazquez Gonzalez | Mat: 230360297-9 | Grupo: 623-INFO23
+Aidee Velez Morales | Mat: 240360296-0 | Grupo: 424-INFO23
+Jenifer Valentina Venancio Matos | Mat: 240360336-4 | Grupo: 422-ALBE23
+Ariana Vences Tinoco | Mat: 240360376-0 | Grupo: 422-ALBE23
+Angeles Evelyn Vera Morales | Mat: 250360122-7 | Grupo: 221-TURI25
+Orlando Yandel Vergara Castillo | Mat: 250360453-6 | Grupo: 225-INFO25
+Melanie Victorio  | Mat: 230360305-0 | Grupo: 621-TURI23
+Ramsses Jhosafat Vidal Gonzalez | Mat: 230360615-2 | Grupo: 421-TURI23
+Yahir Vieyra Lopez | Mat: 230360524-6 | Grupo: 622-ALBE23
+Kaled De Jesus Villa Diaz | Mat: 250360214-2 | Grupo: 225-INFO25
+Isis Joselyn Villalba Mejia | Mat: 250360014-6 | Grupo: 226-INFO25
+Noemi Eunice Villalba Mejia | Mat: 230360315-9 | Grupo: 422-ALBE23
+Owen Yahel Villalba Cruz | Mat: 230360347-2 | Grupo: 621-TURI23
+Hector Villalobos Bolivar | Mat: 250360400-7 | Grupo: 223-ALBE25
+Camila Yamileth Villamil Dominguez | Mat: 250360432-0 | Grupo: 225-INFO25
+Samantha Violeta Villasana Peralta | Mat: 240360181-4 | Grupo: 421-TURI23
+Emiliano Viruegas Marquez | Mat: 240360234-1 | Grupo: 422-ALBE23
+Alexa Sherlin Zermeño Aguilar | Mat: 240360275-4 | Grupo: 422-ALBE23
+Justin Roberto Zompa Uribe | Mat: 240360383-6 | Grupo: 422-ALBE23
+
+--- SIN TURNO (1) ---
+Brian Pizaña Delgadillo | Mat: 210360182-5 | Grupo: NO ASIGNADO
+

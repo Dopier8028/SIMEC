@@ -1,10 +1,15 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, filedialog, messagebox
 import sqlite3
 import os
+import csv
+import shutil
 from datetime import datetime, timedelta
 import json
 import subprocess
+
+CARPETA_ALUMNOS = "alumnos"
+ARCHIVO_ALUMNOS = os.path.join(CARPETA_ALUMNOS, "alumnos.xlsx")
 
 # ====== ANIMACIONES ======
 def animate_element_slide_in(widget, delay=0, direction="right", duration=400):
@@ -161,6 +166,186 @@ def guardar_config():
 
 cargar_config()
 
+# ====== ALUMNOS DESDE EXCEL (fuente principal) ======
+def _mapear_columnas_excel(columnas):
+    col_map = {}
+    for c in columnas:
+        cl = str(c).strip().lower()
+        if "matr" in cl:
+            col_map["matricula"] = c
+        elif "tel" in cl or "cel" in cl or "móvil" in cl or "movil" in cl:
+            col_map["telefono"] = c
+        elif "grupo" in cl:
+            col_map["grupo"] = c
+        elif "segundo" in cl and "apell" in cl:
+            col_map["ap_materno"] = c
+        elif "primer" in cl and "apell" in cl:
+            col_map["ap_paterno"] = c
+        elif cl == "nombre" or (cl.startswith("nombre") and "apell" not in cl):
+            col_map["nombre"] = c
+    return col_map
+
+
+def _valor_celda(val):
+    if val is None:
+        return ""
+    s = str(val).strip()
+    return "" if s.lower() == "nan" else s
+
+
+def _registro_desde_dict(fila, col_map):
+    mat = _valor_celda(fila.get(col_map.get("matricula", ""), ""))
+    if not mat:
+        return None
+    nombre = _valor_celda(fila.get(col_map.get("nombre", ""), "")).title()
+    ap_p = _valor_celda(fila.get(col_map.get("ap_paterno", ""), "")).title()
+    ap_m = _valor_celda(fila.get(col_map.get("ap_materno", ""), "")).title()
+    grupo = _valor_celda(fila.get(col_map.get("grupo", ""), ""))
+    telefono = _valor_celda(fila.get(col_map.get("telefono", ""), ""))
+    return (nombre, ap_p, ap_m, mat, grupo, "Activo", telefono)
+
+
+def leer_registros_excel(ruta):
+    registros = []
+    if ruta.lower().endswith(".csv"):
+        with open(ruta, newline="", encoding="utf-8-sig") as f:
+            lector = csv.DictReader(f)
+            col_map = _mapear_columnas_excel(lector.fieldnames or [])
+            for fila in lector:
+                reg = _registro_desde_dict(fila, col_map)
+                if reg:
+                    registros.append(reg)
+        return registros
+
+    try:
+        import pandas as pd
+        df = pd.read_excel(ruta)
+        df.columns = [str(c).strip() for c in df.columns]
+        col_map = _mapear_columnas_excel(df.columns)
+        if "matricula" not in col_map:
+            raise ValueError("No se encontró columna de matrícula en el Excel")
+        for _, row in df.iterrows():
+            fila = {c: row[c] for c in df.columns}
+            reg = _registro_desde_dict(fila, col_map)
+            if reg:
+                registros.append(reg)
+        return registros
+    except ImportError:
+        pass
+
+    import openpyxl
+    wb = openpyxl.load_workbook(ruta, read_only=True, data_only=True)
+    hoja = wb.active
+    filas = list(hoja.iter_rows(values_only=True))
+    wb.close()
+    if not filas:
+        return registros
+    encabezados = [str(c).strip() if c is not None else "" for c in filas[0]]
+    col_map = _mapear_columnas_excel(encabezados)
+    if "matricula" in col_map:
+        idx = {k: encabezados.index(v) for k, v in col_map.items()}
+        for fila in filas[1:]:
+            if not fila or not any(fila):
+                continue
+            fila_dict = {}
+            for clave, i in idx.items():
+                if i < len(fila):
+                    fila_dict[col_map[clave]] = fila[i]
+            reg = _registro_desde_dict(fila_dict, col_map)
+            if reg:
+                registros.append(reg)
+    else:
+        for fila in filas[1:]:
+            if not fila or not fila[0]:
+                continue
+            mat = _valor_celda(fila[0])
+            nombre = _valor_celda(fila[1] if len(fila) > 1 else "").title()
+            ap_p = _valor_celda(fila[2] if len(fila) > 2 else "").title()
+            ap_m = _valor_celda(fila[3] if len(fila) > 3 else "").title()
+            grupo = _valor_celda(fila[5] if len(fila) > 5 else "")
+            telefono = _valor_celda(fila[6] if len(fila) > 6 else "")
+            registros.append((nombre, ap_p, ap_m, mat, grupo, "Activo", telefono))
+    return registros
+
+
+def buscar_archivo_alumnos():
+    os.makedirs(CARPETA_ALUMNOS, exist_ok=True)
+    if os.path.isfile(ARCHIVO_ALUMNOS):
+        return ARCHIVO_ALUMNOS
+    for nombre in sorted(os.listdir(CARPETA_ALUMNOS)):
+        if nombre.lower().endswith((".xlsx", ".xls", ".csv")):
+            return os.path.join(CARPETA_ALUMNOS, nombre)
+    return None
+
+
+def sincronizar_alumnos_desde_excel(ruta=None, mostrar_error=False):
+    if ruta is None:
+        ruta = buscar_archivo_alumnos()
+    if not ruta or not os.path.isfile(ruta):
+        return 0, None
+    try:
+        registros = leer_registros_excel(ruta)
+        if not registros:
+            msg = "El archivo no contiene alumnos válidos (revisa matrículas y encabezados)."
+            if mostrar_error:
+                messagebox.showwarning("Importar alumnos", msg)
+            return 0, msg
+        conn = sqlite3.connect("sistema.db")
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM estudiantes")
+        cursor.executemany(
+            """INSERT INTO estudiantes
+               (nombre, ap_paterno, ap_materno, matricula, grupo, estado, telefono)
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            registros,
+        )
+        conn.commit()
+        conn.close()
+        return len(registros), f"Se cargaron {len(registros)} alumnos desde Excel."
+    except Exception as e:
+        msg = f"No se pudo leer el Excel: {e}"
+        if mostrar_error:
+            messagebox.showerror("Importar alumnos", msg)
+        return 0, msg
+
+
+def importar_alumnos_archivo(tabla_widget=None, recargar=None):
+    ruta = filedialog.askopenfilename(
+        title="Seleccionar lista de alumnos (Excel o CSV)",
+        filetypes=[
+            ("Excel", "*.xlsx *.xls"),
+            ("CSV", "*.csv"),
+            ("Todos", "*.*"),
+        ],
+    )
+    if not ruta:
+        return
+    os.makedirs(CARPETA_ALUMNOS, exist_ok=True)
+    ext = os.path.splitext(ruta)[1].lower()
+    destino = ARCHIVO_ALUMNOS if ext in (".xlsx", ".xls") else os.path.join(CARPETA_ALUMNOS, f"alumnos{ext}")
+    if os.path.abspath(ruta) != os.path.abspath(destino):
+        shutil.copy2(ruta, destino)
+    total, msg = sincronizar_alumnos_desde_excel(destino, mostrar_error=True)
+    if total and msg:
+        messagebox.showinfo("Importar alumnos", f"{msg}\n\nArchivo guardado en:\n{destino}")
+        if recargar:
+            recargar()
+        elif tabla_widget:
+            for item in tabla_widget.get_children():
+                tabla_widget.delete(item)
+            conn = sqlite3.connect("sistema.db")
+            cur = conn.cursor()
+            cur.execute(
+                "SELECT nombre, ap_paterno, ap_materno, matricula, COALESCE(grupo,''), COALESCE(estado,'') FROM estudiantes ORDER BY grupo, ap_paterno"
+            )
+            for nombre, ap, am, mat, grupo, estado in cur.fetchall():
+                tabla_widget.insert(
+                    "",
+                    "end",
+                    values=(nombre, ap, am, mat, grupo, turno_nombre_grupo(grupo), estado),
+                )
+            conn.close()
+
 # ====== DETECTAR TURNO ======
 def obtener_turno_actual():
     hora = datetime.now().strftime("%H:%M")
@@ -215,27 +400,25 @@ def crear_bd():
         )
     """)
 
-    # Verificar y agregar columna grupo si no existe
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS estudiantes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT,
+            ap_paterno TEXT,
+            ap_materno TEXT,
+            matricula TEXT UNIQUE,
+            grupo TEXT,
+            estado TEXT DEFAULT 'Activo',
+            telefono TEXT DEFAULT ''
+        )
+    """)
+
     cursor.execute("PRAGMA table_info(estudiantes)")
     columns = [col[1] for col in cursor.fetchall()]
-    if 'grupo' not in columns:
+    if "grupo" not in columns:
         cursor.execute("ALTER TABLE estudiantes ADD COLUMN grupo TEXT")
-
-    # Verificar y agregar columna telefono si no existe
-    if 'telefono' not in columns:
+    if "telefono" not in columns:
         cursor.execute("ALTER TABLE estudiantes ADD COLUMN telefono TEXT")
-
-    # Insertar estudiantes de ejemplo si no existen
-    cursor.execute("SELECT COUNT(*) FROM estudiantes")
-    if cursor.fetchone()[0] == 0:
-        estudiantes_ejemplo = [
-            ("Juan", "Pérez", "García", "2024001", "A1", "", "5512345678"),
-            ("María", "López", "Hernández", "2024002", "A1", "", "5523456789"),
-            ("Carlos", "Ramírez", "Torres", "2024003", "A2", "", "5534567890"),
-            ("Ana", "Gómez", "Sánchez", "2024004", "A2", "", "5545678901"),
-            ("Luis", "Martínez", "Rodríguez", "2024005", "B1", "", "5556789012"),
-        ]
-        cursor.executemany("INSERT INTO estudiantes (nombre, ap_paterno, ap_materno, matricula, grupo, estado, telefono) VALUES (?, ?, ?, ?, ?, ?, ?)", estudiantes_ejemplo)
 
     conn.commit()
     conn.close()
@@ -263,6 +446,154 @@ def obtener_bd_dia():
     """)
     conn.commit()
     return conn
+
+# ====== TURNO Y FALTAS EN TXT ======
+def turno_digit_grupo(grupo):
+    """ 2261 → Matutino (mañana)
+2262 → Vespertino (tarde)"""
+    g = str(grupo or "").strip()
+    if len(g) >= 4 and g[:3].isdigit():
+        d = g[3]
+        if d in ("1", "2"):
+            return d
+    if len(g) >= 2:
+        d = g[1]
+        if d in ("1", "2"):
+            return d
+    return None
+
+
+def sql_filtro_turno(turno_sel):
+    if turno_sel == "Matutino (1)":
+        return (
+            "(CASE WHEN LENGTH(COALESCE(grupo,'')) >= 4 AND SUBSTR(grupo,1,3) GLOB '[0-9][0-9][0-9]' "
+            "THEN SUBSTR(grupo,4,1) ELSE SUBSTR(grupo,2,1) END) = '1'"
+        )
+    if turno_sel == "Vespertino (2)":
+        return (
+            "(CASE WHEN LENGTH(COALESCE(grupo,'')) >= 4 AND SUBSTR(grupo,1,3) GLOB '[0-9][0-9][0-9]' "
+            "THEN SUBSTR(grupo,4,1) ELSE SUBSTR(grupo,2,1) END) = '2'"
+        )
+    return None
+
+
+def turno_nombre_grupo(grupo):
+    d = turno_digit_grupo(grupo)
+    if d == "1":
+        return "Matutino"
+    if d == "2":
+        return "Vespertino"
+    return "—"
+
+
+def hora_a_minutos(hhmm):
+    try:
+        h, m = hhmm.strip().split(":")
+        return int(h) * 60 + int(m)
+    except (ValueError, AttributeError):
+        return 0
+
+
+def obtener_hora_cierre_dia():
+    return config.get("hora_cierre_dia", config.get("vespertino", {}).get("salida_fin", "20:30"))
+
+
+def ruta_bd_dia(fecha_str=None):
+    if not fecha_str:
+        fecha_str = datetime.now().strftime("%Y-%m-%d")
+    y, m, _ = fecha_str.split("-")
+    return os.path.join("asistencias", f"{y}-{m}", f"{fecha_str}.db")
+
+
+def ruta_txt_faltas(fecha_str=None):
+    if not fecha_str:
+        fecha_str = datetime.now().strftime("%Y-%m-%d")
+    y, m, _ = fecha_str.split("-")
+    carpeta = os.path.join("asistencias", f"{y}-{m}")
+    os.makedirs(carpeta, exist_ok=True)
+    return os.path.join(carpeta, f"{fecha_str}_faltas.txt")
+
+
+def guardar_faltas_en_txt(fecha_str=None):
+    if not fecha_str:
+        fecha_str = datetime.now().strftime("%Y-%m-%d")
+    ruta_db = ruta_bd_dia(fecha_str)
+    if not os.path.isfile(ruta_db):
+        return None, "No hay asistencia registrada para esa fecha."
+
+    conn_dia = sqlite3.connect(ruta_db)
+    cur = conn_dia.cursor()
+    cur.execute(
+        """SELECT nombre, ap_paterno, ap_materno, matricula
+           FROM control_dia WHERE estado = 'Falta' ORDER BY ap_paterno, nombre"""
+    )
+    faltas = cur.fetchall()
+    conn_dia.close()
+
+    grupos = {}
+    conn = sqlite3.connect("sistema.db")
+    cur = conn.cursor()
+    for _, _, _, mat in faltas:
+        cur.execute("SELECT COALESCE(grupo, '') FROM estudiantes WHERE matricula = ?", (mat,))
+        row = cur.fetchone()
+        grupos[mat] = row[0] if row else ""
+    conn.close()
+
+    por_turno = {"Matutino": [], "Vespertino": [], "Sin turno": []}
+    for nombre, ap, am, mat in faltas:
+        grupo = grupos.get(mat, "")
+        turno = turno_nombre_grupo(grupo)
+        linea = f"{nombre} {ap} {am} | Mat: {mat} | Grupo: {grupo or '—'}"
+        if turno == "Matutino":
+            por_turno["Matutino"].append(linea)
+        elif turno == "Vespertino":
+            por_turno["Vespertino"].append(linea)
+        else:
+            por_turno["Sin turno"].append(linea)
+
+    fecha_fmt = datetime.strptime(fecha_str, "%Y-%m-%d").strftime("%d/%m/%Y")
+    ahora = datetime.now().strftime("%d/%m/%Y %H:%M")
+    lineas = [
+        "=" * 60,
+        "REPORTE DE FALTAS — SIMEC CONALEP",
+        f"Fecha: {fecha_fmt}",
+        f"Generado: {ahora}",
+        f"Total de faltas: {len(faltas)}",
+        "(Turno: tras prefijo de carrera, 1 = mañana, 2 = tarde)",
+        "=" * 60,
+        "",
+    ]
+    for titulo, lista in por_turno.items():
+        if not lista:
+            continue
+        lineas.append(f"--- {titulo.upper()} ({len(lista)}) ---")
+        lineas.extend(lista)
+        lineas.append("")
+
+    ruta_txt = ruta_txt_faltas(fecha_str)
+    with open(ruta_txt, "w", encoding="utf-8") as f:
+        f.write("\n".join(lineas))
+
+    return ruta_txt, f"Se guardaron {len(faltas)} faltas en:\n{ruta_txt}"
+
+
+def programar_exportacion_faltas(root):
+    def revisar():
+        try:
+            hoy = datetime.now().strftime("%Y-%m-%d")
+            if config.get("ultimo_export_faltas") != hoy:
+                ahora = datetime.now().strftime("%H:%M")
+                if hora_a_minutos(ahora) >= hora_a_minutos(obtener_hora_cierre_dia()):
+                    ruta, _ = guardar_faltas_en_txt(hoy)
+                    if ruta:
+                        config["ultimo_export_faltas"] = hoy
+                        guardar_config()
+        except Exception as e:
+            print(f"Exportación automática de faltas: {e}")
+        if root.winfo_exists():
+            root.after(60000, revisar)
+
+    root.after(8000, revisar)
 
 # ====== LIMPIAR ROOT ======
 def limpiar(root):
@@ -323,6 +654,28 @@ def mostrar_estudiantes(panel):
     frame_opciones.grid_rowconfigure(0, weight=1)
     frame_opciones.grid_rowconfigure(1, weight=1)
 
+    frame_import = tk.Frame(panel, bg=COLORS["bg"])
+    frame_import.pack(fill="x", padx=30, pady=(0, 20))
+    tk.Label(
+        frame_import,
+        text="Los alumnos se guardan en Excel (carpeta alumnos/). Al importar se borran los registros anteriores.",
+        bg=COLORS["bg"],
+        fg=COLORS["text"],
+        font=("Segoe UI", 9),
+        wraplength=700,
+        justify="left",
+    ).pack(side="left", fill="x", expand=True)
+    tk.Button(
+        frame_import,
+        text="📥 Importar Excel / CSV",
+        command=lambda: importar_alumnos_archivo(),
+        bg="#059669",
+        fg="white",
+        font=("Segoe UI", 10, "bold"),
+        padx=12,
+        pady=6,
+    ).pack(side="right")
+
 def vista_estudiantes(panel):
     limpiar_panel(panel)
     
@@ -344,48 +697,144 @@ def vista_estudiantes(panel):
                              command=lambda: mostrar_estudiantes(panel), padx=15, pady=8)
     btn_regresar.pack(side="right", padx=15, pady=15)
     
-    frame_busqueda = tk.Frame(panel, bg=COLORS["bg"])
-    frame_busqueda.pack(pady=10)
-    tk.Label(frame_busqueda, text="🔍 Buscar:", bg=COLORS["bg"], fg=COLORS["text"], font=("Segoe UI", 10, "bold")).grid(row=0, column=0, padx=5)
-    entrada_busqueda = tk.Entry(frame_busqueda, width=30, font=("Segoe UI", 10), relief="solid", bd=1)
-    entrada_busqueda.grid(row=0, column=1, padx=10)
-    columnas = ("Nombre", "Ap Paterno", "Ap Materno", "Matrícula", "Grupo", "Estado")
+    frame_filtros = tk.Frame(panel, bg=COLORS["panel"], relief="groove", bd=2)
+    frame_filtros.pack(fill="x", padx=20, pady=(5, 8))
+
+    tk.Label(
+        frame_filtros,
+        text="🔍 Filtros de búsqueda",
+        bg=COLORS["panel"],
+        fg=COLORS["text"],
+        font=("Segoe UI", 11, "bold"),
+    ).grid(row=0, column=0, columnspan=6, sticky="w", padx=12, pady=(10, 4))
+
+    tk.Label(
+        frame_filtros,
+        text="Tras el prefijo del grupo (ej. 226): 1 = mañana · 2 = tarde  (2261, 2262…)",
+        bg=COLORS["panel"],
+        fg="#64748b",
+        font=("Segoe UI", 8),
+    ).grid(row=1, column=0, columnspan=6, sticky="w", padx=12, pady=(0, 8))
+
+    tk.Label(frame_filtros, text="Nombre / Matrícula", bg=COLORS["panel"], fg=COLORS["text"], font=("Segoe UI", 9)).grid(
+        row=2, column=0, padx=(12, 4), pady=4, sticky="w"
+    )
+    entrada_busqueda = tk.Entry(frame_filtros, width=22, font=("Segoe UI", 10), relief="solid", bd=1)
+    entrada_busqueda.grid(row=2, column=1, padx=4, pady=4, sticky="w")
+
+    tk.Label(frame_filtros, text="Grupo", bg=COLORS["panel"], fg=COLORS["text"], font=("Segoe UI", 9)).grid(
+        row=2, column=2, padx=(16, 4), pady=4, sticky="w"
+    )
+    entrada_grupo = tk.Entry(frame_filtros, width=10, font=("Segoe UI", 10), relief="solid", bd=1)
+    entrada_grupo.grid(row=2, column=3, padx=4, pady=4, sticky="w")
+
+    tk.Label(frame_filtros, text="Turno", bg=COLORS["panel"], fg=COLORS["text"], font=("Segoe UI", 9)).grid(
+        row=2, column=4, padx=(16, 4), pady=4, sticky="w"
+    )
+    combo_turno = ttk.Combobox(
+        frame_filtros,
+        values=["Todos", "Matutino (1)", "Vespertino (2)"],
+        width=16,
+        state="readonly",
+        font=("Segoe UI", 9),
+    )
+    combo_turno.set("Todos")
+    combo_turno.grid(row=2, column=5, padx=4, pady=4, sticky="w")
+
+    frame_btns = tk.Frame(frame_filtros, bg=COLORS["panel"])
+    frame_btns.grid(row=3, column=0, columnspan=6, pady=(4, 12))
+
+    label_resultados = tk.Label(frame_filtros, text="", bg=COLORS["panel"], fg=COLORS["btn"], font=("Segoe UI", 9, "bold"))
+    label_resultados.grid(row=4, column=0, columnspan=6, padx=12, pady=(0, 8))
+
+    columnas = ("Nombre", "Ap Paterno", "Ap Materno", "Matrícula", "Grupo", "Turno", "Estado")
     tabla = ttk.Treeview(panel, columns=columnas, show="headings", selectmode="extended", height=12)
+    anchos = {"Nombre": 110, "Ap Paterno": 100, "Ap Materno": 100, "Matrícula": 90, "Grupo": 70, "Turno": 85, "Estado": 70}
     for col in columnas:
         tabla.heading(col, text=col)
-        tabla.column(col, width=120, anchor="center")
-    tabla.pack(pady=10)
-    
-    def cargar_datos(filtro=""):
+        tabla.column(col, width=anchos.get(col, 100), anchor="center")
+    tabla.tag_configure("matutino", background="#e8f5e9")
+    tabla.tag_configure("vespertino", background="#fff8e1")
+    tabla.pack(pady=10, padx=20, fill="both", expand=True)
+
+    def cargar_datos(texto="", prefijo_grupo="", turno_sel="Todos"):
         for item in tabla.get_children():
             tabla.delete(item)
         try:
             conn = sqlite3.connect("sistema.db")
             cursor = conn.cursor()
-            query = """
+            condiciones = ["1=1"]
+            params = []
+            if texto:
+                condiciones.append(
+                    "(nombre LIKE ? OR ap_paterno LIKE ? OR ap_materno LIKE ? OR matricula LIKE ? OR grupo LIKE ?)"
+                )
+                p = f"%{texto}%"
+                params.extend([p, p, p, p, p])
+            if prefijo_grupo:
+                condiciones.append("grupo LIKE ?")
+                params.append(f"{prefijo_grupo}%")
+            filtro_turno = sql_filtro_turno(turno_sel)
+            if filtro_turno:
+                condiciones.append(filtro_turno)
+
+            query = f"""
                 SELECT nombre, ap_paterno, ap_materno, matricula, COALESCE(grupo, ''), COALESCE(estado, '')
                 FROM estudiantes
-                WHERE nombre LIKE ? OR ap_paterno LIKE ? OR ap_materno LIKE ? OR matricula LIKE ? OR grupo LIKE ?
+                WHERE {' AND '.join(condiciones)}
+                ORDER BY grupo, ap_paterno, nombre
             """
-            valores = (f"%{filtro}%", f"%{filtro}%", f"%{filtro}%", f"%{filtro}%", f"%{filtro}%")
-            cursor.execute(query, valores)
-            for fila in cursor.fetchall():
-                tabla.insert("", "end", values=fila)
+            cursor.execute(query, params)
+            filas = cursor.fetchall()
             conn.close()
+
+            for nombre, ap, am, mat, grupo, estado in filas:
+                turno = turno_nombre_grupo(grupo)
+                tag = "matutino" if turno == "Matutino" else "vespertino" if turno == "Vespertino" else ""
+                tabla.insert(
+                    "",
+                    "end",
+                    values=(nombre, ap, am, mat, grupo, turno, estado),
+                    tags=(tag,) if tag else (),
+                )
+            label_resultados.config(text=f"{len(filas)} estudiante(s) encontrado(s)")
         except Exception as e:
             print(f"Error cargando datos: {e}")
-    
-    def buscar():
-        texto = entrada_busqueda.get().strip()
-        cargar_datos(texto)
-    
+            label_resultados.config(text="Error al cargar")
+
+    def aplicar_filtros():
+        cargar_datos(
+            entrada_busqueda.get().strip(),
+            entrada_grupo.get().strip(),
+            combo_turno.get(),
+        )
+
     def limpiar_busqueda():
         entrada_busqueda.delete(0, tk.END)
+        entrada_grupo.delete(0, tk.END)
+        combo_turno.set("Todos")
         cargar_datos()
-    
-    tk.Button(frame_busqueda, text="🔎 Buscar", command=buscar, bg=COLORS["btn"], fg="white", font=("Segoe UI", 9, "bold")).grid(row=0, column=2, padx=5)
-    tk.Button(frame_busqueda, text="🗑️ Limpiar", command=limpiar_busqueda, bg="#b91c1c", fg="white", font=("Segoe UI", 9, "bold")).grid(row=0, column=3, padx=5)
-    
+
+    tk.Button(frame_btns, text="🔎 Buscar", command=aplicar_filtros, bg=COLORS["btn"], fg="white", font=("Segoe UI", 9, "bold"), padx=12).pack(
+        side="left", padx=6
+    )
+    tk.Button(frame_btns, text="🗑️ Limpiar filtros", command=limpiar_busqueda, bg="#b91c1c", fg="white", font=("Segoe UI", 9, "bold"), padx=12).pack(
+        side="left", padx=6
+    )
+    tk.Button(
+        frame_btns,
+        text="📥 Importar Excel",
+        command=lambda: importar_alumnos_archivo(tabla_widget=tabla, recargar=aplicar_filtros),
+        bg="#059669",
+        fg="white",
+        font=("Segoe UI", 9, "bold"),
+        padx=12,
+    ).pack(side="left", padx=6)
+
+    entrada_busqueda.bind("<Return>", lambda e: aplicar_filtros())
+    entrada_grupo.bind("<Return>", lambda e: aplicar_filtros())
+    combo_turno.bind("<<ComboboxSelected>>", lambda e: aplicar_filtros())
+
     cargar_datos()
 
 def vista_suspendidos(panel):
@@ -833,18 +1282,29 @@ def vista_configuracion(panel):
         e.insert(0, config["taller"][clave])
         e.pack(pady=5)
         entradas_taller[clave] = e
+    frame_cierre = tk.Frame(contenedor, bg=COLORS["panel"], padx=30, pady=20)
+    frame_cierre.pack(pady=10, fill="x")
+    tk.Label(frame_cierre, text="CIERRE DEL DÍA", bg=COLORS["panel"], fg=COLORS["text"], font=("Arial", 14, "bold")).pack(pady=10)
+    tk.Label(
+        frame_cierre,
+        text="Hora para guardar automáticamente el TXT de faltas (HH:MM)",
+        bg=COLORS["panel"],
+        fg=COLORS["text"],
+    ).pack()
+    entrada_cierre = tk.Entry(frame_cierre, width=8, justify="center")
+    entrada_cierre.insert(0, obtener_hora_cierre_dia())
+    entrada_cierre.pack(pady=8)
+
     def guardar():
         for turno in turnos:
             for clave in entradas[turno]:
                 config[turno][clave] = entradas[turno][clave].get()
         for clave in entradas_taller:
             config["taller"][clave] = entradas_taller[clave].get()
+        config["hora_cierre_dia"] = entrada_cierre.get().strip()
         guardar_config()
         tk.Label(panel, text="Guardado ✔", bg=COLORS["bg"], fg="green").pack()
     tk.Button(panel, text="Guardar", bg=COLORS["btn"], fg="white", command=guardar).pack(pady=20)
-
-# ====== CONTROL ======
-hora_barrido = "08:30"  # Hora por defecto para marcar faltas
 
 # ====== CONTROL ======
 hora_barrido = "08:30"  # Hora por defecto para marcar faltas
@@ -909,11 +1369,21 @@ def vista_control(panel):
                     INSERT INTO control_dia VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)
                 """, (nombre, ap, am, mat, "", "Falta", ""))
         conn_dia.commit()
-        # Mostrar faltas
         cargar_faltas()
         conn_dia.close()
         label_estado.config(text="✔ Barrido ejecutado", fg="green")
-    
+
+    def exportar_faltas_txt():
+        ruta, msg = guardar_faltas_en_txt()
+        if ruta:
+            hoy = datetime.now().strftime("%Y-%m-%d")
+            config["ultimo_export_faltas"] = hoy
+            guardar_config()
+            messagebox.showinfo("Faltas en TXT", msg)
+            label_export.config(text=f"Último archivo: {os.path.basename(ruta)}", fg="green")
+        else:
+            messagebox.showwarning("Faltas en TXT", msg)
+
     def verificar_barrido():
         try:
             hora_actual = datetime.now().strftime("%H:%M")
@@ -926,97 +1396,229 @@ def vista_control(panel):
             pass
     verificar_barrido()
     tk.Button(tab_control, text="Marcar Faltas Ahora", command=marcar_faltas, bg=COLORS["btn"], fg="white").pack(pady=10)
-    
-    # Cargar faltas existentes al inicializar
+
+    frame_export = tk.Frame(tab_control, bg=COLORS["panel"], relief="groove", bd=2, padx=16, pady=12)
+    frame_export.pack(fill="x", padx=30, pady=10)
+    tk.Label(
+        frame_export,
+        text="📄 Reporte de faltas (TXT)",
+        bg=COLORS["panel"],
+        fg=COLORS["text"],
+        font=FONT_SUBTITULO,
+    ).pack(anchor="w")
+    tk.Label(
+        frame_export,
+        text=f"Al llegar las {obtener_hora_cierre_dia()} se guarda solo en asistencias/AAAA-MM/AAAA-MM-DD_faltas.txt",
+        bg=COLORS["panel"],
+        fg="#64748b",
+        font=("Segoe UI", 8),
+        wraplength=520,
+        justify="left",
+    ).pack(anchor="w", pady=(4, 8))
+    label_export = tk.Label(frame_export, text="", bg=COLORS["panel"], fg=COLORS["btn"], font=("Segoe UI", 9))
+    label_export.pack(anchor="w", pady=(0, 6))
+    tk.Button(
+        frame_export,
+        text="💾 Guardar faltas del día en TXT",
+        command=exportar_faltas_txt,
+        bg="#1d4ed8",
+        fg="white",
+        font=FONT_BTN,
+        padx=14,
+        pady=4,
+    ).pack(anchor="w")
+
     cargar_faltas()
     
     # Pestaña Mensajes
     tab_mensajes = tk.Frame(notebook, bg=COLORS["bg"])
     notebook.add(tab_mensajes, text="Mensajes")
     
-    tk.Label(tab_mensajes, text="ENVIAR MENSAJES WHATSAPP", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_TITULO).pack(pady=20)
+    # Apartado para Retardos
+    frame_retardos = tk.Frame(tab_mensajes, bg=COLORS["bg"])
+    frame_retardos.pack(fill="both", expand=True, padx=20, pady=10)
     
-    # Frame para mensaje
-    frame_mensaje = tk.Frame(tab_mensajes, bg=COLORS["panel"], padx=20, pady=20)
-    frame_mensaje.pack(fill="x", padx=20, pady=10)
-    tk.Label(frame_mensaje, text="Mensaje a enviar:", bg=COLORS["panel"], fg=COLORS["text"], font=FONT_SUBTITULO).pack(anchor="w")
-    text_mensaje = tk.Text(frame_mensaje, height=4, font=FONT_NORMAL, wrap="word")
-    text_mensaje.pack(fill="x", pady=10)
-    text_mensaje.insert("1.0", "Hola, este es un mensaje de prueba del sistema escolar.")
+    tk.Label(frame_retardos, text="⏰ ENVIAR MENSAJES POR RETARDOS", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_SUBTITULO).pack(pady=10)
     
-    # Tabla de estudiantes con teléfonos
-    frame_tabla = tk.Frame(tab_mensajes, bg=COLORS["bg"])
-    frame_tabla.pack(fill="both", expand=True, padx=20, pady=10)
+    # Frame para mensaje retardos
+    frame_mensaje_ret = tk.Frame(frame_retardos, bg=COLORS["panel"], padx=20, pady=10)
+    frame_mensaje_ret.pack(fill="x", pady=5)
+    tk.Label(frame_mensaje_ret, text="Mensaje para retardos:", bg=COLORS["panel"], fg=COLORS["text"], font=FONT_NORMAL).pack(anchor="w")
+    text_mensaje_ret = tk.Text(frame_mensaje_ret, height=3, font=FONT_NORMAL, wrap="word")
+    text_mensaje_ret.pack(fill="x", pady=5)
+    text_mensaje_ret.insert("1.0", "Hola, tienes un retardo registrado. Por favor, llega a tiempo mañana.")
     
-    columnas_est = ("Seleccionar", "Nombre", "Matrícula", "Teléfono")
-    tabla_est = ttk.Treeview(frame_tabla, columns=columnas_est, show="headings", height=10)
-    for col in columnas_est:
-        tabla_est.heading(col, text=col)
+    # Tabla retardos
+    frame_tabla_ret = tk.Frame(frame_retardos, bg=COLORS["bg"])
+    frame_tabla_ret.pack(fill="both", expand=True, pady=5)
+    
+    columnas_ret = ("Seleccionar", "Nombre", "Matrícula", "Teléfono", "Estado")
+    tabla_ret = ttk.Treeview(frame_tabla_ret, columns=columnas_ret, show="headings", height=8)
+    for col in columnas_ret:
+        tabla_ret.heading(col, text=col)
         if col == "Seleccionar":
-            tabla_est.column(col, width=80, anchor="center")
+            tabla_ret.column(col, width=80, anchor="center")
         elif col == "Teléfono":
-            tabla_est.column(col, width=120, anchor="center")
+            tabla_ret.column(col, width=120, anchor="center")
         else:
-            tabla_est.column(col, width=150, anchor="center")
-    tabla_est.pack(fill="both", expand=True)
+            tabla_ret.column(col, width=120, anchor="center")
+    tabla_ret.pack(fill="both", expand=True)
     
-    # Checkboxes para selección
-    checks = {}
+    # Checkboxes para retardos
+    checks_ret = {}
     
-    def cargar_estudiantes():
-        for item in tabla_est.get_children():
-            tabla_est.delete(item)
-        checks.clear()
+    def cargar_retardos():
+        for item in tabla_ret.get_children():
+            tabla_ret.delete(item)
+        checks_ret.clear()
         try:
-            conn = sqlite3.connect("sistema.db")
-            cursor = conn.cursor()
-            cursor.execute("SELECT nombre || ' ' || ap_paterno || ' ' || ap_materno, matricula, telefono FROM estudiantes WHERE telefono IS NOT NULL AND telefono != ''")
-            estudiantes = cursor.fetchall()
-            conn.close()
-            for est in estudiantes:
-                nombre_completo, matricula, telefono = est
-                item_id = tabla_est.insert("", "end", values=("", nombre_completo, matricula, telefono))
-                checks[item_id] = tk.BooleanVar()
-                tabla_est.set(item_id, "Seleccionar", "☐")
+            conn_dia = obtener_bd_dia()
+            cur = conn_dia.cursor()
+            cur.execute("""
+                SELECT e.nombre || ' ' || e.ap_paterno || ' ' || e.ap_materno, e.matricula, e.telefono, c.estado
+                FROM estudiantes e
+                JOIN control_dia c ON e.matricula = c.matricula
+                WHERE c.estado = 'Retardo' AND c.hora_entrada != '' AND e.telefono IS NOT NULL AND e.telefono != ''
+            """)
+            retardos = cur.fetchall()
+            conn_dia.close()
+            for ret in retardos:
+                nombre_completo, matricula, telefono, estado = ret
+                item_id = tabla_ret.insert("", "end", values=("", nombre_completo, matricula, telefono, estado))
+                checks_ret[item_id] = tk.BooleanVar()
+                tabla_ret.set(item_id, "Seleccionar", "☐")
         except Exception as e:
-            print(f"Error cargando estudiantes: {e}")
+            print(f"Error cargando retardos: {e}")
     
-    def toggle_seleccion(event):
-        item = tabla_est.identify_row(event.y)
+    def toggle_seleccion_ret(event):
+        item = tabla_ret.identify_row(event.y)
         if item:
-            if checks[item].get():
-                checks[item].set(False)
-                tabla_est.set(item, "Seleccionar", "☐")
+            if checks_ret[item].get():
+                checks_ret[item].set(False)
+                tabla_ret.set(item, "Seleccionar", "☐")
             else:
-                checks[item].set(True)
-                tabla_est.set(item, "Seleccionar", "☑")
+                checks_ret[item].set(True)
+                tabla_ret.set(item, "Seleccionar", "☑")
     
-    tabla_est.bind("<Button-1>", toggle_seleccion)
+    tabla_ret.bind("<Button-1>", toggle_seleccion_ret)
     
-    # Botón enviar
-    def enviar_mensajes():
-        mensaje = text_mensaje.get("1.0", "end-1c").strip()
+    # Botón enviar retardos
+    def enviar_mensajes_ret():
+        mensaje = text_mensaje_ret.get("1.0", "end-1c").strip()
         if not mensaje:
-            tk.messagebox.showwarning("Advertencia", "Por favor ingrese un mensaje.")
+            messagebox.showwarning("Advertencia", "Por favor ingrese un mensaje para retardos.")
             return
-        seleccionados = [item for item, var in checks.items() if var.get()]
+        seleccionados = [item for item, var in checks_ret.items() if var.get()]
         if not seleccionados:
-            tk.messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante.")
+            messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante con retardo.")
             return
         
         import webbrowser
         enviados = 0
         for item in seleccionados:
-            telefono = tabla_est.set(item, "Teléfono")
+            telefono = tabla_ret.set(item, "Teléfono")
             if telefono:
                 url = f"https://wa.me/{telefono}?text={mensaje.replace(' ', '%20')}"
                 webbrowser.open(url)
                 enviados += 1
-        tk.messagebox.showinfo("Éxito", f"Mensajes enviados a {enviados} estudiantes.")
+        messagebox.showinfo("Éxito", f"Mensajes de retardo enviados a {enviados} estudiantes.")
     
-    tk.Button(tab_mensajes, text="📱 Enviar Mensajes WhatsApp", command=enviar_mensajes, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=10).pack(pady=20)
+    tk.Button(frame_retardos, text="📱 Enviar Mensajes Retardos", command=enviar_mensajes_ret, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=5).pack(pady=10)
     
-    cargar_estudiantes()
+    # Apartado para Inasistencias
+    frame_inasistencias = tk.Frame(tab_mensajes, bg=COLORS["bg"])
+    frame_inasistencias.pack(fill="both", expand=True, padx=20, pady=10)
+    
+    tk.Label(frame_inasistencias, text="❌ ENVIAR MENSAJES POR INASISTENCIAS", bg=COLORS["bg"], fg=COLORS["text"], font=FONT_SUBTITULO).pack(pady=10)
+    
+    # Frame para mensaje inasistencias
+    frame_mensaje_ina = tk.Frame(frame_inasistencias, bg=COLORS["panel"], padx=20, pady=10)
+    frame_mensaje_ina.pack(fill="x", pady=5)
+    tk.Label(frame_mensaje_ina, text="Mensaje para inasistencias:", bg=COLORS["panel"], fg=COLORS["text"], font=FONT_NORMAL).pack(anchor="w")
+    text_mensaje_ina = tk.Text(frame_mensaje_ina, height=3, font=FONT_NORMAL, wrap="word")
+    text_mensaje_ina.pack(fill="x", pady=5)
+    text_mensaje_ina.insert("1.0", "Hola, tienes una falta registrada. Es importante que asistas a clases.")
+    
+    # Tabla inasistencias
+    frame_tabla_ina = tk.Frame(frame_inasistencias, bg=COLORS["bg"])
+    frame_tabla_ina.pack(fill="both", expand=True, pady=5)
+    
+    columnas_ina = ("Seleccionar", "Nombre", "Matrícula", "Teléfono", "Estado")
+    tabla_ina = ttk.Treeview(frame_tabla_ina, columns=columnas_ina, show="headings", height=8)
+    for col in columnas_ina:
+        tabla_ina.heading(col, text=col)
+        if col == "Seleccionar":
+            tabla_ina.column(col, width=80, anchor="center")
+        elif col == "Teléfono":
+            tabla_ina.column(col, width=120, anchor="center")
+        else:
+            tabla_ina.column(col, width=120, anchor="center")
+    tabla_ina.pack(fill="both", expand=True)
+    
+    # Checkboxes para inasistencias
+    checks_ina = {}
+    
+    def cargar_inasistencias():
+        for item in tabla_ina.get_children():
+            tabla_ina.delete(item)
+        checks_ina.clear()
+        try:
+            conn_dia = obtener_bd_dia()
+            cur = conn_dia.cursor()
+            cur.execute("""
+                SELECT e.nombre || ' ' || e.ap_paterno || ' ' || e.ap_materno, e.matricula, e.telefono, c.estado
+                FROM estudiantes e
+                JOIN control_dia c ON e.matricula = c.matricula
+                WHERE c.estado = 'Falta' AND e.telefono IS NOT NULL AND e.telefono != ''
+            """)
+            inasistencias = cur.fetchall()
+            conn_dia.close()
+            for ina in inasistencias:
+                nombre_completo, matricula, telefono, estado = ina
+                item_id = tabla_ina.insert("", "end", values=("", nombre_completo, matricula, telefono, estado))
+                checks_ina[item_id] = tk.BooleanVar()
+                tabla_ina.set(item_id, "Seleccionar", "☐")
+        except Exception as e:
+            print(f"Error cargando inasistencias: {e}")
+    
+    def toggle_seleccion_ina(event):
+        item = tabla_ina.identify_row(event.y)
+        if item:
+            if checks_ina[item].get():
+                checks_ina[item].set(False)
+                tabla_ina.set(item, "Seleccionar", "☐")
+            else:
+                checks_ina[item].set(True)
+                tabla_ina.set(item, "Seleccionar", "☑")
+    
+    tabla_ina.bind("<Button-1>", toggle_seleccion_ina)
+    
+    # Botón enviar inasistencias
+    def enviar_mensajes_ina():
+        mensaje = text_mensaje_ina.get("1.0", "end-1c").strip()
+        if not mensaje:
+            messagebox.showwarning("Advertencia", "Por favor ingrese un mensaje para inasistencias.")
+            return
+        seleccionados = [item for item, var in checks_ina.items() if var.get()]
+        if not seleccionados:
+            messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante con falta.")
+            return
+        
+        import webbrowser
+        enviados = 0
+        for item in seleccionados:
+            telefono = tabla_ina.set(item, "Teléfono")
+            if telefono:
+                url = f"https://wa.me/{telefono}?text={mensaje.replace(' ', '%20')}"
+                webbrowser.open(url)
+                enviados += 1
+        messagebox.showinfo("Éxito", f"Mensajes de inasistencia enviados a {enviados} estudiantes.")
+    
+    tk.Button(frame_inasistencias, text="📱 Enviar Mensajes Inasistencias", command=enviar_mensajes_ina, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=5).pack(pady=10)
+    
+    # Cargar datos iniciales
+    cargar_retardos()
+    cargar_inasistencias()
 
 # ====== INICIO ======
 def vista_inicio(panel):
@@ -1210,7 +1812,9 @@ def construir_menu(root):
     btn("🔍 Control Automático", vista_control)
 
     vista_inicio(panel)
+    programar_exportacion_faltas(root)
 
 def pantalla_inicio(root):
     crear_bd()
+    sincronizar_alumnos_desde_excel()
     construir_menu(root)

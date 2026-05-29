@@ -60,7 +60,7 @@ password.grid(row=3, column=0, pady=5, ipady=6)
 # ====== FUNCIONES ======
 def aceptar():
     import sqlite3
-    conn = sqlite3.connect("sistema.db")
+    conn = sqlite3.connect(menu.ruta_datos("sistema.db"))
     cursor = conn.cursor()
     cursor.execute("SELECT password FROM usuarios WHERE usuario = ?", (usuario.get(),))
     result = cursor.fetchone()

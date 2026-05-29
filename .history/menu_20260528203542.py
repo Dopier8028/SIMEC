@@ -1,29 +1,15 @@
 import tkinter as tk
-from tkinter import ttk, filedialog, messagebox, simpledialog
+from tkinter import ttk, filedialog, messagebox
 import sqlite3
 import os
-import sys
 import csv
 import shutil
-import re
-import webbrowser
-from urllib.parse import quote
 from datetime import datetime, timedelta
 import json
 import subprocess
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-try:
-    os.chdir(BASE_DIR)
-except OSError:
-    pass
-
 CARPETA_ALUMNOS = "alumnos"
 ARCHIVO_ALUMNOS = os.path.join(CARPETA_ALUMNOS, "alumnos.xlsx")
-
-
-def ruta_datos(*partes):
-    return os.path.join(BASE_DIR, *partes)
 
 # ====== ANIMACIONES ======
 def animate_element_slide_in(widget, delay=0, direction="right", duration=400):
@@ -169,14 +155,14 @@ config = {
 # Cargar config desde archivo
 def cargar_config():
     global config
-    if os.path.exists(ruta_datos("config.json")):
-        with open(ruta_datos("config.json"), "r") as f:
+    if os.path.exists("config.json"):
+        with open("config.json", "r") as f:
             config = json.load(f)
 
 # Guardar config
 def guardar_config():
-    with open(ruta_datos("config.json"), "w") as f:
-        json.dump(config, f, indent=2)
+    with open("config.json", "w") as f:
+        json.dump(config, f)
 
 cargar_config()
 
@@ -304,7 +290,7 @@ def sincronizar_alumnos_desde_excel(ruta=None, mostrar_error=False):
             if mostrar_error:
                 messagebox.showwarning("Importar alumnos", msg)
             return 0, msg
-        conn = sqlite3.connect(ruta_datos("sistema.db"))
+        conn = sqlite3.connect("sistema.db")
         cursor = conn.cursor()
         cursor.execute("DELETE FROM estudiantes")
         cursor.executemany(
@@ -347,7 +333,7 @@ def importar_alumnos_archivo(tabla_widget=None, recargar=None):
         elif tabla_widget:
             for item in tabla_widget.get_children():
                 tabla_widget.delete(item)
-            conn = sqlite3.connect(ruta_datos("sistema.db"))
+            conn = sqlite3.connect("sistema.db")
             cur = conn.cursor()
             cur.execute(
                 "SELECT nombre, ap_paterno, ap_materno, matricula, COALESCE(grupo,''), COALESCE(estado,'') FROM estudiantes ORDER BY grupo, ap_paterno"
@@ -367,7 +353,7 @@ def obtener_turno_actual():
 
 # ====== BASE DE DATOS ======
 def crear_bd():
-    conn = sqlite3.connect(ruta_datos("sistema.db"))
+    conn = sqlite3.connect("sistema.db")
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -440,7 +426,7 @@ def crear_bd():
 # ====== BD POR DÍA ======
 def obtener_bd_dia():
     hoy = datetime.now()
-    carpeta = os.path.join(ruta_datos("asistencias"), hoy.strftime("%Y-%m"))
+    carpeta = f"asistencias/{hoy.strftime('%Y-%m')}"
     archivo = f"{hoy.strftime('%Y-%m-%d')}.db"
     os.makedirs(carpeta, exist_ok=True)
     ruta = os.path.join(carpeta, archivo)
@@ -462,61 +448,31 @@ def obtener_bd_dia():
     return conn
 
 # ====== TURNO Y FALTAS EN TXT ======
-def normalizar_grupo(grupo):
-    return re.sub(r"\s+", "", str(grupo or "").strip().upper())
-
-
-def normalizar_telefono(telefono):
-    t = re.sub(r"\D", "", str(telefono or ""))
-    if len(t) == 10:
-        return "52" + t
-    if len(t) == 12 and t.startswith("52"):
-        return t
-    if len(t) == 13 and t.startswith("521"):
-        return "52" + t[3:]
-    return t if len(t) >= 10 else ""
-
-
-def url_whatsapp(telefono, mensaje):
-    t = normalizar_telefono(telefono)
-    if not t:
-        return None
-    return f"https://wa.me/{t}?text={quote(mensaje)}"
-
-
-def abrir_archivo_sistema(ruta):
-    ruta_abs = os.path.abspath(ruta)
-    if not os.path.isfile(ruta_abs):
-        messagebox.showwarning("Abrir archivo", f"No existe el archivo:\n{ruta_abs}")
-        return False
-    try:
-        if sys.platform == "win32":
-            subprocess.Popen(["notepad.exe", ruta_abs], shell=False)
-        elif sys.platform == "darwin":
-            subprocess.run(["open", ruta_abs], check=False)
-        else:
-            subprocess.run(["xdg-open", ruta_abs], check=False)
-        return True
-    except OSError as e:
-        messagebox.showerror("Abrir archivo", f"No se pudo abrir:\n{ruta_abs}\n\n{e}")
-        return False
-
-
 def turno_digit_grupo(grupo):
-    """2do caracter del grupo: 211...=manana, 221...=tarde (ej. 211-TURI25, 226-INFO25)."""
-    g = normalizar_grupo(grupo)
-    if re.match(r"^\d", g) and len(g) >= 2 and g[1] in ("1", "2"):
-        return g[1]
+    """En grupos tipo 2261 / 2262: tras el prefijo (ej. 226) va 1=mañana, 2=tarde."""
+    g = str(grupo or "").strip()
+    if len(g) >= 4 and g[:3].isdigit():
+        d = g[3]
+        if d in ("1", "2"):
+            return d
+    if len(g) >= 2:
+        d = g[1]
+        if d in ("1", "2"):
+            return d
     return None
 
 
 def sql_filtro_turno(turno_sel):
-    g = "UPPER(REPLACE(COALESCE(grupo,''), ' ', ''))"
-    dig = f"SUBSTR({g}, 2, 1)"
     if turno_sel == "Matutino (1)":
-        return f"({dig}) = '1'"
+        return (
+            "(CASE WHEN LENGTH(COALESCE(grupo,'')) >= 4 AND SUBSTR(grupo,1,3) GLOB '[0-9][0-9][0-9]' "
+            "THEN SUBSTR(grupo,4,1) ELSE SUBSTR(grupo,2,1) END) = '1'"
+        )
     if turno_sel == "Vespertino (2)":
-        return f"({dig}) = '2'"
+        return (
+            "(CASE WHEN LENGTH(COALESCE(grupo,'')) >= 4 AND SUBSTR(grupo,1,3) GLOB '[0-9][0-9][0-9]' "
+            "THEN SUBSTR(grupo,4,1) ELSE SUBSTR(grupo,2,1) END) = '2'"
+        )
     return None
 
 
@@ -526,7 +482,7 @@ def turno_nombre_grupo(grupo):
         return "Matutino"
     if d == "2":
         return "Vespertino"
-    return "N/A"
+    return "—"
 
 
 def hora_a_minutos(hhmm):
@@ -545,14 +501,14 @@ def ruta_bd_dia(fecha_str=None):
     if not fecha_str:
         fecha_str = datetime.now().strftime("%Y-%m-%d")
     y, m, _ = fecha_str.split("-")
-    return os.path.join(ruta_datos("asistencias"), f"{y}-{m}", f"{fecha_str}.db")
+    return os.path.join("asistencias", f"{y}-{m}", f"{fecha_str}.db")
 
 
 def ruta_txt_faltas(fecha_str=None):
     if not fecha_str:
         fecha_str = datetime.now().strftime("%Y-%m-%d")
     y, m, _ = fecha_str.split("-")
-    carpeta = os.path.join(ruta_datos("asistencias"), f"{y}-{m}")
+    carpeta = os.path.join("asistencias", f"{y}-{m}")
     os.makedirs(carpeta, exist_ok=True)
     return os.path.join(carpeta, f"{fecha_str}_faltas.txt")
 
@@ -561,16 +517,8 @@ def guardar_faltas_en_txt(fecha_str=None):
     if not fecha_str:
         fecha_str = datetime.now().strftime("%Y-%m-%d")
     ruta_db = ruta_bd_dia(fecha_str)
-    ruta_txt = ruta_txt_faltas(fecha_str)
     if not os.path.isfile(ruta_db):
-        contenido = (
-            "REPORTE DE FALTAS - SIMEC CONALEP\r\n"
-            f"Fecha: {datetime.strptime(fecha_str, '%Y-%m-%d').strftime('%d/%m/%Y')}\r\n"
-            "No hay asistencia registrada para esta fecha.\r\n"
-        )
-        with open(ruta_txt, "w", encoding="utf-8-sig", newline="") as f:
-            f.write(contenido)
-        return ruta_txt, f"Archivo creado en:\n{os.path.abspath(ruta_txt)}"
+        return None, "No hay asistencia registrada para esa fecha."
 
     conn_dia = sqlite3.connect(ruta_db)
     cur = conn_dia.cursor()
@@ -582,7 +530,7 @@ def guardar_faltas_en_txt(fecha_str=None):
     conn_dia.close()
 
     grupos = {}
-    conn = sqlite3.connect(ruta_datos("sistema.db"))
+    conn = sqlite3.connect("sistema.db")
     cur = conn.cursor()
     for _, _, _, mat in faltas:
         cur.execute("SELECT COALESCE(grupo, '') FROM estudiantes WHERE matricula = ?", (mat,))
@@ -594,7 +542,7 @@ def guardar_faltas_en_txt(fecha_str=None):
     for nombre, ap, am, mat in faltas:
         grupo = grupos.get(mat, "")
         turno = turno_nombre_grupo(grupo)
-        linea = f"{nombre} {ap} {am} | Mat: {mat} | Grupo: {grupo or 'N/A'}"
+        linea = f"{nombre} {ap} {am} | Mat: {mat} | Grupo: {grupo or '—'}"
         if turno == "Matutino":
             por_turno["Matutino"].append(linea)
         elif turno == "Vespertino":
@@ -606,17 +554,14 @@ def guardar_faltas_en_txt(fecha_str=None):
     ahora = datetime.now().strftime("%d/%m/%Y %H:%M")
     lineas = [
         "=" * 60,
-        "REPORTE DE FALTAS - SIMEC CONALEP",
+        "REPORTE DE FALTAS — SIMEC CONALEP",
         f"Fecha: {fecha_fmt}",
         f"Generado: {ahora}",
         f"Total de faltas: {len(faltas)}",
-        "(Turno: 2do digito del grupo, 1=manñana 211... 2=tarde 221...)",
+        "(Turno: tras prefijo de carrera, 1 = mañana, 2 = tarde)",
         "=" * 60,
         "",
     ]
-    if not faltas:
-        lineas.append("No hay faltas registradas para esta fecha.")
-        lineas.append("")
     for titulo, lista in por_turno.items():
         if not lista:
             continue
@@ -625,103 +570,10 @@ def guardar_faltas_en_txt(fecha_str=None):
         lineas.append("")
 
     ruta_txt = ruta_txt_faltas(fecha_str)
-    contenido = "\r\n".join(lineas) + "\r\n"
-    with open(ruta_txt, "w", encoding="utf-8-sig", newline="") as f:
-        f.write(contenido)
+    with open(ruta_txt, "w", encoding="utf-8") as f:
+        f.write("\n".join(lineas))
 
-    return ruta_txt, f"Se guardaron {len(faltas)} faltas en:\n{os.path.abspath(ruta_txt)}"
-
-
-def obtener_alumnos_por_estado_dia(estado, requiere_entrada=False):
-    """Combina asistencia del dia (sqlite diario) con telefonos de estudiantes."""
-    conn_dia = obtener_bd_dia()
-    cur = conn_dia.cursor()
-    if requiere_entrada:
-        cur.execute(
-            """SELECT nombre, ap_paterno, ap_materno, matricula
-               FROM control_dia WHERE estado = ? AND hora_entrada != ''""",
-            (estado,),
-        )
-    else:
-        cur.execute(
-            """SELECT nombre, ap_paterno, ap_materno, matricula
-               FROM control_dia WHERE estado = ?""",
-            (estado,),
-        )
-    filas = cur.fetchall()
-    conn_dia.close()
-
-    conn = sqlite3.connect(ruta_datos("sistema.db"))
-    cur = conn.cursor()
-    resultado = []
-    for nombre, ap, am, mat in filas:
-        cur.execute("SELECT COALESCE(telefono, '') FROM estudiantes WHERE matricula = ?", (mat,))
-        row = cur.fetchone()
-        telefono = normalizar_telefono(row[0] if row else "")
-        nombre_completo = f"{nombre} {ap} {am}".strip()
-        resultado.append((nombre_completo, mat, telefono, estado))
-    conn.close()
-    return resultado
-
-
-def registrar_suspendido(matricula, duracion_dias):
-    conn = sqlite3.connect(ruta_datos("sistema.db"))
-    cursor = conn.cursor()
-    cursor.execute(
-        "SELECT nombre, ap_paterno, ap_materno FROM estudiantes WHERE matricula = ?",
-        (matricula,),
-    )
-    estudiante = cursor.fetchone()
-    if not estudiante:
-        conn.close()
-        return False, "Estudiante no encontrado"
-    nombre, ap, am = estudiante
-    fecha_inicio = datetime.now().strftime("%Y-%m-%d")
-    fecha_fin = (datetime.now() + timedelta(days=duracion_dias)).strftime("%Y-%m-%d")
-    try:
-        cursor.execute(
-            """INSERT INTO suspendidos
-               (matricula, nombre, ap_paterno, ap_materno, fecha_inicio, duracion_dias, fecha_fin)
-               VALUES (?, ?, ?, ?, ?, ?, ?)""",
-            (matricula, nombre, ap, am, fecha_inicio, duracion_dias, fecha_fin),
-        )
-        cursor.execute("UPDATE estudiantes SET estado = 'Suspendido' WHERE matricula = ?", (matricula,))
-        conn.commit()
-        conn.close()
-        return True, f"{nombre} agregado a suspendidos ({duracion_dias} dias)"
-    except sqlite3.IntegrityError:
-        conn.close()
-        return False, "Ese alumno ya esta suspendido"
-
-
-def registrar_incapacitado(matricula, duracion_dias):
-    conn = sqlite3.connect(ruta_datos("sistema.db"))
-    cursor = conn.cursor()
-    cursor.execute(
-        "SELECT nombre, ap_paterno, ap_materno FROM estudiantes WHERE matricula = ?",
-        (matricula,),
-    )
-    estudiante = cursor.fetchone()
-    if not estudiante:
-        conn.close()
-        return False, "Estudiante no encontrado"
-    nombre, ap, am = estudiante
-    fecha_inicio = datetime.now().strftime("%Y-%m-%d")
-    fecha_fin = (datetime.now() + timedelta(days=duracion_dias)).strftime("%Y-%m-%d")
-    try:
-        cursor.execute(
-            """INSERT INTO incapacitados
-               (matricula, nombre, ap_paterno, ap_materno, fecha_inicio, duracion_dias, fecha_fin)
-               VALUES (?, ?, ?, ?, ?, ?, ?)""",
-            (matricula, nombre, ap, am, fecha_inicio, duracion_dias, fecha_fin),
-        )
-        cursor.execute("UPDATE estudiantes SET estado = 'Incapacitado' WHERE matricula = ?", (matricula,))
-        conn.commit()
-        conn.close()
-        return True, f"{nombre} agregado a incapacitados ({duracion_dias} dias)"
-    except sqlite3.IntegrityError:
-        conn.close()
-        return False, "Ese alumno ya esta incapacitado"
+    return ruta_txt, f"Se guardaron {len(faltas)} faltas en:\n{ruta_txt}"
 
 
 def programar_exportacion_faltas(root):
@@ -857,7 +709,7 @@ def vista_estudiantes(panel):
 
     tk.Label(
         frame_filtros,
-        text="Grupo ej. 226 o 211 | Turno: 2do digito 1=manana (211...) 2=tarde (221...)",
+        text="Tras el prefijo del grupo (ej. 226): 1 = mañana · 2 = tarde  (2261, 2262…)",
         bg=COLORS["panel"],
         fg="#64748b",
         font=("Segoe UI", 8),
@@ -908,7 +760,7 @@ def vista_estudiantes(panel):
         for item in tabla.get_children():
             tabla.delete(item)
         try:
-            conn = sqlite3.connect(ruta_datos("sistema.db"))
+            conn = sqlite3.connect("sistema.db")
             cursor = conn.cursor()
             condiciones = ["1=1"]
             params = []
@@ -919,8 +771,8 @@ def vista_estudiantes(panel):
                 p = f"%{texto}%"
                 params.extend([p, p, p, p, p])
             if prefijo_grupo:
-                condiciones.append("UPPER(REPLACE(COALESCE(grupo,''), ' ', '')) LIKE ?")
-                params.append(f"{normalizar_grupo(prefijo_grupo)}%")
+                condiciones.append("grupo LIKE ?")
+                params.append(f"{prefijo_grupo}%")
             filtro_turno = sql_filtro_turno(turno_sel)
             if filtro_turno:
                 condiciones.append(filtro_turno)
@@ -982,63 +834,9 @@ def vista_estudiantes(panel):
     entrada_grupo.bind("<Return>", lambda e: aplicar_filtros())
     combo_turno.bind("<<ComboboxSelected>>", lambda e: aplicar_filtros())
 
-    def pedir_dias(titulo):
-        return simpledialog.askinteger(
-            titulo, "Duracion en dias:", minvalue=1, maxvalue=365, parent=panel
-        )
-
-    def suspender_seleccionado():
-        sel = tabla.selection()
-        if not sel:
-            messagebox.showwarning("Suspender", "Selecciona un alumno de la lista.")
-            return
-        mat = tabla.item(sel[0], "values")[3]
-        dias = pedir_dias("Suspender alumno")
-        if not dias:
-            return
-        ok, msg = registrar_suspendido(mat, dias)
-        if ok:
-            messagebox.showinfo("Suspendido", msg)
-            aplicar_filtros()
-        else:
-            messagebox.showwarning("Suspender", msg)
-
-    def incapacitar_seleccionado():
-        sel = tabla.selection()
-        if not sel:
-            messagebox.showwarning("Incapacitar", "Selecciona un alumno de la lista.")
-            return
-        mat = tabla.item(sel[0], "values")[3]
-        dias = pedir_dias("Incapacitar alumno")
-        if not dias:
-            return
-        ok, msg = registrar_incapacitado(mat, dias)
-        if ok:
-            messagebox.showinfo("Incapacitado", msg)
-            aplicar_filtros()
-        else:
-            messagebox.showwarning("Incapacitar", msg)
-
-    def menu_clic_derecho(event):
-        item = tabla.identify_row(event.y)
-        if not item:
-            return
-        tabla.selection_set(item)
-        mat = tabla.item(item, "values")[3]
-        menu_ctx = tk.Menu(tabla, tearoff=0)
-        menu_ctx.add_command(label="Suspender alumno...", command=suspender_seleccionado)
-        menu_ctx.add_command(label="Incapacitar alumno...", command=incapacitar_seleccionado)
-        menu_ctx.add_separator()
-        menu_ctx.add_command(label="Ir a suspendidos", command=lambda m=mat: vista_suspendidos(panel, m))
-        menu_ctx.add_command(label="Ir a incapacitados", command=lambda m=mat: vista_incapacitados(panel, m))
-        menu_ctx.tk_popup(event.x_root, event.y_root)
-        menu_ctx.grab_release()
-
-    tabla.bind("<Button-3>", menu_clic_derecho)
-
     cargar_datos()
 
-def vista_suspendidos(panel, matricula_inicial=""):
+def vista_suspendidos(panel):
     limpiar_panel(panel)
     
     # Frame superior con título y botón de regresar
@@ -1060,10 +858,6 @@ def vista_suspendidos(panel, matricula_inicial=""):
     tk.Label(frame_top, text="Buscar por matrícula:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=0, padx=5)
     entrada_matricula = tk.Entry(frame_top, width=20)
     entrada_matricula.grid(row=0, column=1, padx=10)
-    if matricula_inicial:
-        entrada_matricula.insert(0, str(matricula_inicial))
-        entrada_matricula.focus_set()
-        entrada_matricula.icursor(tk.END)
     
     tk.Label(frame_top, text="Duración (días):", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=2, padx=5)
     entrada_duracion = tk.Entry(frame_top, width=10)
@@ -1077,22 +871,45 @@ def vista_suspendidos(panel, matricula_inicial=""):
         try:
             duracion = int(entrada_duracion.get().strip())
         except ValueError:
-            label_mensaje.config(text="Duracion invalida", fg="red")
+            label_mensaje.config(text="Duración inválida", fg="red")
             panel.after(3000, lambda: label_mensaje.config(text=""))
             return
+        
         if not matricula:
-            label_mensaje.config(text="Ingresa matricula", fg="red")
+            label_mensaje.config(text="Ingresa matrícula", fg="red")
             panel.after(3000, lambda: label_mensaje.config(text=""))
             return
-        ok, msg = registrar_suspendido(matricula, duracion)
-        if ok:
-            label_mensaje.config(text=f"OK {msg}", fg="green")
+        
+        # Verificar si existe el estudiante
+        conn = sqlite3.connect("sistema.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT nombre, ap_paterno, ap_materno FROM estudiantes WHERE matricula = ?", (matricula,))
+        estudiante = cursor.fetchone()
+        if not estudiante:
+            conn.close()
+            label_mensaje.config(text="Estudiante no encontrado", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        nombre, ap, am = estudiante
+        fecha_inicio = datetime.now().strftime("%Y-%m-%d")
+        fecha_fin = (datetime.now() + timedelta(days=duracion)).strftime("%Y-%m-%d")
+        
+        try:
+            cursor.execute("""
+                INSERT INTO suspendidos (matricula, nombre, ap_paterno, ap_materno, fecha_inicio, duracion_dias, fecha_fin)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (matricula, nombre, ap, am, fecha_inicio, duracion, fecha_fin))
+            conn.commit()
+            label_mensaje.config(text=f"✔ Agregado: {nombre}", fg="green")
             entrada_matricula.delete(0, tk.END)
             entrada_duracion.delete(0, tk.END)
             cargar_suspendidos()
-        else:
-            label_mensaje.config(text=msg, fg="red" if "no encontrado" in msg.lower() else "orange")
-        panel.after(3000, lambda: label_mensaje.config(text=""))
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        except sqlite3.IntegrityError:
+            label_mensaje.config(text="Ya está suspendido", fg="orange")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        conn.close()
     
     tk.Button(frame_top, text="➕ Agregar", command=agregar_suspendido, bg=COLORS["btn"], fg="white").grid(row=0, column=5, padx=10)
     
@@ -1108,7 +925,7 @@ def vista_suspendidos(panel, matricula_inicial=""):
         for item in tabla.get_children():
             tabla.delete(item)
         try:
-            conn = sqlite3.connect(ruta_datos("sistema.db"))
+            conn = sqlite3.connect("sistema.db")
             cursor = conn.cursor()
             hoy = datetime.now().strftime("%Y-%m-%d")
             cursor.execute("""
@@ -1125,7 +942,7 @@ def vista_suspendidos(panel, matricula_inicial=""):
     
     cargar_suspendidos()
 
-def vista_incapacitados(panel, matricula_inicial=""):
+def vista_incapacitados(panel):
     limpiar_panel(panel)
     
     # Frame superior con título y botón de regresar
@@ -1147,10 +964,6 @@ def vista_incapacitados(panel, matricula_inicial=""):
     tk.Label(frame_top, text="Buscar por matrícula:", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=0, padx=5)
     entrada_matricula = tk.Entry(frame_top, width=20)
     entrada_matricula.grid(row=0, column=1, padx=10)
-    if matricula_inicial:
-        entrada_matricula.insert(0, str(matricula_inicial))
-        entrada_matricula.focus_set()
-        entrada_matricula.icursor(tk.END)
     
     tk.Label(frame_top, text="Duración (días):", bg=COLORS["bg"], fg=COLORS["text"]).grid(row=0, column=2, padx=5)
     entrada_duracion = tk.Entry(frame_top, width=10)
@@ -1164,22 +977,45 @@ def vista_incapacitados(panel, matricula_inicial=""):
         try:
             duracion = int(entrada_duracion.get().strip())
         except ValueError:
-            label_mensaje.config(text="Duracion invalida", fg="red")
+            label_mensaje.config(text="Duración inválida", fg="red")
             panel.after(3000, lambda: label_mensaje.config(text=""))
             return
+        
         if not matricula:
-            label_mensaje.config(text="Ingresa matricula", fg="red")
+            label_mensaje.config(text="Ingresa matrícula", fg="red")
             panel.after(3000, lambda: label_mensaje.config(text=""))
             return
-        ok, msg = registrar_incapacitado(matricula, duracion)
-        if ok:
-            label_mensaje.config(text=f"OK {msg}", fg="green")
+        
+        # Verificar si existe el estudiante
+        conn = sqlite3.connect("sistema.db")
+        cursor = conn.cursor()
+        cursor.execute("SELECT nombre, ap_paterno, ap_materno FROM estudiantes WHERE matricula = ?", (matricula,))
+        estudiante = cursor.fetchone()
+        if not estudiante:
+            conn.close()
+            label_mensaje.config(text="Estudiante no encontrado", fg="red")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+            return
+        
+        nombre, ap, am = estudiante
+        fecha_inicio = datetime.now().strftime("%Y-%m-%d")
+        fecha_fin = (datetime.now() + timedelta(days=duracion)).strftime("%Y-%m-%d")
+        
+        try:
+            cursor.execute("""
+                INSERT INTO incapacitados (matricula, nombre, ap_paterno, ap_materno, fecha_inicio, duracion_dias, fecha_fin)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (matricula, nombre, ap, am, fecha_inicio, duracion, fecha_fin))
+            conn.commit()
+            label_mensaje.config(text=f"✔ Agregado: {nombre}", fg="green")
             entrada_matricula.delete(0, tk.END)
             entrada_duracion.delete(0, tk.END)
             cargar_incapacitados()
-        else:
-            label_mensaje.config(text=msg, fg="red" if "no encontrado" in msg.lower() else "orange")
-        panel.after(3000, lambda: label_mensaje.config(text=""))
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        except sqlite3.IntegrityError:
+            label_mensaje.config(text="Ya está incapacitado", fg="orange")
+            panel.after(3000, lambda: label_mensaje.config(text=""))
+        conn.close()
     
     tk.Button(frame_top, text="➕ Agregar", command=agregar_incapacitado, bg=COLORS["btn"], fg="white").grid(row=0, column=5, padx=10)
     
@@ -1195,7 +1031,7 @@ def vista_incapacitados(panel, matricula_inicial=""):
         for item in tabla.get_children():
             tabla.delete(item)
         try:
-            conn = sqlite3.connect(ruta_datos("sistema.db"))
+            conn = sqlite3.connect("sistema.db")
             cursor = conn.cursor()
             hoy = datetime.now().strftime("%Y-%m-%d")
             cursor.execute("""
@@ -1221,7 +1057,7 @@ def vista_control_dia(panel):
     # Función para cargar fecha guardada
     def cargar_fecha_guardada():
         try:
-            with open(ruta_datos("config.json"), "r") as f:
+            with open("config.json", "r") as f:
                 config = json.load(f)
                 if "ultima_fecha_control" in config:
                     return config["ultima_fecha_control"]
@@ -1233,14 +1069,14 @@ def vista_control_dia(panel):
     # Función para guardar fecha seleccionada
     def guardar_fecha_seleccionada(fecha):
         try:
-            with open(ruta_datos("config.json"), "r") as f:
+            with open("config.json", "r") as f:
                 config = json.load(f)
         except:
             config = {}
         
         config["ultima_fecha_control"] = fecha
         
-        with open(ruta_datos("config.json"), "w") as f:
+        with open("config.json", "w") as f:
             json.dump(config, f, indent=4)
     
     # Cargar fecha guardada
@@ -1292,7 +1128,7 @@ def vista_control_dia(panel):
         
         try:
             # Construir ruta de la base de datos para esa fecha
-            carpeta = os.path.join(ruta_datos("asistencias"), f"{year_var.get()}-{mes_var.get()}")
+            carpeta = f"asistencias/{year_var.get()}-{mes_var.get()}"
             archivo = f"{fecha_str}.db"
             ruta = os.path.join(carpeta, archivo)
             
@@ -1353,7 +1189,7 @@ def vista_registro(panel):
         mat = entrada.get().strip()
         if not mat:
             return
-        conn = sqlite3.connect(ruta_datos("sistema.db"))
+        conn = sqlite3.connect("sistema.db")
         cursor = conn.cursor()
         cursor.execute("""
             SELECT nombre, ap_paterno, ap_materno, estado FROM estudiantes WHERE matricula = ?
@@ -1518,7 +1354,7 @@ def vista_control(panel):
             pass
     
     def marcar_faltas():
-        conn = sqlite3.connect(ruta_datos("sistema.db"))
+        conn = sqlite3.connect("sistema.db")
         cursor = conn.cursor()
         cursor.execute("SELECT nombre, ap_paterno, ap_materno, matricula FROM estudiantes")
         estudiantes = cursor.fetchall()
@@ -1536,30 +1372,16 @@ def vista_control(panel):
         conn_dia.close()
         label_estado.config(text="✔ Barrido ejecutado", fg="green")
 
-    ultimo_txt_faltas = {"ruta": None}
-
     def exportar_faltas_txt():
         ruta, msg = guardar_faltas_en_txt()
         if ruta:
             hoy = datetime.now().strftime("%Y-%m-%d")
             config["ultimo_export_faltas"] = hoy
             guardar_config()
-            ruta_abs = os.path.abspath(ruta)
-            ultimo_txt_faltas["ruta"] = ruta_abs
-            label_export.config(text=f"Archivo: {ruta_abs}", fg="green")
-            if abrir_archivo_sistema(ruta_abs):
-                messagebox.showinfo("Faltas en TXT", f"{msg}\n\nSe abrio con el Bloc de notas.")
-            else:
-                messagebox.showinfo("Faltas en TXT", msg)
+            messagebox.showinfo("Faltas en TXT", msg)
+            label_export.config(text=f"Último archivo: {os.path.basename(ruta)}", fg="green")
         else:
             messagebox.showwarning("Faltas en TXT", msg)
-
-    def abrir_ultimo_txt():
-        ruta = ultimo_txt_faltas.get("ruta") or ruta_txt_faltas()
-        if os.path.isfile(ruta):
-            abrir_archivo_sistema(ruta)
-        else:
-            messagebox.showinfo("Faltas en TXT", "Aun no hay reporte de hoy. Usa 'Guardar faltas del dia en TXT'.")
 
     def verificar_barrido():
         try:
@@ -1594,28 +1416,16 @@ def vista_control(panel):
     ).pack(anchor="w", pady=(4, 8))
     label_export = tk.Label(frame_export, text="", bg=COLORS["panel"], fg=COLORS["btn"], font=("Segoe UI", 9))
     label_export.pack(anchor="w", pady=(0, 6))
-    frame_btns_export = tk.Frame(frame_export, bg=COLORS["panel"])
-    frame_btns_export.pack(anchor="w")
     tk.Button(
-        frame_btns_export,
-        text="Guardar faltas del dia en TXT",
+        frame_export,
+        text="💾 Guardar faltas del día en TXT",
         command=exportar_faltas_txt,
         bg="#1d4ed8",
         fg="white",
         font=FONT_BTN,
         padx=14,
         pady=4,
-    ).pack(side="left", padx=(0, 8))
-    tk.Button(
-        frame_btns_export,
-        text="Abrir TXT de hoy",
-        command=abrir_ultimo_txt,
-        bg=COLORS["btn_footer"],
-        fg="white",
-        font=FONT_BTN,
-        padx=14,
-        pady=4,
-    ).pack(side="left")
+    ).pack(anchor="w")
 
     cargar_faltas()
     
@@ -1661,13 +1471,19 @@ def vista_control(panel):
             tabla_ret.delete(item)
         checks_ret.clear()
         try:
-            for nombre_completo, matricula, telefono, estado in obtener_alumnos_por_estado_dia(
-                "Retardo", requiere_entrada=True
-            ):
-                tel_mostrar = telefono if telefono else "Sin telefono"
-                item_id = tabla_ret.insert(
-                    "", "end", values=("", nombre_completo, matricula, tel_mostrar, estado)
-                )
+            conn_dia = obtener_bd_dia()
+            cur = conn_dia.cursor()
+            cur.execute("""
+                SELECT e.nombre || ' ' || e.ap_paterno || ' ' || e.ap_materno, e.matricula, e.telefono, c.estado
+                FROM estudiantes e
+                JOIN control_dia c ON e.matricula = c.matricula
+                WHERE c.estado = 'Retardo' AND c.hora_entrada != '' AND e.telefono IS NOT NULL AND e.telefono != ''
+            """)
+            retardos = cur.fetchall()
+            conn_dia.close()
+            for ret in retardos:
+                nombre_completo, matricula, telefono, estado = ret
+                item_id = tabla_ret.insert("", "end", values=("", nombre_completo, matricula, telefono, estado))
                 checks_ret[item_id] = tk.BooleanVar()
                 tabla_ret.set(item_id, "Seleccionar", "☐")
         except Exception as e:
@@ -1695,21 +1511,16 @@ def vista_control(panel):
         if not seleccionados:
             messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante con retardo.")
             return
+        
+        import webbrowser
         enviados = 0
-        sin_tel = 0
         for item in seleccionados:
             telefono = tabla_ret.set(item, "Teléfono")
-            if telefono == "Sin telefono":
-                sin_tel += 1
-                continue
-            url = url_whatsapp(telefono, mensaje)
-            if url:
+            if telefono:
+                url = f"https://wa.me/{telefono}?text={mensaje.replace(' ', '%20')}"
                 webbrowser.open(url)
                 enviados += 1
-        aviso = f"Se abrieron {enviados} chats de WhatsApp."
-        if sin_tel:
-            aviso += f"\n{sin_tel} alumno(s) sin telefono valido."
-        messagebox.showinfo("Mensajes retardos", aviso)
+        messagebox.showinfo("Éxito", f"Mensajes de retardo enviados a {enviados} estudiantes.")
     
     tk.Button(frame_retardos, text="📱 Enviar Mensajes Retardos", command=enviar_mensajes_ret, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=5).pack(pady=10)
     
@@ -1751,11 +1562,19 @@ def vista_control(panel):
             tabla_ina.delete(item)
         checks_ina.clear()
         try:
-            for nombre_completo, matricula, telefono, estado in obtener_alumnos_por_estado_dia("Falta"):
-                tel_mostrar = telefono if telefono else "Sin telefono"
-                item_id = tabla_ina.insert(
-                    "", "end", values=("", nombre_completo, matricula, tel_mostrar, estado)
-                )
+            conn_dia = obtener_bd_dia()
+            cur = conn_dia.cursor()
+            cur.execute("""
+                SELECT e.nombre || ' ' || e.ap_paterno || ' ' || e.ap_materno, e.matricula, e.telefono, c.estado
+                FROM estudiantes e
+                JOIN control_dia c ON e.matricula = c.matricula
+                WHERE c.estado = 'Falta' AND e.telefono IS NOT NULL AND e.telefono != ''
+            """)
+            inasistencias = cur.fetchall()
+            conn_dia.close()
+            for ina in inasistencias:
+                nombre_completo, matricula, telefono, estado = ina
+                item_id = tabla_ina.insert("", "end", values=("", nombre_completo, matricula, telefono, estado))
                 checks_ina[item_id] = tk.BooleanVar()
                 tabla_ina.set(item_id, "Seleccionar", "☐")
         except Exception as e:
@@ -1783,21 +1602,16 @@ def vista_control(panel):
         if not seleccionados:
             messagebox.showwarning("Advertencia", "Por favor seleccione al menos un estudiante con falta.")
             return
+        
+        import webbrowser
         enviados = 0
-        sin_tel = 0
         for item in seleccionados:
             telefono = tabla_ina.set(item, "Teléfono")
-            if telefono == "Sin telefono":
-                sin_tel += 1
-                continue
-            url = url_whatsapp(telefono, mensaje)
-            if url:
+            if telefono:
+                url = f"https://wa.me/{telefono}?text={mensaje.replace(' ', '%20')}"
                 webbrowser.open(url)
                 enviados += 1
-        aviso = f"Se abrieron {enviados} chats de WhatsApp."
-        if sin_tel:
-            aviso += f"\n{sin_tel} alumno(s) sin telefono valido."
-        messagebox.showinfo("Mensajes inasistencias", aviso)
+        messagebox.showinfo("Éxito", f"Mensajes de inasistencia enviados a {enviados} estudiantes.")
     
     tk.Button(frame_inasistencias, text="📱 Enviar Mensajes Inasistencias", command=enviar_mensajes_ina, bg="#25D366", fg="white", font=FONT_BTN, padx=20, pady=5).pack(pady=10)
     
@@ -1841,7 +1655,7 @@ def vista_inicio(panel):
     
     # Estadísticas
     try:
-        conn = sqlite3.connect(ruta_datos("sistema.db"))
+        conn = sqlite3.connect("sistema.db")
         cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*) FROM estudiantes")
         total_estudiantes = cursor.fetchone()[0]
